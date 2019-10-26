@@ -12,7 +12,7 @@ public abstract class Square {
     }
 
     public void setPosition(int position) {
-        position = position;
+        this.position = position;
     }
 
     public String getName(){
