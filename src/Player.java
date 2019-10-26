@@ -15,7 +15,16 @@ public class Player {
         this.name = name;
     }
 
-    //TODO: Zar atma fonksiyonu
+    public int tossDie(Dice dice) {
+        int[] tossedFaces = dice.getFaces();
+
+        System.out.println("Turn: " + (this.getNumberOfTurn() + 1) + "| Position: " + this.getPosition() + "| Money: " + this.getMoney());
+        System.out.println(getName() + "tossing dice... Faces are " + tossedFaces[0] + " - " + tossedFaces[1]);
+
+        int sumOfFaces = tossedFaces[0] + tossedFaces[1];
+
+        return sumOfFaces;
+    }
 
     public int getNumberOfTurn() {
         return numberOfTurn;
