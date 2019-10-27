@@ -5,6 +5,7 @@ public class Dice {
     private boolean isDouble;
 
     public int[] getFaces() {
+
         int[] faces = new int[2];
 
         Random rand1 = new Random();
@@ -19,6 +20,10 @@ public class Dice {
             isDouble = true;
         }
         return faces;
+    }
+
+    public void setDouble(boolean aDouble) {
+        isDouble = aDouble;
     }
 
     public boolean isDouble() {
