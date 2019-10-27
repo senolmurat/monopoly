@@ -6,6 +6,7 @@ public class Player {
     private String name;
     private boolean bankrupt = false;
     private Money money = new Money(200000);
+    private int doubleDiceCounter = 0;
 
     private Player() {
 
@@ -15,7 +16,21 @@ public class Player {
         this.name = name;
     }
 
-    //TODO: Zar atma fonksiyonu
+    public int tossDie(Dice dice) {
+        dice.setDouble(false); //Set the isDouble value to "false" for every dice before tossing
+        int[] tossedFaces = dice.getFaces();
+
+        if(dice.isDouble()){
+            doubleDiceCounter++;
+        }
+
+        System.out.println("Turn: " + (this.getNumberOfTurn() + 1) + "| Position: " + this.getPosition() + "| Money: " + this.getMoney());
+        System.out.println(getName() + "tossing dice... Faces are " + tossedFaces[0] + " - " + tossedFaces[1] + "Double: " + dice.isDouble());
+
+        int sumOfFaces = tossedFaces[0] + tossedFaces[1];
+
+        return sumOfFaces;
+    }
 
     public int getNumberOfTurn() {
         return numberOfTurn;
@@ -43,5 +58,11 @@ public class Player {
     }
     public void setBankrupt(boolean bankrupt) {
         this.bankrupt = bankrupt;
+    }
+    public int getDoubleDiceCounter() {
+        return doubleDiceCounter;
+    }
+    public void setDoubleDiceCounter(int doubleDiceCounter) {
+        this.doubleDiceCounter = doubleDiceCounter;
     }
 }
