@@ -1,7 +1,7 @@
 public class Board {
 
     private Square[] board;
-    private int size = 38;
+    private int size = 40;
 
 
     private Board(){
@@ -28,7 +28,9 @@ public class Board {
     }
 
 
-    public Square[] getBoard(){ return board; }
+    public Square[] getBoard(){
+        return board;
+    }
 
 
 }
