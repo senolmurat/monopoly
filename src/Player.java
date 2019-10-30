@@ -5,7 +5,7 @@ public class Player {
     private int id;
     private String name;
     private boolean bankrupt = false;
-    private Money money = new Money(200000);
+    private Money money = new Money(1500);
     private int doubleDiceCounter = 0;
 
     private Player() {
