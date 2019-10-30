@@ -4,7 +4,7 @@ public class Board {
     private int size = 40;
 
 
-    public Board(){
+    private Board(){
         board = new Square[size];
 
         //Setting positions and names for all squares
@@ -21,8 +21,8 @@ public class Board {
         board[9] = new JailSquare("Jail" , 10);
 
         //Initializing Tax Squares
-        board[11] = new TaxSquare("Tax Square 1" , 12 , 10000000);
-        board[35] = new TaxSquare("Tax Square 2" , 36,  20000000);
+        board[11] = new TaxSquare("Tax Square 1" , 38 , 100);
+        board[35] = new TaxSquare("Tax Square 2" , 4,  200);
 
         //****************SQUARES********************************
     }
@@ -31,11 +31,6 @@ public class Board {
     public Square[] getBoard(){
         return board;
     }
-
-    public int getSize(){
-        return size;
-    }
-
 
 
 }
