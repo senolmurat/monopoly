@@ -21,8 +21,8 @@ public class Board {
         board[9] = new JailSquare("Jail" , 10);
 
         //Initializing Tax Squares
-        board[11] = new TaxSquare("Tax Square 1" , 12 , 13);
-        board[35] = new TaxSquare("Tax Square 2" , 36,  13);
+        board[11] = new TaxSquare("Tax Square 1" , 12 , 100000000);
+        board[35] = new TaxSquare("Tax Square 2" , 36,  200000000);
 
         //****************SQUARES********************************
     }
@@ -31,6 +31,11 @@ public class Board {
     public Square[] getBoard(){
         return board;
     }
+
+    public int getSize(){
+        return size;
+    }
+
 
 
 }
