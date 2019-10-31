@@ -24,8 +24,8 @@ public class Player {
             doubleDiceCounter++;
         }
 
-        System.out.println("Turn: " + (this.getNumberOfTurn() + 1) + "| Position: " + this.getPosition() + "| Money: " + this.getMoney());
-        System.out.println(getName() + "tossing dice... Faces are " + tossedFaces[0] + " - " + tossedFaces[1] + "Double: " + dice.isDouble());
+        System.out.println("Turn: " + (this.getNumberOfTurn() + 1) + "| Position: " + this.getPosition() + "| Money: " + this.money.getMoney());
+        System.out.println(getName() + " tossing dice... Faces are " + tossedFaces[0] + " - " + tossedFaces[1] + "Double: " + dice.isDouble());
 
         int sumOfFaces = tossedFaces[0] + tossedFaces[1];
 

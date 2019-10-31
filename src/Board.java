@@ -4,11 +4,14 @@ public class Board {
     private int size = 40;
 
 
-    private Board(){
+    public Board(){
         board = new Square[size];
 
+        Square sq1 = new Square("faruk", 1);
+        System.out.println(sq1.getName());
         //Setting positions and names for all squares
         for(int i = 0 ; i < size ; i++){
+            board[i] = new Square("Square ", i+1);
             board[i].setName("Square_" + (i+1));
             board[i].setPosition(i+1);
         }
@@ -27,10 +30,11 @@ public class Board {
         //****************SQUARES********************************
     }
 
-
     public Square[] getBoard(){
         return board;
     }
 
-
+    public int getSize() {
+        return size;
+    }
 }
