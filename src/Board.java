@@ -7,8 +7,6 @@ public class Board {
     public Board(){
         board = new Square[size];
 
-        Square sq1 = new Square("faruk", 1);
-        System.out.println(sq1.getName());
         //Setting positions and names for all squares
         for(int i = 0 ; i < size ; i++){
             board[i] = new Square("Square ", i+1);
