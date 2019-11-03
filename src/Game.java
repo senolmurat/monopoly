@@ -25,7 +25,7 @@ public class Game {
         for(int i = 0; i < numberOfPlayers; i++)
             players[i] = new Player(i, "Player" + i);
 
-        while(numberOfPlayers > 1) {
+        while(remainingPlayers > 1) {
             for(int i = 0; i < numberOfPlayers; i++) {
                 if(!players[i].isBankrupt()) {
                     int size = board.getSize();
