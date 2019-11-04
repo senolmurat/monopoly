@@ -11,9 +11,11 @@ public class Player {
     private Player() {
 
     }
-    public Player(int id, String name) {
+
+    public Player(int id, String name, int startingMoney) {
         this.id = id;
         this.name = name;
+        this.money = new Money(startingMoney);
     }
 
     public int tossDie(Dice dice) {

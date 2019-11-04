@@ -1,4 +1,6 @@
+import java.io.File;
 import java.util.Scanner;
+
 
 public class Game {
 
@@ -6,7 +8,7 @@ public class Game {
 
     }
 
-    public void startTheGame() {
+    public void startTheGame() throws Exception {
         Scanner input = new Scanner(System.in);
         System.out.print("Welcome User!\nPlease enter the number of the player(2 to 8) : ");
         int numberOfPlayers = input.nextInt();

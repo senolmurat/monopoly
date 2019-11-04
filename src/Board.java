@@ -4,10 +4,15 @@ public class Board {
 
     private Square[] board;
     private int size = 40;
+    private int taxSquareNumber;
+    private int taxAmount;
 
 
-    public Board() {
+    public Board(int taxSquareNumber, int taxAmount) {
         board = new Square[size];
+        this.taxAmount = taxAmount;
+        this.taxSquareNumber = taxSquareNumber;
+
 
         //Setting positions and names for all squares
         for (int i = 0; i < size; i++) {
@@ -17,9 +22,7 @@ public class Board {
         }
 
         Scanner input = new Scanner(System.in);
-        System.out.print("Please enter how many tax square there will be : ");
-        int numberOfTaxSquares = input.nextInt();
-        taxSquareInitialization(generateRandomTaxSquareIndex(numberOfTaxSquares), board);
+        taxSquareInitialization(generateRandomTaxSquareIndex(taxSquareNumber), board);
 
 
         //****************SQUARES********************************
