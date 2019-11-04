@@ -10,10 +10,11 @@ public class Game {
 
     }
 
-    public void startTheGame() {
+    public void startTheGame() throws  Exception {
         Scanner input = new Scanner(System.in);
-        System.out.print("Welcome User!\nPlease enter the number of the player(2 to 8) : ");
-        int numberOfPlayers = input.nextInt();
+        Reader reader = new Reader();
+
+        int numberOfPlayers = reader.getNumberOfPlayers();
         int remainingPlayers = numberOfPlayers; //Players still in the game
 
         while (numberOfPlayers < 2 || numberOfPlayers > 8) {
@@ -21,12 +22,12 @@ public class Game {
             numberOfPlayers = input.nextInt();
         }
 
-        Board board = new Board();
+        Board board = new Board(reader.getNumberOfTaxSquare(), reader.getTaxAmount());
         Dice dice = new Dice();
         Player[] players = new Player[numberOfPlayers];
 
         for(int i = 0; i < numberOfPlayers; i++)
-            players[i] = new Player(i, "Player" + i);
+            players[i] = new Player(i, reader.getNames()[i], reader.getStartingMoney());
 
         while(remainingPlayers > 1) {
             String squareType = "";
@@ -42,7 +43,7 @@ public class Game {
 
                         //Add money adding function to here for passing from start
                         if((sumOfFaces + players[i].getPosition()) / size == 1){
-                            players[i].getMoney().addMoney(200);
+                            players[i].getMoney().addMoney(reader.getGoSquare_money());
                         }
 
                         //positions starts from 1 we need to change it to 0
