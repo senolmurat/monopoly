@@ -5,15 +5,17 @@ public class Player {
     private int id;
     private String name;
     private boolean bankrupt = false;
-    private Money money = new Money(150000000);
+    private Money money;
     private int doubleDiceCounter = 0;
 
     private Player() {
 
     }
-    public Player(int id, String name) {
+
+    public Player(int id, String name, int startingMoney) {
         this.id = id;
         this.name = name;
+        this.money = new Money(startingMoney);
     }
 
     public int tossDie(Dice dice) {
@@ -24,8 +26,8 @@ public class Player {
             doubleDiceCounter++;
         }
 
-        System.out.println("Turn: " + (this.getNumberOfTurn() + 1) + "| Position: " + this.getPosition() + "| Money: " + this.getMoney());
-        System.out.println(getName() + "tossing dice... Faces are " + tossedFaces[0] + " - " + tossedFaces[1] + "Double: " + dice.isDouble());
+        System.out.println("Turn: " + (this.getNumberOfTurn() + 1) + "| Position: " + this.getPosition() + "| Money: " + this.money.getMoney());
+        System.out.println(getName() + " tossing dice... Faces are " + tossedFaces[0] + " - " + tossedFaces[1] + "Double: " + dice.isDouble());
 
         int sumOfFaces = tossedFaces[0] + tossedFaces[1];
 

@@ -1,4 +1,4 @@
-public abstract class Square {
+public class Square {
     private String name;
     private int position;
 
