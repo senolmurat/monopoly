@@ -98,10 +98,27 @@ public class Game {
         System.out.println(player.getName() + " tossing dice... Faces are " + dice.getFaces()[0] + " - " + dice.getFaces()[1]
                 + " | Total faces: " + dice.getTotalFaces() + " | Double: "
                 + dice.isDouble() + " | New position: " + (player.getPosition() + dice.getTotalFaces()));
+        System.out.println();
         System.out.println("-----------------------");
     }
 
     private void infoBasedOnBalance(Player[] players) {
 
+
+    }
+
+    private void selectionSort(Player[] players) {
+        int length = players.length;
+        int minValIndex;
+        for (int i = 0; i < length - 1; i++) {
+            minValIndex = i;
+            for(int j = i + 1; i < length; j++) {
+                if(players[j].getMoney().getMoney() < players[minValIndex].getMoney().getMoney())
+                    minValIndex = j;
+            }
+            Player temp = players[minValIndex];
+            players[minValIndex] = players[i];
+            players[i] = temp;
+        }
     }
 }
