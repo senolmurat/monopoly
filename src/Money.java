@@ -17,7 +17,4 @@ public class Money {
     public void subtractMoney(int amountOfMoney){
         money -= amountOfMoney;
     }
-    public boolean isBankrupt(){
-        return money < 0;
-    }
 }
