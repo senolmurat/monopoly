@@ -10,10 +10,8 @@ public class Game {
 
     public void startTheGame() throws Exception {
         Scanner input = new Scanner(System.in);
-        Reader reader = new Reader();
-
-
-        int numberOfPlayers = reader.getNumberOfPlayers();
+        System.out.print("Welcome User!\nPlease enter the number of the player(2 to 8) : ");
+        int numberOfPlayers = input.nextInt();
         int numberOfTurns = 0;//This will be incremented at the end of the last player's turn
         int remainingPlayers = numberOfPlayers; //Players still in the game
 
@@ -22,47 +20,37 @@ public class Game {
             numberOfPlayers = input.nextInt();
         }
 
-        Board board = new Board(reader.getNumberOfTaxSquare(), reader.getTaxAmount());
+        Board board = new Board();
         Dice dice = new Dice();
         Player[] players = new Player[numberOfPlayers];
 
-        for (int i = 0; i < numberOfPlayers; i++)
-            players[i] = new Player(i, reader.getNames()[i], reader.getStartingMoney());
+        for(int i = 0; i < numberOfPlayers; i++)
+            players[i] = new Player(i, "Player" + i);
 
-        while (remainingPlayers > 1) {
-            for (int i = 0; i < numberOfPlayers; i++) {
-                if (!players[i].isBankrupt()) {
-                    if (players[i].getDoubleDiceCounter() < 3) {
-                        int size = board.getSize();
-                        int sumOfFaces = players[i].tossDie(dice);
+        while(remainingPlayers > 1) {
+            for(int i = 0; i < numberOfPlayers; i++) {
+                if(!players[i].isBankrupt()) {
+                    int size = board.getSize();
+                    int sumOfFaces = players[i].tossDie(dice);
 
-                        //Add money adding function to here for passing from start
-                        if ((sumOfFaces + players[i].getPosition()) / size == 1) {
-                            players[i].getMoney().addMoney(reader.getGoSquare_money());
-                        }
+                    //Add money adding function to here for passing from start
+                    if((sumOfFaces + players[i].getPosition()) / size == 1){
+                        players[i].getMoney().addMoney(200);
+                    }
 
-                        //positions starts from 1 we need to change it to 0
-                        players[i].setPosition((players[i].getPosition() + sumOfFaces) % size);
-                        int position = players[i].getPosition();
-                        if (board.getBoard()[position] instanceof TaxSquare)
-                            players[i].getMoney().subtractMoney(((TaxSquare) (board.getBoard()[position])).getTax());
+                    //positions starts from 1 we need to change it to 0
+                    players[i].setPosition((players[i].getPosition() + sumOfFaces) % size);
+                    int position = players[i].getPosition();
+                    if(board.getBoard()[position] instanceof TaxSquare)
+                        players[i].getMoney().subtractMoney(((TaxSquare)(board.getBoard()[position])).getTax());
 
-                        players[i].nextTurn();
+                    players[i].nextTurn();
 
-                        if (players[i].getMoney().isBankrupt()) {
-                            players[i].setBankrupt(true);
-                            remainingPlayers--;
-                            System.out.println(players[i].getName() + " is bankrupt!");
-                            if (remainingPlayers == 1) break; //This one is for checking after a player bankrupt
-                            //if there is one player left
-                        }
-
-                        if (dice.isDouble()) {
-                            players[i].setDoubleDiceCounter(players[i].getDoubleDiceCounter() + 1);
-                            i--;
-                        }
-                    } else {
-                        players[i].setDoubleDiceCounter(0);
+                    if(players[i].getMoney().isBankrupt()) {
+                        players[i].setBankrupt(true);
+                        remainingPlayers--;
+                        if(remainingPlayers == 1) break; //This one is for checking after a player bankrupt
+                                                        //if there is one player left
                     }
                 }
             }
@@ -71,8 +59,8 @@ public class Game {
 
         int i;
 
-        for (i = 0; i < numberOfPlayers; i++)
-            if (!players[i].isBankrupt()) break;
+        for(i = 0; i < numberOfPlayers; i++)
+            if(!players[i].isBankrupt()) break;
 
         System.out.println("Winner is " + players[i].getName());
 
