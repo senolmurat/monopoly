@@ -1,6 +1,10 @@
+import java.util.Arrays;
+import java.util.Comparator;
 import java.util.Scanner;
 
 public class Game {
+
+    private int cycleCounter = 1;
 
     private Game() {
 
@@ -26,11 +30,14 @@ public class Game {
             players[i] = new Player(i, "Player" + i);
 
         while(remainingPlayers > 1) {
+            System.out.println("\nCYCLE " + cycleCounter);
             for(int i = 0; i < numberOfPlayers; i++) {
                 if(!players[i].isBankrupt()) {
                     if(players[i].getDoubleDiceCounter() < 3) {
                         int size = board.getSize();
                         int sumOfFaces = players[i].tossDie(dice);
+
+                        infoMessages(players[i], dice);
 
                         //Add money adding function to here for passing from start
                         if((sumOfFaces + players[i].getPosition()) / size == 1){
@@ -45,7 +52,7 @@ public class Game {
 
                         players[i].nextTurn();
 
-                        if(players[i].getMoney().isBankrupt()) {
+                        if(players[i].isBankrupt()) {
                             players[i].setBankrupt(true);
                             remainingPlayers--;
                             System.out.println(players[i].getName() + " is bankrupt!");
@@ -64,6 +71,8 @@ public class Game {
                     }
                 }
             }
+            infoBasedOnBalance(players);
+            cycleCounter++;
             numberOfTurns++;
         }
 
@@ -83,4 +92,16 @@ public class Game {
         return new Game();
     }
 
+    private static void infoMessages(Player player, Dice dice){
+        System.out.println("Turn: " + (player.getNumberOfTurn() + 1) + " | " + player.getName() + " will play"
+                + " | Position: " + player.getPosition() + " | Money: " + player.getMoney().getMoney());
+        System.out.println(player.getName() + " tossing dice... Faces are " + dice.getFaces()[0] + " - " + dice.getFaces()[1]
+                + " | Total faces: " + dice.getTotalFaces() + " | Double: "
+                + dice.isDouble() + " | New position: " + (player.getPosition() + dice.getTotalFaces()));
+        System.out.println("-----------------------");
+    }
+
+    private void infoBasedOnBalance(Player[] players) {
+
+    }
 }

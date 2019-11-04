@@ -1,7 +1,6 @@
 public class Player {
 
     private int numberOfTurn = 0; //Number of turns each player played
-    private int cycleCounter = 0; //Number of passes through the starting square for each player
     private int position = 0; //Which square
     private int id;
     private String name;
@@ -25,12 +24,6 @@ public class Player {
         if (dice.isDouble()) {
             doubleDiceCounter++;
         }
-        System.out.println("\nTurn: " + (this.getNumberOfTurn() + 1) + " | Cycle: " + this.getCycleCounter() + " | "
-                + this.getName() + " will play"
-                + " | Position: " + this.getPosition() + " | Money: " + this.money.getMoney());
-        System.out.println(getName() + " tossing dice... Faces are " + tossedFaces[0] + " - " + tossedFaces[1]
-                + " | Total faces: " + dice.getTotalFaces() + " | Double: "
-                + dice.isDouble() + " | New position: " + (this.getPosition() + dice.getTotalFaces()));
 
         int sumOfFaces = tossedFaces[0] + tossedFaces[1];
 
@@ -79,13 +72,5 @@ public class Player {
 
     public void setDoubleDiceCounter(int doubleDiceCounter) {
         this.doubleDiceCounter = doubleDiceCounter;
-    }
-
-    public int getCycleCounter() {
-        return cycleCounter;
-    }
-
-    public void setCycleCounter(int cycleCounter) {
-        this.cycleCounter = cycleCounter;
     }
 }
