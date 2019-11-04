@@ -7,6 +7,7 @@ public class Player {
     private boolean bankrupt = false; //Is player bankrupt or not.
     private Money money = new Money(1500);
     private int doubleDiceCounter = 0; //Number of double dices in a row
+    private int[] tossedFaces;
 
     private Player() {
 
@@ -19,13 +20,13 @@ public class Player {
 
     public int tossDie(Dice dice) {
         dice.setDouble(false); //Set the isDouble value to "false" for every dice before tossing
-        int[] tossedFaces = dice.getFaces();
+        tossedFaces = dice.getFaces();
 
         if (dice.isDouble()) {
             doubleDiceCounter++;
         }
 
-        int sumOfFaces = tossedFaces[0] + tossedFaces[1];
+        int sumOfFaces = dice.getTotalFaces();
 
         return sumOfFaces;
     }
@@ -72,5 +73,9 @@ public class Player {
 
     public void setDoubleDiceCounter(int doubleDiceCounter) {
         this.doubleDiceCounter = doubleDiceCounter;
+    }
+
+    public int[] getTossedFaces() {
+        return tossedFaces;
     }
 }

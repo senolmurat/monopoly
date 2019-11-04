@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Board {
@@ -12,7 +13,7 @@ public class Board {
         //Setting positions and names for all squares
         for (int i = 0; i < size; i++) {
             board[i] = new Square("Square ", i + 1);
-            board[i].setName("Square_" + (i + 1));
+            board[i].setName("Square");
             board[i].setPosition(i + 1);
         }
 
@@ -42,9 +43,10 @@ public class Board {
     }
 
     public Square[] taxSquareInitialization(int[] randomNumberForTaxSquareIndex, Square[] board) {
+        Arrays.sort(randomNumberForTaxSquareIndex);
         for (int i = 0; i < randomNumberForTaxSquareIndex.length; i++) {
             if (randomNumberForTaxSquareIndex[i] != 9) {
-                board[randomNumberForTaxSquareIndex[i]] = new TaxSquare("Tax Square " + (i + 1), i + 1, 100);
+                board[randomNumberForTaxSquareIndex[i]] = new TaxSquare("Tax Square", randomNumberForTaxSquareIndex[i] + 1, 100);
             }
 
         }
