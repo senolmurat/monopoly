@@ -47,6 +47,8 @@ public class Game {
                     if(players[i].getMoney().isBankrupt()) {
                         players[i].setBankrupt(true);
                         remainingPlayers--;
+                        if(remainingPlayers == 1) break; //This one is for checking after a player bankrupt
+                                                        //if there is one player left
                     }
                 }
             }
@@ -56,7 +58,7 @@ public class Game {
         int i;
 
         for(i = 0; i < numberOfPlayers; i++)
-            if(players[i].isBankrupt()) break;
+            if(!players[i].isBankrupt()) break;
 
         System.out.println("Winner is " + players[i].getName());
 
