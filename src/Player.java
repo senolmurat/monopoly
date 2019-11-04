@@ -25,12 +25,12 @@ public class Player {
         if (dice.isDouble()) {
             doubleDiceCounter++;
         }
-        System.out.println("Turn: " + (this.getNumberOfTurn() + 1) + " | Cycle: " + this.getCycleCounter() + " | "
+        System.out.println("\nTurn: " + (this.getNumberOfTurn() + 1) + " | Cycle: " + this.getCycleCounter() + " | "
                 + this.getName() + " will play"
                 + " | Position: " + this.getPosition() + " | Money: " + this.money.getMoney());
         System.out.println(getName() + " tossing dice... Faces are " + tossedFaces[0] + " - " + tossedFaces[1]
                 + " | Total faces: " + dice.getTotalFaces() + " | Double: "
-                + dice.isDouble() + " | New position: " + (this.getPosition() + dice.getTotalFaces()) + "\n");
+                + dice.isDouble() + " | New position: " + (this.getPosition() + dice.getTotalFaces()));
 
         int sumOfFaces = tossedFaces[0] + tossedFaces[1];
 
@@ -66,7 +66,7 @@ public class Player {
     }
 
     public boolean isBankrupt() {
-        return bankrupt;
+        return money.getMoney() <= 0;
     }
 
     public void setBankrupt(boolean bankrupt) {
