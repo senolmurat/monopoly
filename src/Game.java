@@ -21,6 +21,7 @@ public class Game {
         }
 
         Board board = new Board(reader.getNumberOfTaxSquare(), reader.getTaxAmount());
+        Information info = new Information();
         Dice dice = new Dice();
         Player[] players = new Player[numberOfPlayers];
         for(int i = 0; i < numberOfPlayers; i++) {
@@ -29,7 +30,8 @@ public class Game {
             System.out.println(players[i].getName() + " " + players[i].getMoney().getMoney());
         }
 
-        selectionSort(players);
+        //TODO : Dice Sorting
+        //selectionSort(players);
 
         for(int i = 0; i < numberOfPlayers; i++) {
             players[i].getMoney().setMoney(reader.getStartingMoney());
@@ -46,7 +48,7 @@ public class Game {
                     if(players[i].getDoubleDiceCounter() < 3) {
                         int size = board.getSize();
 
-                        infoMessageBeforeTossDie(players[i], squareType);
+                        info.infoMessageBeforeTossDie(players[i], squareType);
 
                         int sumOfFaces = players[i].tossDie(dice);
 
@@ -69,7 +71,7 @@ public class Game {
                             squareType = "";
                         }
 
-                        infoMessageAfterTossDie(players[i], dice, squareType);
+                        info.infoMessageAfterTossDie(players[i], dice, squareType);
                         players[i].nextTurn();
 
                         if(players[i].isBankrupt()) {
@@ -91,7 +93,7 @@ public class Game {
                     }
                 }
             }
-            infoBasedOnBalance(players, board);
+            info.infoBasedOnBalance(players, board);
             cycleCounter++;
         }
 
@@ -106,47 +108,8 @@ public class Game {
         //TODO This might be added in second iteration
 
     }
-
     protected static Game instance() {
         return new Game();
     }
 
-    private void infoMessageBeforeTossDie(Player player, String squareType) {
-        System.out.println("Turn: " + (player.getNumberOfTurn() + 1) + " | " + player.getName() + " will play"
-                + " | Position: " + (player.getPosition() + 1) + squareType + " | Money: " + player.getMoney().getMoney());
-    }
-
-    private void infoMessageAfterTossDie(Player player, Dice dice, String squareType) {
-        System.out.println(player.getName() + " tossing dice... Faces are " + player.getTossedFaces()[0] + " - " + player.getTossedFaces()[1]
-                + " | Total faces: " + dice.getTotalFaces() + " | Double: "
-                + dice.isDouble() + " | New position: " + (player.getPosition() + 1) + squareType
-                + " | Money: " + player.getMoney().getMoney());
-        System.out.println("-----------------------");
-    }
-
-    private void infoBasedOnBalance(Player[] players, Board board) {
-        Player[] tempPlayers = players;
-        selectionSort(tempPlayers);
-
-        for(int i = 0; i < tempPlayers.length; i++){
-            System.out.println(tempPlayers[i].getName() + " | Location: " + (tempPlayers[i].getPosition() + 1) + " "
-                    + board.getBoard()[tempPlayers[i].getPosition()].getName()
-                    + " | Money: " + tempPlayers[i].getMoney().getMoney());
-        }
-    }
-
-    private void selectionSort(Player[] players) {
-        int length = players.length;
-        int maxValIndex;
-        for (int i = 0; i < length - 1; i++) {
-            maxValIndex = i;
-            for(int j = i + 1; j < length; j++) {
-                if(players[j].getMoney().getMoney() >= players[maxValIndex].getMoney().getMoney())
-                    maxValIndex = j;
-            }
-            Player temp = players[maxValIndex];
-            players[maxValIndex] = players[i];
-            players[i] = temp;
-        }
-    }
 }

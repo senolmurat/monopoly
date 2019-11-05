@@ -1,4 +1,4 @@
-public class Square {
+public class Square extends AbsSquare {
     private String name;
     private int position;
 
