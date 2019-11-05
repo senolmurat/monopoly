@@ -24,44 +24,25 @@ public class Game {
         Information info = new Information();
         Dice dice = new Dice();
         Player[] players = new Player[numberOfPlayers];
-        for(int i = 0; i < numberOfPlayers; i++) {
-            players[i] = new Player(i, reader.getNames()[i], reader.getStartingMoney());
-            players[i].getMoney().setMoney(players[i].tossDie(dice));
-            System.out.println(players[i].getName() + " " + players[i].getMoney().getMoney());
-        }
+        for(int i = 0; i < numberOfPlayers; i++)
+            players[i] = new Player(i, reader.getNames()[i], reader.getStartingMoney(), dice);
 
-        //TODO : Dice Sorting
-        //selectionSort(players);
-
-        for(int i = 0; i < numberOfPlayers; i++) {
-            players[i].getMoney().setMoney(reader.getStartingMoney());
-            players[i].setId(i + 1);
-            System.out.println(players[i].getName() + " " + players[i].getId());
-        }
-
+        sortPlayers(players, dice);
 
         while(remainingPlayers > 1) {
             String squareType = "";
             System.out.println("\nCYCLE " + cycleCounter);
+
             for(int i = 0; i < numberOfPlayers; i++) {
                 if(!players[i].isBankrupt()) {
                     if(players[i].getDoubleDiceCounter() < 3) {
+
                         int size = board.getSize();
-
                         info.infoMessageBeforeTossDie(players[i], squareType);
+                        players[i].tossDie(dice, true, board);
 
-                        int sumOfFaces = players[i].tossDie(dice);
-
-                        //Add money adding function to here for passing from start
-                        if((sumOfFaces + players[i].getPosition()) / size == 1){
-                            players[i].getMoney().addMoney(reader.getGoSquare_money());
-                        }
-
-                        //positions starts from 1 we need to change it to 0
-                        players[i].setPosition((players[i].getPosition() + sumOfFaces) % size);
                         int position = players[i].getPosition();
                         if(board.getBoard()[position] instanceof TaxSquare){
-                            players[i].getMoney().subtractMoney(((TaxSquare)(board.getBoard()[position])).getTax());
                             squareType = "(Tax Square)";
                         }
                         else if(board.getBoard()[position] instanceof StartSquare){
@@ -104,12 +85,44 @@ public class Game {
 
         System.out.println("\nWinner is " + players[i].getName());
 
-        //TODO i will add a function to sort players by rolling a dice
-        //TODO This might be added in second iteration
-
     }
+
     protected static Game instance() {
         return new Game();
+    }
+
+    protected void sortPlayers(Player[] players, Dice dice) {
+
+        int length = players.length;
+        int maxValIndex;
+        for (int i = 0; i < length - 1; i++) {
+            maxValIndex = i;
+            for (int j = i + 1; j < length; j++) {
+                if (players[j].getFirstRoll() >= players[maxValIndex].getFirstRoll())
+                    maxValIndex = j;
+            }
+            Player temp = players[maxValIndex];
+            players[maxValIndex] = players[i];
+            players[i] = temp;
+        }
+
+        for(int i = 0; i < length - 1; i++) {
+            if(players[i].getFirstRoll() == players[i + 1].getFirstRoll()) {
+                while (true) {
+                    players[i].setFirstRoll(players[i].tossDie(dice, false, null));
+                    players[i + 1].setFirstRoll(players[i].tossDie(dice, false, null));
+
+                    if(players[i].getFirstRoll() > players[i + 1].getFirstRoll()) break;
+
+                    else if(players[i].getFirstRoll() < players[i + 1].getFirstRoll()) {
+                        Player temp = players[i];
+                        players[i] = players[i + 1];
+                        players[i + 1] = temp;
+                        break;
+                    }
+                }
+            }
+        }
     }
 
 }
