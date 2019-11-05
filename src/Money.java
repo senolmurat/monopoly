@@ -17,4 +17,5 @@ public class Money {
     public void subtractMoney(int amountOfMoney){
         money -= amountOfMoney;
     }
+    public  void setMoney(int money) {this.money = money;}
 }
