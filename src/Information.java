@@ -22,9 +22,14 @@ public class Information {
         selectionSort(tempPlayers);
 
         for (int i = 0; i < tempPlayers.length; i++) {
-            System.out.println(tempPlayers[i].getName() + " | Location: " + (tempPlayers[i].getPosition() + 1) + " "
-                    + board.getBoard()[tempPlayers[i].getPosition()].getName()
-                    + " | Money: " + tempPlayers[i].getMoney().getMoney());
+            if (tempPlayers[i].isBankrupt()) {
+                System.out.println(tempPlayers[i].getName() + " | BANKRUPT! ");
+            } else {
+                System.out.println(tempPlayers[i].getName() + " | Location: " + (tempPlayers[i].getPosition() + 1) + " "
+                        + board.getBoard()[tempPlayers[i].getPosition()].getName()
+                        + " | Money: " + tempPlayers[i].getMoney().getMoney());
+            }
+
         }
     }
 

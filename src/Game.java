@@ -30,7 +30,7 @@ public class Game {
             System.out.println(players[i].getName() + " " + players[i].getMoney().getMoney());
         }
 
-        //TODO : ...
+        //TODO : Dice Sorting
         //selectionSort(players);
 
         for(int i = 0; i < numberOfPlayers; i++) {
