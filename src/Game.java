@@ -1,5 +1,3 @@
-import java.util.Arrays;
-import java.util.Comparator;
 import java.util.Scanner;
 
 public class Game {
@@ -25,9 +23,20 @@ public class Game {
         Board board = new Board(reader.getNumberOfTaxSquare(), reader.getTaxAmount());
         Dice dice = new Dice();
         Player[] players = new Player[numberOfPlayers];
-
-        for(int i = 0; i < numberOfPlayers; i++)
+        for(int i = 0; i < numberOfPlayers; i++) {
             players[i] = new Player(i, reader.getNames()[i], reader.getStartingMoney());
+            players[i].getMoney().setMoney(players[i].tossDie(dice));
+            System.out.println(players[i].getName() + " " + players[i].getMoney().getMoney());
+        }
+
+        selectionSort(players);
+
+        for(int i = 0; i < numberOfPlayers; i++) {
+            players[i].getMoney().setMoney(reader.getStartingMoney());
+            players[i].setId(i + 1);
+            System.out.println(players[i].getName() + " " + players[i].getId());
+        }
+
 
         while(remainingPlayers > 1) {
             String squareType = "";

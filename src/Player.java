@@ -5,7 +5,7 @@ public class Player {
     private int id;
     private String name;
     private boolean bankrupt = false; //Is player bankrupt or not.
-    private Money money = new Money(1500);
+    private Money money;
     private int doubleDiceCounter = 0; //Number of double dices in a row
     private int[] tossedFaces;
 
@@ -79,4 +79,6 @@ public class Player {
     public int[] getTossedFaces() {
         return tossedFaces;
     }
+
+    public void setId(int id) {this.id = id; }
 }
