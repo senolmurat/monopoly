@@ -1,25 +1,28 @@
 public class Player {
 
     private int numberOfTurn = 0; //Number of turns each player played
-    private int position = 0; //Which square
     private int id;
     private String name;
     private boolean bankrupt = false; //Is player bankrupt or not.
     private Money money;
     private int doubleDiceCounter = 0; //Number of double dices in a row
     private int[] tossedFaces;
+    private Piece piece;
+    private int firstRoll;
 
     private Player() {
 
     }
 
-    public Player(int id, String name, int startingMoney) {
+    public Player(int id, String name, int startingMoney, Dice dice) throws Exception {
         this.id = id;
         this.name = name;
         this.money = new Money(startingMoney);
+        piece = new Piece();
+        firstRoll = tossDie(dice, false, null);
     }
 
-    public int tossDie(Dice dice) {
+    public int tossDie(Dice dice, boolean isItForMoving, Board board) {
         dice.setDouble(false); //Set the isDouble value to "false" for every dice before tossing
         tossedFaces = dice.getFaces();
 
@@ -28,6 +31,9 @@ public class Player {
         }
 
         int sumOfFaces = dice.getTotalFaces();
+
+        if(isItForMoving)
+            money.addMoney(piece.move(sumOfFaces, board));
 
         return sumOfFaces;
     }
@@ -41,11 +47,11 @@ public class Player {
     }
 
     public void setPosition(int position) {
-        this.position = position;
+        piece.setPosition(position);
     }
 
     public int getPosition() {
-        return position;
+        return piece.getPosition();
     }
 
     public int getId() {
@@ -81,4 +87,12 @@ public class Player {
     }
 
     public void setId(int id) {this.id = id; }
+
+    public int getFirstRoll() {
+        return firstRoll;
+    }
+
+    public void setFirstRoll(int firstRoll) {
+        this.firstRoll = firstRoll;
+    }
 }
