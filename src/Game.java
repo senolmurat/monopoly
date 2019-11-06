@@ -21,7 +21,7 @@ public class Game {
         }
 
         Board board = new Board(reader.getNumberOfTaxSquare(), reader.getTaxAmount());
-        Information info = new Information();
+        Display display = new Display();
         Dice dice = new Dice();
         Player[] players = new Player[numberOfPlayers];
         for(int i = 0; i < numberOfPlayers; i++)
@@ -29,31 +29,29 @@ public class Game {
 
         sortPlayers(players, dice);
 
-        while(remainingPlayers > 1) {
-            String squareType = "";
-            System.out.println("\nCYCLE " + cycleCounter);
+        System.out.print("Order of the player to play based on first dices: ");
+        for(int i = 0; i < players.length ; i++){
+            players[i].setNumberOfTurn(i);
+            System.out.print(players[i].getName() + " ");
+        }
+        System.out.println();
 
+        String squareType = "";
+        while(remainingPlayers > 1) {
+            System.out.println("\nCYCLE " + cycleCounter);
             for(int i = 0; i < numberOfPlayers; i++) {
                 if(!players[i].isBankrupt()) {
                     if(players[i].getDoubleDiceCounter() < 3) {
 
-                        int size = board.getSize();
-                        info.infoMessageBeforeTossDie(players[i], squareType);
+                        squareType = getTheSquareType(players[i], board); //Type of the square which the player is moved.
+
+                        display.infoMessageBeforeTossDie(players[i], squareType);
+
                         players[i].tossDie(dice, true, board);
 
-                        int position = players[i].getPosition();
-                        if(board.getBoard()[position] instanceof TaxSquare){
-                            squareType = "(Tax Square)";
-                        }
-                        else if(board.getBoard()[position] instanceof StartSquare){
-                            squareType = "(Start Square)";
-                        }
-                        else {
-                            squareType = "";
-                        }
+                        squareType = getTheSquareType(players[i], board); //Type of the square which the player is moved.
 
-                        info.infoMessageAfterTossDie(players[i], dice, squareType);
-                        players[i].nextTurn();
+                        display.infoMessageAfterTossDie(players[i], dice, squareType);
 
                         if(players[i].isBankrupt()) {
                             players[i].setBankrupt(true);
@@ -74,7 +72,7 @@ public class Game {
                     }
                 }
             }
-            info.infoBasedOnBalance(players, board);
+            display.infoBasedOnBalance(players, board);
             cycleCounter++;
         }
 
@@ -85,6 +83,21 @@ public class Game {
 
         System.out.println("\nWinner is " + players[i].getName());
 
+    }
+
+    private String getTheSquareType(Player player, Board board) {
+        int position = player.getPosition();
+        String squareType;
+        if(board.getBoard()[position] instanceof TaxSquare){
+            squareType = "(Tax Square)";
+        }
+        else if(board.getBoard()[position] instanceof StartSquare){
+            squareType = "(Start Square)";
+        }
+        else {
+            squareType = "";
+        }
+        return squareType;
     }
 
     protected static Game instance() {
