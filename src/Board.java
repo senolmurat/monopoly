@@ -14,9 +14,7 @@ public class Board {
 
         //Setting positions and names for all squares
         for (int i = 0; i < size; i++) {
-            board[i] = new Square("Square ", i + 1);
-            board[i].setName("Square");
-            board[i].setPosition(i + 1);
+            board[i] = new RegularSquare("Square ", i + 1);
         }
 
         generateRandomTaxSquareIndex(taxSquareNumber);

@@ -2,7 +2,8 @@ public class TaxSquare extends Square {
     int tax;
 
     public TaxSquare(String name, int position, int tax){
-        super(name, position);
+        super.setName(name);
+        super.setPosition(position);
         this.tax = tax;
     }
 

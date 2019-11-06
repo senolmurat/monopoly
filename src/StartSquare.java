@@ -1,5 +1,6 @@
 public class StartSquare extends Square {
     public StartSquare (String name, int position){
-        super(name,position);
+        super.setName(name); 
+        super.setPosition(position);
     }
 }

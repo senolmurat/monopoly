@@ -95,7 +95,7 @@ public class Game {
             squareType = "(Start Square)";
         }
         else {
-            squareType = "";
+            squareType = "(Regular Square)";
         }
         return squareType;
     }
