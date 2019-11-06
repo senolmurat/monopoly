@@ -1,6 +1,6 @@
 public class Player {
 
-    private int numberOfTurn = 0; //Number of turns each player played
+    private int numberOfTurn; //Number of turns each player played
     private int id;
     private String name;
     private boolean bankrupt = false; //Is player bankrupt or not.
@@ -42,8 +42,8 @@ public class Player {
         return numberOfTurn;
     }
 
-    public void nextTurn() { //Increments the number of turns the player has taken.
-        numberOfTurn++;
+    public void setNumberOfTurn(int numberOfTurn) {
+        this.numberOfTurn = numberOfTurn;
     }
 
     public void setPosition(int position) {

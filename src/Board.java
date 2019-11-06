@@ -1,5 +1,4 @@
 import java.util.Arrays;
-import java.util.Scanner;
 
 public class Board {
 
@@ -22,9 +21,7 @@ public class Board {
             board[i].setPosition(i + 1);
         }
 
-        Scanner input = new Scanner(System.in);
         taxSquareInitialization(generateRandomTaxSquareIndex(taxSquareNumber), board);
-
 
         //****************SQUARES********************************
         //Initializing start square
