@@ -6,7 +6,7 @@ public class Board {
     private int taxAmount;
 
 
-    public Board(int taxSquareNumber, int taxAmount) {
+    public Board(int taxSquareNumber, int taxAmount, int goSquare_money) {
         board = new Square[size];
         this.taxAmount = taxAmount;
         this.taxSquareNumber = taxSquareNumber;
@@ -21,7 +21,7 @@ public class Board {
 
         //****************SQUARES********************************
         //Initializing start square
-        board[0] = new StartSquare("Start", 1);
+        board[0] = new StartSquare("Start", 1, goSquare_money);
 
         //Initializing Jail Square
         board[9] = new JailSquare("Jail", 10);
