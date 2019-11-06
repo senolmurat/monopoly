@@ -1,10 +1,8 @@
-public class Square extends AbsSquare {
+public abstract class Square{
     private String name;
     private int position;
 
-    public Square (String name, int position){
-        this.name = name;
-        this.position = position;
+    public Square (){
     }
 
     public int getPosition() {

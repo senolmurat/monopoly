@@ -1,7 +1,8 @@
 public class Piece {
     private int position = 0;
     private Reader reader = new Reader();
-    public Piece() throws Exception {
+
+    public Piece() {
 
     }
 
@@ -9,7 +10,7 @@ public class Piece {
         int returnVal = 0;
 
         if((sumOfFaces + position) / board.getSize() == 1){
-            returnVal += reader.getGoSquare_money();
+            returnVal += ((StartSquare)(board.getBoard()[0])).getPassMoney();
         }
 
         position = (position + sumOfFaces) % board.getSize();

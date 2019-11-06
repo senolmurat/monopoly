@@ -1,5 +1,5 @@
 import java.io.File;
-import java.io.IOException;
+import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 public class Reader {
@@ -12,33 +12,40 @@ public class Reader {
     private String[] names;
 
 
-
-    Reader() throws Exception {
+    Reader() {
         ReadFile();
     }
 
-    private void ReadFile() throws Exception {
+    private void ReadFile() {
 
-        File file = new File("input.txt");
-        Scanner fileReader = new Scanner(file);
+        try {
+            File file = new File("input.txt");
+            Scanner fileReader = new Scanner(file);
 
+            fileReader.nextLine();//To skip lines starting with #
+            this.numberOfPlayers = Integer.parseInt(fileReader.nextLine());
+            fileReader.nextLine();
+            this.startingMoney = Integer.parseInt((fileReader.nextLine()));
+            fileReader.nextLine();
+            this.numberOfTaxSquare = Integer.parseInt((fileReader.nextLine()));
+            fileReader.nextLine();
+            this.taxAmount = Integer.parseInt((fileReader.nextLine()));
+            fileReader.nextLine();
+            this.goSquare_money = Integer.parseInt((fileReader.nextLine()));
+            fileReader.nextLine();
 
-        fileReader.nextLine();//To skip lines starting with #
-        this.numberOfPlayers = Integer.parseInt(fileReader.nextLine());
-        fileReader.nextLine();
-        this.startingMoney = Integer.parseInt( ( fileReader.nextLine() ) );
-        fileReader.nextLine();
-        this.numberOfTaxSquare = Integer.parseInt( ( fileReader.nextLine() ) );
-        fileReader.nextLine();
-        this.taxAmount = Integer.parseInt( ( fileReader.nextLine() ) );
-        fileReader.nextLine();
-        this.goSquare_money = Integer.parseInt( ( fileReader.nextLine() ) );
-        fileReader.nextLine();
-
-        names = new String[numberOfPlayers];
-        for(int i = 0 ; i < numberOfPlayers ; i++){
-            names[i] = fileReader.next();
+            names = new String[numberOfPlayers];
+            for (int i = 0; i < numberOfPlayers; i++) {
+                names[i] = fileReader.next();
+            }
+        } catch (FileNotFoundException e) {
+            System.out.println("Input file not found!");
+        } catch (Exception e2) {
+            System.out.println("An Exception occurred...");
         }
+
+
+
 
     }
 

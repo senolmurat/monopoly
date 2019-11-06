@@ -19,9 +19,8 @@ public class Display {
 
     protected void infoBasedOnBalance(Player[] players, Board board) {
         Player[] tempPlayers = new Player[players.length];
-        for (int i = 0; i < players.length; i++) {
-            tempPlayers[i] = players[i];
-        }
+        tempPlayers = players.clone();
+
         selectionSort(tempPlayers);
 
         for (int i = 0; i < tempPlayers.length; i++) {
