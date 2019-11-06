@@ -6,7 +6,7 @@ public class Board {
     private int taxAmount;
 
 
-    public Board(int taxSquareNumber, int taxAmount) {
+    public Board(int taxSquareNumber, int taxAmount, int goSquare_money) {
         board = new Square[size];
         this.taxAmount = taxAmount;
         this.taxSquareNumber = taxSquareNumber;
@@ -14,16 +14,14 @@ public class Board {
 
         //Setting positions and names for all squares
         for (int i = 0; i < size; i++) {
-            board[i] = new Square("Square ", i + 1);
-            board[i].setName("Square");
-            board[i].setPosition(i + 1);
+            board[i] = new RegularSquare("Square ", i + 1);
         }
 
         generateRandomTaxSquareIndex(taxSquareNumber);
 
         //****************SQUARES********************************
         //Initializing start square
-        board[0] = new StartSquare("Start", 1);
+        board[0] = new StartSquare("Start", 1, goSquare_money);
 
         //Initializing Jail Square
         board[9] = new JailSquare("Jail", 10);
