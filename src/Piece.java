@@ -1,7 +1,8 @@
 public class Piece {
     private int position = 0;
     private Reader reader = new Reader();
-    public Piece() throws Exception {
+
+    public Piece() {
 
     }
 
