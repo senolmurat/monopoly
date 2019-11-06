@@ -37,8 +37,14 @@ public class Game {
         System.out.println();
 
         String squareType = "";
+        int brokeOnes[] = new int[numberOfPlayers];
+        for(int i =  0; i < numberOfPlayers; i++) brokeOnes[i] = -1;
+
         while(remainingPlayers > 1) {
+            turnUpdater(players, brokeOnes);
+            for(int i =  0; i < numberOfPlayers; i++) brokeOnes[i] = -1;
             System.out.println("\nCYCLE " + cycleCounter);
+
             for(int i = 0; i < numberOfPlayers; i++) {
                 if(!players[i].isBankrupt()) {
                     if(players[i].getDoubleDiceCounter() < 3) {
@@ -57,6 +63,11 @@ public class Game {
                             players[i].setBankrupt(true);
                             remainingPlayers--;
                             System.out.println("\n" + players[i].getName() + " is bankrupt!\n");
+                            for(int j =  0; j < numberOfPlayers; j++)
+                                if(brokeOnes[j] == -1){
+                                    brokeOnes[j] = players[i].getNumberOfTurn();
+                                    break;
+                                }
                             if(remainingPlayers == 1) break; //This one is for checking after a player bankrupt
                             //if there is one player left
                         }
@@ -138,4 +149,15 @@ public class Game {
         }
     }
 
+    protected void turnUpdater(Player players[], int brokeOnes[]){
+
+        for(int i = 0; i < players.length; i++) {
+            for(int j = 0; j < brokeOnes.length; j++) {
+                if(brokeOnes[j] ==  -1) break;
+
+                if(players[i].getNumberOfTurn() > brokeOnes[j])
+                    players[i].setNumberOfTurn(players[i].getNumberOfTurn() - 1);
+            }
+        }
+    }
 }
