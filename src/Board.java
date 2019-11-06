@@ -1,5 +1,3 @@
-import java.util.Arrays;
-import java.util.Scanner;
 
 public class Board {
 
@@ -22,9 +20,6 @@ public class Board {
             board[i].setPosition(i + 1);
         }
 
-        Scanner input = new Scanner(System.in);
-        taxSquareInitialization(generateRandomTaxSquareIndex(taxSquareNumber), board);
-
 
         //****************SQUARES********************************
         //Initializing start square
@@ -33,7 +28,7 @@ public class Board {
         //Initializing Jail Square
         board[9] = new JailSquare("Jail", 10);
 
-
+        generateRandomTaxSquareIndex(taxSquareNumber);
         //****************SQUARES********************************
     }
 
@@ -45,24 +40,26 @@ public class Board {
         return size;
     }
 
-    public Square[] taxSquareInitialization(int[] randomNumberForTaxSquareIndex, Square[] board) {
-        Arrays.sort(randomNumberForTaxSquareIndex);
-        for (int i = 0; i < randomNumberForTaxSquareIndex.length; i++) {
-            if (randomNumberForTaxSquareIndex[i] != 9) {
-                board[randomNumberForTaxSquareIndex[i]] = new TaxSquare("Tax Square", randomNumberForTaxSquareIndex[i] + 1, 100);
-            }
+    public Square[] taxSquareInitialization(int taxSquareIndex, Square[] board) {
+        if (!(board[taxSquareIndex] instanceof TaxSquare)) {
+            board[taxSquareIndex] = new TaxSquare("Tax Square", taxSquareIndex + 1, taxAmount);
+        } else {
 
+            while ((board[taxSquareIndex] instanceof TaxSquare)) {
+                taxSquareIndex++;
+                if (taxSquareIndex == size)
+                    taxSquareIndex = 1;
+            }
+            board[taxSquareIndex] = new TaxSquare("Tax Square", taxSquareIndex + 1, taxAmount);
         }
         return board;
     }
 
-    public int[] generateRandomTaxSquareIndex(int numberOfTaxSquares) {
-        int[] randomTaxSquareIndex = new int[numberOfTaxSquares];
+    public void generateRandomTaxSquareIndex(int numberOfTaxSquares) {
         for (int i = 0; i < numberOfTaxSquares; i++) {
             int randomNumberForTaxSquareIndex = (int) (Math.random() * 39) + 1;
-            randomTaxSquareIndex[i] = randomNumberForTaxSquareIndex;
+            taxSquareInitialization(randomNumberForTaxSquareIndex, board);
         }
-        return randomTaxSquareIndex;
     }
 
 }
