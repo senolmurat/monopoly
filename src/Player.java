@@ -14,7 +14,7 @@ public class Player {
 
     }
 
-    public Player(int id, String name, int startingMoney, Dice dice) throws Exception {
+    public Player(int id, String name, int startingMoney, Dice dice) {
         this.id = id;
         this.name = name;
         this.money = new Money(startingMoney);

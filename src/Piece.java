@@ -10,7 +10,7 @@ public class Piece {
         int returnVal = 0;
 
         if((sumOfFaces + position) / board.getSize() == 1){
-            returnVal += reader.getGoSquare_money();
+            returnVal += ((StartSquare)(board.getBoard()[0])).getPassMoney();
         }
 
         position = (position + sumOfFaces) % board.getSize();
