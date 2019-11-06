@@ -4,14 +4,17 @@ import static org.junit.Assert.*;
 
 public class PlayerTest {
 
-    Player playerTest;
-    Dice diceTest;
+    private Player player;
+    private boolean isMoving = true;
+    Board board = new Board(10, 100);
+    Dice dice = new Dice();
 
     @Test
-    public void tossDie() {
-        playerTest = new Player(1, "Ali", 1500);
-        diceTest = new Dice();
-        assertTrue((playerTest.tossDie(diceTest)) >= 2 && (playerTest.tossDie(diceTest) <= 12));
+    public void tossDie() throws Exception {
+        Player player = new Player(1, "Ali", 2000, dice);
+        System.out.print("Faces of Dices " + player.tossDie(dice, isMoving, board));
+        assertTrue((player.tossDie(dice, isMoving, board) >= 2) && (player.tossDie(dice, isMoving, board) <= 12));
+
     }
 
 }
