@@ -155,7 +155,7 @@ public class Game {
             for(int j = 0; j < brokeOnes.length; j++) {
                 if(brokeOnes[j] ==  -1) break;
 
-                if(players[i].getNumberOfTurn() > brokeOnes[j])
+                if(players[i].getNumberOfTurn() >= brokeOnes[j])
                     players[i].setNumberOfTurn(players[i].getNumberOfTurn() - 1);
             }
         }
