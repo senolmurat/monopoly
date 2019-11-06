@@ -1,5 +1,3 @@
-import java.util.Arrays;
-
 public class Board {
 
     private Square[] board;
@@ -21,7 +19,7 @@ public class Board {
             board[i].setPosition(i + 1);
         }
 
-        taxSquareInitialization(generateRandomTaxSquareIndex(taxSquareNumber), board);
+        generateRandomTaxSquareIndex(taxSquareNumber);
 
         //****************SQUARES********************************
         //Initializing start square
@@ -30,7 +28,6 @@ public class Board {
         //Initializing Jail Square
         board[9] = new JailSquare("Jail", 10);
 
-        generateRandomTaxSquareIndex(taxSquareNumber);
         //****************SQUARES********************************
     }
 
