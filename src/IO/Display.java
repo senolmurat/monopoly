@@ -1,15 +1,19 @@
+package IO;
+
+import Player.Player;
+import GameElements.*;
 public class Display {
 
     public Display() {
 
     }
 
-    protected void infoMessageBeforeTossDie(Player player, String squareType) {
+    public void infoMessageBeforeTossDie(Player player, String squareType) {
         System.out.println("Turn: " + (player.getNumberOfTurn() + 1) + " | " + player.getName() + " will play"
                 + " | Position: " + (player.getPosition() + 1) + squareType + " | Money: " + player.getMoney().getMoney());
     }
 
-    protected void infoMessageAfterTossDie(Player player, Dice dice, String squareType) {
+    public void infoMessageAfterTossDie(Player player, Dice dice, String squareType) {
         System.out.println(player.getName() + " tossing dice... Faces are " + player.getTossedFaces()[0] + " - " + player.getTossedFaces()[1]
                 + " | Total faces: " + dice.getTotalFaces() + " | Double: "
                 + dice.isDouble() + " | New position: " + (player.getPosition() + 1) + squareType
@@ -17,7 +21,7 @@ public class Display {
         System.out.println("-----------------------");
     }
 
-    protected void infoBasedOnBalance(Player[] players, Board board) {
+    public void infoBasedOnBalance(Player[] players, Board board) {
         Player[] tempPlayers = new Player[players.length];
         tempPlayers = players.clone();
 

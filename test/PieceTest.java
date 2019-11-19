@@ -1,3 +1,6 @@
+import GameElements.Board;
+import GameElements.Dice;
+import Player.*;
 import org.junit.Test;
 
 import static org.junit.Assert.*;

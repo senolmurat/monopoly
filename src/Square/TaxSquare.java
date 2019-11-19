@@ -1,3 +1,5 @@
+package Square;
+
 public class TaxSquare extends Square {
     int tax;
 

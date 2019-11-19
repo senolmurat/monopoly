@@ -1,3 +1,5 @@
+package Square;
+
 public class StartSquare extends Square {
     private int passMoney;
     public StartSquare (String name, int position, int passMoney){

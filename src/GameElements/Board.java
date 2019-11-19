@@ -1,3 +1,7 @@
+package GameElements;
+
+import Square.*;
+
 public class Board {
 
     private Square[] board;

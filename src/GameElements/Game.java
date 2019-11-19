@@ -1,3 +1,8 @@
+package GameElements;
+
+import IO.*;
+import Player.Player;
+
 import java.util.Scanner;
 
 public class Game {
@@ -103,7 +108,7 @@ public class Game {
         return squareType;
     }
 
-    protected static Game instance() {
+    public static Game instance() {
         return new Game();
     }
 

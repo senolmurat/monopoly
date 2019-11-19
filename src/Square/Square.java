@@ -1,3 +1,5 @@
+package Square;
+
 public abstract class Square{
     private String name;
     private int position;
