@@ -98,16 +98,8 @@ public class Game {
 
     private String getTheSquareType(Player player, Board board) {
         int position = player.getPosition();
-        String squareType;
-        if(board.getBoard()[position] instanceof TaxSquare){
-            squareType = "(Tax Square)";
-        }
-        else if(board.getBoard()[position] instanceof StartSquare){
-            squareType = "(Start Square)";
-        }
-        else {
-            squareType = "(Regular Square)";
-        }
+        String squareType = board.getBoard()[position].landedOn();
+
         return squareType;
     }
 

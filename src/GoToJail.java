@@ -3,4 +3,9 @@ public class GoToJail extends Square {
         super.setName(name);
         super.setPosition(position);
     }
+
+    @Override
+    public String landedOn() {
+        return "(Go To Jail)";
+    }
 }

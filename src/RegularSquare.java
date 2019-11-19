@@ -4,4 +4,9 @@ public class RegularSquare extends Square{
         super.setName(name);
         super.setPosition(position);
     }
+
+    @Override
+    public String landedOn() {
+        return "(Regular Square)";
+    }
 }

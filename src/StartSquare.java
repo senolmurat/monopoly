@@ -13,4 +13,9 @@ public class StartSquare extends Square {
     public int getPassMoney() {
         return passMoney;
     }
+
+    @Override
+    public String landedOn() {
+        return "(Start Square)";
+    }
 }
