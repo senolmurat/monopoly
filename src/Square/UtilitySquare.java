@@ -1,19 +1,19 @@
 package Square;
 
-public class PropertySquare extends Square {
+public class UtilitySquare extends Square {
 
+    private String type;
     private int landValue;
     private int rent;
     private int owner;//player index in players array
-    private String colour;
 
-    private PropertySquare() {
+    private UtilitySquare() {
     }
 
-    public PropertySquare(String name, int position, String colour, int landValue, int rent) {
+    public UtilitySquare(String name, int position, String type, int landValue, int rent) {
         super.setName(name);
         super.setPosition(position);
-        this.colour = colour;
+        this.type = type;
         this.landValue = landValue;
         this.rent = rent;
         this.owner = -1;//default , no owner
@@ -43,12 +43,12 @@ public class PropertySquare extends Square {
         this.owner = owner;
     }
 
-    public String getColour() {
-        return colour;
+    public String getType() {
+        return type;
     }
 
-    public void setColour(String colour) {
-        this.colour = colour;
+    public void setType(String type) {
+        this.type = type;
     }
 
     @Override
