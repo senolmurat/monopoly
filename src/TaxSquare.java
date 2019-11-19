@@ -13,4 +13,9 @@ public class TaxSquare extends Square {
     public void setTax(int tax) {
         this.tax = tax;
     }
+
+    @Override
+    public String landedOn() {
+        return "(Tax Square)";
+    }
 }
