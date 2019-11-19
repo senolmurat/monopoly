@@ -1,3 +1,8 @@
+package Player;
+
+import GameElements.Board;
+import IO.Reader;
+import Square.*;
 public class Piece {
     private int position = 0;
     private Reader reader = new Reader();

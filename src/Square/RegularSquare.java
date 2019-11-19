@@ -1,6 +1,8 @@
-public class RegularSquare extends Square{
+package Square;
 
-    RegularSquare(String name, int position) {
+public class RegularSquare extends Square {
+
+    public RegularSquare(String name, int position) {
         super.setName(name);
         super.setPosition(position);
     }

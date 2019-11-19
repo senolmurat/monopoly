@@ -1,3 +1,6 @@
+import GameElements.Dice;
+import IO.Display;
+import Player.*;
 import org.junit.Before;
 import org.junit.Test;
 

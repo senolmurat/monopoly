@@ -1,3 +1,5 @@
+package Player;
+
 public class Money {
 
     private int money;
@@ -19,3 +21,4 @@ public class Money {
     }
     public  void setMoney(int money) {this.money = money;}
 }
+

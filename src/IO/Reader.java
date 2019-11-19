@@ -1,3 +1,5 @@
+package IO;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
@@ -12,7 +14,7 @@ public class Reader {
     private String[] names;
 
 
-    Reader() {
+    public Reader() {
         ReadFile();
     }
 

@@ -1,3 +1,7 @@
+package Player;
+import GameElements.Board;
+import GameElements.Dice;
+
 public class Player {
 
     private int numberOfTurn; //Number of turns each player played
