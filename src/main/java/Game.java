@@ -1,5 +1,5 @@
-package GameElements;
-
+import GameElements.Board;
+import GameElements.Dice;
 import IO.*;
 import Player.Player;
 

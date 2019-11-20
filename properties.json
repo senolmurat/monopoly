@@ -1,0 +1,181 @@
+[
+    {
+      "PropertySquare": {
+        "name": "Kasımpaşa",
+        "position": 1,
+        "color": "brown",
+        "landValue": 60,
+        "rent": 0
+      }
+    },
+    {
+      "PropertySquare": {
+      "name": "Dolapdere",
+      "position": 3,
+      "color": "brown",
+      "landValue": 60,
+      "rent": 0
+      }
+    },{
+    "PropertySquare": {
+      "name": "Sultanahmet",
+      "position": 6,
+      "color": "grey",
+      "landValue": 100,
+      "rent": 0
+    }
+  },{
+    "PropertySquare": {
+      "name": "Karakoy",
+      "position": 8,
+      "color": "grey",
+      "landValue": 100,
+      "rent": 0
+    }
+  },{
+    "PropertySquare": {
+      "name": "Sirkeci",
+      "position": 9,
+      "color": "grey",
+      "landValue": 120,
+      "rent": 0
+    }
+  },{
+    "PropertySquare": {
+      "name": "Beyoglu",
+      "position": 11,
+      "color": "pink",
+      "landValue": 140,
+      "rent": 0
+    }
+  },{
+    "PropertySquare": {
+      "name": "Besiktas",
+      "position": 13,
+      "color": "pink",
+      "landValue": 140,
+      "rent": 0
+    }
+  },{
+    "PropertySquare": {
+      "name": "Taksim",
+      "position": 14,
+      "color": "pink",
+      "landValue": 160,
+      "rent": 0
+    }
+  },{
+    "PropertySquare": {
+      "name": "Harbiye",
+      "position": 16,
+      "color": "orange",
+      "landValue": 160,
+      "rent": 0
+    }
+  },{
+    "PropertySquare": {
+      "name": "Sisli",
+      "position": 18,
+      "color": "orange",
+      "landValue": 160,
+      "rent": 0
+    }
+  },{
+    "PropertySquare": {
+      "name": "Mecidiyeköy",
+      "position": 19,
+      "color": "orange",
+      "landValue": 200,
+      "rent": 0
+    }
+  },{
+    "PropertySquare": {
+      "name": "Bostanci",
+      "position": 21,
+      "color": "red",
+      "landValue": 220,
+      "rent": 0
+    }
+  },{
+    "PropertySquare": {
+      "name": "Erenkoy",
+      "position": 23,
+      "color": "red",
+      "landValue": 220,
+      "rent": 0
+    }
+  },{
+    "PropertySquare": {
+      "name": "Caddebostan",
+      "position": 24,
+      "color": "red",
+      "landValue": 240,
+      "rent": 0
+    }
+  },{
+    "PropertySquare": {
+      "name": "Nisantasi",
+      "position": 26,
+      "color": "yellow",
+      "landValue": 260,
+      "rent": 0
+    }
+  },{
+    "PropertySquare": {
+      "name": "Tesvikiye",
+      "position": 27,
+      "color": "yellow",
+      "landValue": 260,
+      "rent": 0
+    }
+  },{
+    "PropertySquare": {
+      "name": "Macka",
+      "position": 29,
+      "color": "yellow",
+      "landValue": 280,
+      "rent": 0
+    }
+  },{
+    "PropertySquare": {
+      "name": "Levent",
+      "position": 31,
+      "color": "green",
+      "landValue": 300,
+      "rent": 0
+    }
+  },{
+    "PropertySquare": {
+      "name": "Etiler",
+      "position": 32,
+      "color": "green",
+      "landValue": 300,
+      "rent": 0
+    }
+  },{
+    "PropertySquare": {
+      "name": "Bebek",
+      "position": 34,
+      "color": "green",
+      "landValue": 320,
+      "rent": 0
+    }
+  },{
+    "PropertySquare": {
+      "name": "Tarabya",
+      "position": 37,
+      "color": "blue",
+      "landValue": 350,
+      "rent": 0
+    }
+  },{
+    "PropertySquare": {
+      "name": "Yenikoy",
+      "position": 39,
+      "color": "blue",
+      "landValue": 400,
+      "rent": 0
+    }
+  }
+  ]
+  
