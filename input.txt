@@ -3,7 +3,7 @@
 #Starting Money
 2000
 #Tax Square number(There is total of 40 squares)
-30
+15
 #Tax Square Tax Amount
 150
 #Given when passing Go Square
