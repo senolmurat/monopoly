@@ -1,6 +1,8 @@
 package GameElements;
 
 import Square.*;
+import IO.ReadPropertySquare;
+import org.json.simple.JSONObject;
 
 public class Board {
 
@@ -21,7 +23,9 @@ public class Board {
             board[i] = new RegularSquare("Square ", i + 1);
         }
 
+        generatePropertySquares(board);
         generateRandomTaxSquareIndex(taxSquareNumber);
+
 
         //****************SQUARES********************************
         //Initializing start square
@@ -61,6 +65,15 @@ public class Board {
             int randomNumberForTaxSquareIndex = (int) (Math.random() * 39) + 1;
             taxSquareInitialization(randomNumberForTaxSquareIndex, board);
         }
+    }
+
+    public void generatePropertySquares(Square[] board) {
+        ReadPropertySquare readPropertySquare = new ReadPropertySquare();
+        for (int i = 0; i < readPropertySquare.getPropertySquaresList().size() - 1; i++) {
+            board[readPropertySquare.getPropertySquaresList().get(i).getPosition()] = readPropertySquare.getPropertySquaresList().get(i);
+        }
+
+
     }
 
 }

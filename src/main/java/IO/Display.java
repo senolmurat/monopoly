@@ -16,7 +16,7 @@ public class Display {
     public void infoMessageAfterTossDie(Player player, Dice dice, String squareType) {
         System.out.println(player.getName() + " tossing dice... Faces are " + player.getTossedFaces()[0] + " - " + player.getTossedFaces()[1]
                 + " | Total faces: " + dice.getTotalFaces() + " | Double: "
-                + dice.isDouble() + " | New position: " + (player.getPosition() + 1) + squareType
+                + dice.isDouble() + " | New position: " + (player.getPosition() + 1) + " " + squareType
                 + " | Money: " + player.getMoney().getMoney());
         System.out.println("-----------------------");
     }
