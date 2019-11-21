@@ -1,11 +1,15 @@
 package Square;
 
+import Player.Player;
+
 public abstract class Square{
     private String name;
     private int position;
 
     public Square (){
     }
+
+    public abstract void squareAction(Player player);
 
     public int getPosition() {
         return position;
