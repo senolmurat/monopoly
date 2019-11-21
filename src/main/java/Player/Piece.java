@@ -2,28 +2,27 @@ package Player;
 
 import GameElements.Board;
 import IO.Reader;
-import Square.*;
+
 public class Piece {
     private int position = 0;
+    boolean isPassedFromStart;
     private Reader reader = new Reader();
 
     public Piece() {
 
     }
 
-    public int move (int sumOfFaces, Board board) {
-        int returnVal = 0;
+    public int move(int sumOfFaces, Board board) {
 
-        if((sumOfFaces + position) / board.getSize() == 1){
-            returnVal += ((StartSquare)(board.getBoard()[0])).getPassMoney();
+        isPassedFromStart = false;
+
+        if ((sumOfFaces + position) / board.getSize() == 1) {
+            isPassedFromStart = true;
         }
 
         position = (position + sumOfFaces) % board.getSize();
 
-        if(board.getBoard()[position] instanceof TaxSquare)
-            returnVal -= ((TaxSquare)(board.getBoard()[position])).getTax();
-
-        return returnVal;
+        return position;
     }
 
     public void setPosition(int position) {
@@ -32,5 +31,13 @@ public class Piece {
 
     public int getPosition() {
         return position;
+    }
+
+    public boolean isPassedFromStart() {
+        return isPassedFromStart;
+    }
+
+    public void setPassedFromStart(boolean passedFromStart) {
+        isPassedFromStart = passedFromStart;
     }
 }

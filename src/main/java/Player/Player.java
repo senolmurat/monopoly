@@ -1,4 +1,5 @@
 package Player;
+
 import GameElements.Board;
 import GameElements.Dice;
 
@@ -23,10 +24,10 @@ public class Player {
         this.name = name;
         this.money = new Money(startingMoney);
         piece = new Piece();
-        firstRoll = tossDie(dice, false, null);
+        firstRoll = tossDie(dice, null);
     }
 
-    public int tossDie(Dice dice, boolean isItForMoving, Board board) {
+    public int tossDie(Dice dice, Board board) {
         dice.setDouble(false); //Set the isDouble value to "false" for every dice before tossing
         tossedFaces = dice.getFaces();
 
@@ -36,8 +37,8 @@ public class Player {
 
         int sumOfFaces = dice.getTotalFaces();
 
-        if(isItForMoving)
-            money.addMoney(piece.move(sumOfFaces, board));
+        //if(isItForMoving)
+        //    money.addMoney(piece.move(sumOfFaces, board));
 
         return sumOfFaces;
     }
@@ -90,7 +91,9 @@ public class Player {
         return tossedFaces;
     }
 
-    public void setId(int id) {this.id = id; }
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public int getFirstRoll() {
         return firstRoll;
@@ -98,5 +101,9 @@ public class Player {
 
     public void setFirstRoll(int firstRoll) {
         this.firstRoll = firstRoll;
+    }
+
+    public Piece getPiece() {
+        return piece;
     }
 }
