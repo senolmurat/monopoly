@@ -1,5 +1,7 @@
 package Square;
 
+import Player.Player;
+
 public class StartSquare extends Square {
     private int passMoney;
     public StartSquare (String name, int position, int passMoney){
@@ -14,6 +16,11 @@ public class StartSquare extends Square {
 
     public int getPassMoney() {
         return passMoney;
+    }
+
+    @Override
+    public void squareAction(Player player) {
+
     }
 
     @Override

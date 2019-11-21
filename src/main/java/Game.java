@@ -26,7 +26,7 @@ public class Game {
             numberOfPlayers = input.nextInt();
         }
 
-        Board board = new Board(reader.getNumberOfTaxSquare(), reader.getTaxAmount(), reader.getGoSquare_money());
+        Board board = new Board( reader.getGoSquare_money());
         Display display = new Display();
         Dice dice = new Dice();
         Player[] players = new Player[numberOfPlayers];
