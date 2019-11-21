@@ -2,7 +2,6 @@ package GameElements;
 
 import Square.*;
 import IO.ReadPropertySquare;
-import org.json.simple.JSONObject;
 
 public class Board {
 
@@ -24,7 +23,8 @@ public class Board {
         }
 
         generatePropertySquares(board);
-        generateRandomTaxSquareIndex(taxSquareNumber);
+        // generateRandomTaxSquareIndex(taxSquareNumber);
+        generateTaxSquare(board);
 
 
         //****************SQUARES********************************
@@ -45,26 +45,30 @@ public class Board {
         return size;
     }
 
-    public Square[] taxSquareInitialization(int taxSquareIndex, Square[] board) {
-        if (!(board[taxSquareIndex] instanceof TaxSquare)) {
-            board[taxSquareIndex] = new TaxSquare("Tax Square", taxSquareIndex + 1, taxAmount);
-        } else {
+    /* public Square[] taxSquareInitialization(int taxSquareIndex, Square[] board) {
+         if (!(board[taxSquareIndex] instanceof TaxSquare)) {
+             board[taxSquareIndex] = new TaxSquare("Tax Square", taxSquareIndex + 1, taxAmount);
+         } else {
 
-            while ((board[taxSquareIndex] instanceof TaxSquare)) {
-                taxSquareIndex++;
-                if (taxSquareIndex == size)
-                    taxSquareIndex = 1;
-            }
-            board[taxSquareIndex] = new TaxSquare("Tax Square", taxSquareIndex + 1, taxAmount);
-        }
-        return board;
-    }
+             while ((board[taxSquareIndex] instanceof TaxSquare)) {
+                 taxSquareIndex++;
+                 if (taxSquareIndex == size)
+                     taxSquareIndex = 1;
+             }
+             board[taxSquareIndex] = new TaxSquare("Tax Square", taxSquareIndex + 1, taxAmount);
+         }
+         return board;
+     }
 
-    public void generateRandomTaxSquareIndex(int numberOfTaxSquares) {
-        for (int i = 0; i < numberOfTaxSquares; i++) {
-            int randomNumberForTaxSquareIndex = (int) (Math.random() * 39) + 1;
-            taxSquareInitialization(randomNumberForTaxSquareIndex, board);
-        }
+     public void generateRandomTaxSquareIndex(int numberOfTaxSquares) {
+         for (int i = 0; i < numberOfTaxSquares; i++) {
+             int randomNumberForTaxSquareIndex = (int) (Math.random() * 39) + 1;
+             taxSquareInitialization(randomNumberForTaxSquareIndex, board);
+         }
+     }*/
+    public void generateTaxSquare(Square[] board) {
+        board[4] = new TaxSquare("Income Tax", 5, 200);
+        board[37] = new TaxSquare("Super Tax", 38, 100);
     }
 
     public void generatePropertySquares(Square[] board) {
