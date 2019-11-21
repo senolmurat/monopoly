@@ -53,46 +53,59 @@ public class Game {
 
             for(int i = 0; i < numberOfPlayers; i++) {
                 if(!players[i].isBankrupt()) {
-                    if(players[i].getDoubleDiceCounter() < 3) {
+                    if (!players[i].isInJail()){
+                        if(players[i].getDoubleDiceCounter() < 3) {
 
-                        squareType = getTheSquareType(players[i], board); //Type of the square which the player is moved.
+                            squareType = getTheSquareType(players[i], board); //Type of the square which the player is moved.
 
-                        display.infoMessageBeforeTossDie(players[i], squareType);
+                            display.infoMessageBeforeTossDie(players[i], squareType);
 
-                        int sumOfFaces = players[i].tossDie(dice, board); //Player rolls the dice
-                        players[i].getPiece().move(sumOfFaces, board); //Moves its piece based on the faces, returns new position
+                            int sumOfFaces = players[i].tossDie(dice, board); //Player rolls the dice
+                            players[i].getPiece().move(sumOfFaces, board); //Moves its piece based on the faces, returns new position
 
-                        if(players[i].getPiece().isPassedFromStart())
-                            players[i].getMoney().addMoney(((StartSquare)(board.getBoard()[0])).getPassMoney());
+                            if(players[i].getPiece().isPassedFromStart())
+                                players[i].getMoney().addMoney(((StartSquare)(board.getBoard()[0])).getPassMoney());
 
-                        if(board.getBoard()[players[i].getPosition()] instanceof TaxSquare)
-                            players[i].getMoney().subtractMoney(((TaxSquare)(board.getBoard()[players[i].getPosition()])).getTax());
+                            board.getBoard()[players[i].getPosition()].squareAction(players[i]);
 
-                        squareType = getTheSquareType(players[i], board); //Type of the square which the player is moved.
+                            squareType = getTheSquareType(players[i], board); //Type of the square which the player is moved.
 
-                        display.infoMessageAfterTossDie(players[i], dice, squareType);
+                            display.infoMessageAfterTossDie(players[i], dice, squareType);
 
-                        if(players[i].isBankrupt()) {
-                            players[i].setBankrupt(true);
-                            remainingPlayers--;
-                            System.out.println("\n" + players[i].getName() + " is bankrupt!\n");
-                            for(int j =  0; j < numberOfPlayers; j++)
-                                if(brokeOnes[j] == -1){
-                                    brokeOnes[j] = players[i].getNumberOfTurn();
-                                    break;
-                                }
-                            if(remainingPlayers == 1) break; //This one is for checking after a player bankrupt
-                            //if there is one player left
+                            if(players[i].isBankrupt()) {
+                                players[i].setBankrupt(true);
+                                remainingPlayers--;
+                                System.out.println("\n" + players[i].getName() + " is bankrupt!\n");
+                                for(int j =  0; j < numberOfPlayers; j++)
+                                    if(brokeOnes[j] == -1){
+                                        brokeOnes[j] = players[i].getNumberOfTurn();
+                                        break;
+                                    }
+                                if(remainingPlayers == 1) break; //This one is for checking after a player bankrupt
+                                //if there is one player left
+                            }
+
+                            if(dice.isDouble()) {
+                                players[i].setDoubleDiceCounter(players[i].getDoubleDiceCounter() + 1);
+                                i--;
+                            }
                         }
-
-                        if(dice.isDouble()) {
-                            players[i].setDoubleDiceCounter(players[i].getDoubleDiceCounter() + 1);
-                            i--;
+                        else {
+                            players[i].setPosition(10); //Put it in jail
+                            players[i].setDoubleDiceCounter(0);
                         }
                     }
-
                     else {
-                        players[i].setDoubleDiceCounter(0);
+                        if (players[i].getJailCounter() < 3){
+
+                                    //Tries to get out from jail
+                            
+                            players[i].setJailCounter(players[i].getJailCounter()+1);
+                        }
+                        else { //If he/she stayed in jail 3 turns, gets out
+                            players[i].setInJail(false);
+                            players[i].setJailCounter(0);
+                        }
                     }
                 }
             }
