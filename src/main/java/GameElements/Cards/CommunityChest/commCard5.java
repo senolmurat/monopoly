@@ -1,19 +1,18 @@
-package GameElements.Cards.Chance;
+package GameElements.Cards.CommunityChest;
 
 import GameElements.Cards.Card;
 import Player.Player;
 
-public class Card2 extends Card {
+public class commCard5 extends Card {
 
-
-    public Card2(){
-        super.setName("Chance2");
+    public commCard5() {
+        super.setName("Chest5");
         super.setDescription("Go to Jail. Go directly to Jail. Do not pass GO");
         super.setAltDescription("A truncheon-carrying policeman in a dark-colored uniform hauls a surprised Mr Monopoly along by the feet");
     }
 
     @Override
     public void action(Player player, Player[] playerArray) {
-        //set position to GoTOjail square
+        //Set position to jail , or set position to GoTOjail square
     }
 }

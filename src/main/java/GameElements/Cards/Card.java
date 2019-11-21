@@ -12,7 +12,7 @@ public abstract class Card {
     public Card(){
     }
 
-    public abstract void action(Player player);
+    public abstract void action(Player player, Player[] playerArray);
 
     public String getName() {
         return name;
