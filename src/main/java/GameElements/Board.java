@@ -72,8 +72,6 @@ public class Board {
         for (int i = 0; i < readPropertySquare.getPropertySquaresList().size() - 1; i++) {
             board[readPropertySquare.getPropertySquaresList().get(i).getPosition()] = readPropertySquare.getPropertySquaresList().get(i);
         }
-
-
     }
 
 }
