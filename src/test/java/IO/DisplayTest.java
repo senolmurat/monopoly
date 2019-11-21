@@ -1,3 +1,5 @@
+package IO;
+
 import GameElements.Dice;
 import IO.Display;
 import Player.*;

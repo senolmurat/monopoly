@@ -1,3 +1,5 @@
+package GameElements;
+
 import GameElements.Dice;
 import org.junit.Test;
 

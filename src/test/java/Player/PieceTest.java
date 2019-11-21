@@ -1,3 +1,5 @@
+package Player;
+
 import GameElements.Board;
 import GameElements.Dice;
 import Player.*;
