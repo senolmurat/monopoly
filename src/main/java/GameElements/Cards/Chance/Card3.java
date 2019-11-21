@@ -12,7 +12,7 @@ public class Card3 extends Card {
     }
 
     @Override
-    public void action(Player player) {
+    public void action(Player player, Player[] playerArray) {
         //decrease player money for numberOfProperty * 25
     }
 }

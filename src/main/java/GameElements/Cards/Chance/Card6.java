@@ -12,7 +12,7 @@ public class Card6 extends Card {
     }
 
     @Override
-    public void action(Player player) {
-
+    public void action(Player player, Player[] playerArray) {
+        //add money to player 100
     }
 }

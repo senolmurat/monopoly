@@ -13,7 +13,7 @@ public class Card5 extends Card {
 
 
     @Override
-    public void action(Player player) {
-        //Decrase player money by 50
+    public void action(Player player, Player[] playerArray) {
+        //Decrase player money by 50 , increase all other player money by 50
     }
 }
