@@ -10,7 +10,7 @@ public class Display {
 
     public void infoMessageBeforeTossDie(Player player, String squareType) {
         System.out.println("Turn: " + (player.getNumberOfTurn() + 1) + " | " + player.getName() + " will play"
-                + " | Position: " + (player.getPosition() + 1) + squareType + " | Money: " + player.getMoney().getMoney());
+                + " | Position: " + (player.getPosition() + 1) + " " +  squareType + " | Money: " + player.getMoney().getMoney());
     }
 
     public void infoMessageAfterTossDie(Player player, Dice dice, String squareType) {

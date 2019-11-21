@@ -2,6 +2,7 @@ import GameElements.Board;
 import GameElements.Dice;
 import IO.*;
 import Player.Player;
+import Square.*;
 
 import java.util.Scanner;
 
@@ -58,7 +59,14 @@ public class Game {
 
                         display.infoMessageBeforeTossDie(players[i], squareType);
 
-                        players[i].tossDie(dice, true, board);
+                        int sumOfFaces = players[i].tossDie(dice, board); //Player rolls the dice
+                        players[i].getPiece().move(sumOfFaces, board); //Moves its piece based on the faces, returns new position
+
+                        if(players[i].getPiece().isPassedFromStart())
+                            players[i].getMoney().addMoney(((StartSquare)(board.getBoard()[0])).getPassMoney());
+
+                        if(board.getBoard()[players[i].getPosition()] instanceof TaxSquare)
+                            players[i].getMoney().subtractMoney(((TaxSquare)(board.getBoard()[players[i].getPosition()])).getTax());
 
                         squareType = getTheSquareType(players[i], board); //Type of the square which the player is moved.
 
@@ -130,8 +138,8 @@ public class Game {
         for(int i = 0; i < length - 1; i++) {
             if(players[i].getFirstRoll() == players[i + 1].getFirstRoll()) {
                 while (true) {
-                    players[i].setFirstRoll(players[i].tossDie(dice, false, null));
-                    players[i + 1].setFirstRoll(players[i].tossDie(dice, false, null));
+                    players[i].setFirstRoll(players[i].tossDie(dice, null));
+                    players[i + 1].setFirstRoll(players[i].tossDie(dice, null));
 
                     if(players[i].getFirstRoll() > players[i + 1].getFirstRoll()) break;
 
