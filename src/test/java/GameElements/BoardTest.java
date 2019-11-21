@@ -1,3 +1,5 @@
+package GameElements;
+
 import GameElements.Board;
 import org.junit.Test;
 

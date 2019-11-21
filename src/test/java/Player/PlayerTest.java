@@ -1,3 +1,5 @@
+package Player;
+
 import GameElements.*;
 import Player.*;
 import org.junit.Test;
