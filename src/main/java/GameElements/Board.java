@@ -1,7 +1,7 @@
 package GameElements;
 
 import Square.*;
-import IO.ReadPropertySquare;
+import IO.ReadSquares;
 
 public class Board {
 
@@ -25,6 +25,7 @@ public class Board {
         generatePropertySquares(board);
         // generateRandomTaxSquareIndex(taxSquareNumber);
         generateTaxSquare(board);
+        generateUtilitySquares(board);
 
 
         //****************SQUARES********************************
@@ -72,9 +73,16 @@ public class Board {
     }
 
     public void generatePropertySquares(Square[] board) {
-        ReadPropertySquare readPropertySquare = new ReadPropertySquare();
-        for (int i = 0; i < readPropertySquare.getPropertySquaresList().size() - 1; i++) {
-            board[readPropertySquare.getPropertySquaresList().get(i).getPosition()] = readPropertySquare.getPropertySquaresList().get(i);
+        ReadSquares readSquares = new ReadSquares();
+        for (int i = 0; i < readSquares.getPropertySquaresList().size() - 1; i++) {
+            board[readSquares.getPropertySquaresList().get(i).getPosition() - 1] = readSquares.getPropertySquaresList().get(i);
+        }
+    }
+
+    public void generateUtilitySquares(Square[] board) {
+        ReadSquares readSquares = new ReadSquares();
+        for (int i = 0; i < readSquares.getUtilitySquaresList().size() - 1; i++) {
+            board[readSquares.getUtilitySquaresList().get(i).getPosition() - 1] = readSquares.getUtilitySquaresList().get(i);
         }
     }
 
