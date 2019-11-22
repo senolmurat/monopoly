@@ -12,7 +12,7 @@ public class PieceTest {
 
     Piece testPiece = new Piece();
     Dice testDice = new Dice();
-    Board testBoard = new Board(15, 150, 200);
+    Board testBoard = new Board(200);
 
 
     int[] diceTestArray = testDice.getFaces();
