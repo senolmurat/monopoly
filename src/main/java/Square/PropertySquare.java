@@ -6,7 +6,7 @@ public class PropertySquare extends Square {
 
     private int landValue;
     private int rent;
-    private Player owner;//player index in players array
+    private int owner;//player index in players array
     private String colour;
 
     private PropertySquare() {
@@ -20,28 +20,12 @@ public class PropertySquare extends Square {
         this.colour = colour;
         this.landValue = landValue;
         this.rent = rent;
-        this.owner = null;//default , no owner
+        this.owner = -1;//default , no owner
     }
 
     @Override
     public void squareAction(Player player) {
-
-        if(owner == null) {
-
-            if(player.decidingToBuy() && (player.getMoney().getMoney() - landValue > 0) ) {
-                System.out.println(player.getName() + " decided to buy " + super.getName());
-                owner = player;
-                player.getMoney().subtractMoney(landValue);
-                player.addPropertie(this);
-            }
-        }
-
-        else if(!player.equals(owner)) {
-            player.getMoney().subtractMoney(rent);
-            if(!owner.isBankrupt())
-            owner.getMoney().addMoney(rent);
-        }
-
+        //buying property
     }
 
     public int getLandValue() {
@@ -60,11 +44,11 @@ public class PropertySquare extends Square {
         this.rent = rent;
     }
 
-    public Player getOwner() {
+    public int getOwner() {
         return owner;
     }
 
-    public void setOwner(Player owner) {
+    public void setOwner(int owner) {
         this.owner = owner;
     }
 
@@ -80,4 +64,4 @@ public class PropertySquare extends Square {
     public String landedOn() {
         return getName();
     }
- }
+}

@@ -1,28 +1,29 @@
 [
-    {
-      "PropertySquare": {
-        "name": "Kasımpaşa",
-        "position": 2,
-        "color": "brown",
-        "landValue": 60,
-        "rent": 200
-      }
-    },
-    {
-      "PropertySquare": {
+  {
+    "PropertySquare": {
+      "name": "Kasımpaşa",
+      "position": 2,
+      "color": "brown",
+      "landValue": 60,
+      "rent": 2
+    }
+  },
+  {
+    "PropertySquare": {
       "name": "Dolapdere",
       "position": 4,
       "color": "brown",
       "landValue": 60,
-      "rent": 400
-      }
-    },{
+      "rent": 4
+    }
+  },
+  {
     "PropertySquare": {
       "name": "Sultanahmet",
       "position": 7,
       "color": "grey",
       "landValue": 100,
-      "rent": 600
+      "rent": 6
     }
   },
   {
@@ -31,7 +32,7 @@
       "position": 9,
       "color": "grey",
       "landValue": 100,
-      "rent": 100
+      "rent": 6
     }
   },
   {
@@ -40,7 +41,7 @@
       "position": 10,
       "color": "grey",
       "landValue": 120,
-      "rent": 800
+      "rent": 8
     }
   },
   {
@@ -49,7 +50,7 @@
       "position": 12,
       "color": "pink",
       "landValue": 140,
-      "rent": 100
+      "rent": 10
     }
   },
   {
@@ -58,7 +59,7 @@
       "position": 14,
       "color": "pink",
       "landValue": 140,
-      "rent": 100
+      "rent": 10
     }
   },
   {
@@ -67,7 +68,7 @@
       "position": 15,
       "color": "pink",
       "landValue": 160,
-      "rent": 120
+      "rent": 12
     }
   },
   {
@@ -76,7 +77,7 @@
       "position": 17,
       "color": "orange",
       "landValue": 160,
-      "rent": 140
+      "rent": 14
     }
   },
   {
@@ -85,7 +86,7 @@
       "position": 19,
       "color": "orange",
       "landValue": 160,
-      "rent": 140
+      "rent": 14
     }
   },
   {
@@ -94,7 +95,7 @@
       "position": 20,
       "color": "orange",
       "landValue": 200,
-      "rent": 160
+      "rent": 16
     }
   },
   {
@@ -103,7 +104,7 @@
       "position": 22,
       "color": "red",
       "landValue": 220,
-      "rent": 180
+      "rent": 18
     }
   },
   {
@@ -112,7 +113,7 @@
       "position": 24,
       "color": "red",
       "landValue": 220,
-      "rent": 180
+      "rent": 18
     }
   },
   {
@@ -121,7 +122,7 @@
       "position": 25,
       "color": "red",
       "landValue": 240,
-      "rent": 200
+      "rent": 20
     }
   },
   {
@@ -130,7 +131,7 @@
       "position": 27,
       "color": "yellow",
       "landValue": 260,
-      "rent": 220
+      "rent": 22
     }
   },
   {
@@ -139,7 +140,7 @@
       "position": 28,
       "color": "yellow",
       "landValue": 260,
-      "rent": 220
+      "rent": 22
     }
   },
   {
@@ -148,7 +149,7 @@
       "position": 30,
       "color": "yellow",
       "landValue": 280,
-      "rent": 240
+      "rent": 24
     }
   },
   {
@@ -157,7 +158,7 @@
       "position": 32,
       "color": "green",
       "landValue": 300,
-      "rent": 260
+      "rent": 26
     }
   },
   {
@@ -166,7 +167,7 @@
       "position": 33,
       "color": "green",
       "landValue": 300,
-      "rent": 260
+      "rent": 26
     }
   },
   {
@@ -175,7 +176,7 @@
       "position": 35,
       "color": "green",
       "landValue": 320,
-      "rent": 280
+      "rent": 28
     }
   },
   {
@@ -184,7 +185,7 @@
       "position": 38,
       "color": "blue",
       "landValue": 350,
-      "rent": 350
+      "rent": 35
     }
   },
   {
@@ -193,7 +194,7 @@
       "position": 40,
       "color": "blue",
       "landValue": 400,
-      "rent": 500
+      "rent": 50
     }
   },
   {
