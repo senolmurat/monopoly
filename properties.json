@@ -1,22 +1,23 @@
 [
-    {
-      "PropertySquare": {
-        "name": "Kasımpaşa",
-        "position": 2,
-        "color": "brown",
-        "landValue": 60,
-        "rent": 2
-      }
-    },
-    {
-      "PropertySquare": {
+  {
+    "PropertySquare": {
+      "name": "Kasımpaşa",
+      "position": 2,
+      "color": "brown",
+      "landValue": 60,
+      "rent": 2
+    }
+  },
+  {
+    "PropertySquare": {
       "name": "Dolapdere",
       "position": 4,
       "color": "brown",
       "landValue": 60,
       "rent": 4
-      }
-    },{
+    }
+  },
+  {
     "PropertySquare": {
       "name": "Sultanahmet",
       "position": 7,
@@ -24,7 +25,8 @@
       "landValue": 100,
       "rent": 6
     }
-  },{
+  },
+  {
     "PropertySquare": {
       "name": "Karakoy",
       "position": 9,
@@ -32,7 +34,8 @@
       "landValue": 100,
       "rent": 6
     }
-  },{
+  },
+  {
     "PropertySquare": {
       "name": "Sirkeci",
       "position": 10,
@@ -40,7 +43,8 @@
       "landValue": 120,
       "rent": 8
     }
-  },{
+  },
+  {
     "PropertySquare": {
       "name": "Beyoglu",
       "position": 12,
@@ -48,7 +52,8 @@
       "landValue": 140,
       "rent": 10
     }
-  },{
+  },
+  {
     "PropertySquare": {
       "name": "Besiktas",
       "position": 14,
@@ -56,7 +61,8 @@
       "landValue": 140,
       "rent": 10
     }
-  },{
+  },
+  {
     "PropertySquare": {
       "name": "Taksim",
       "position": 15,
@@ -64,7 +70,8 @@
       "landValue": 160,
       "rent": 12
     }
-  },{
+  },
+  {
     "PropertySquare": {
       "name": "Harbiye",
       "position": 17,
@@ -72,7 +79,8 @@
       "landValue": 160,
       "rent": 14
     }
-  },{
+  },
+  {
     "PropertySquare": {
       "name": "Sisli",
       "position": 19,
@@ -80,7 +88,8 @@
       "landValue": 160,
       "rent": 14
     }
-  },{
+  },
+  {
     "PropertySquare": {
       "name": "Mecidiyeköy",
       "position": 20,
@@ -88,7 +97,8 @@
       "landValue": 200,
       "rent": 16
     }
-  },{
+  },
+  {
     "PropertySquare": {
       "name": "Bostanci",
       "position": 22,
@@ -96,7 +106,8 @@
       "landValue": 220,
       "rent": 18
     }
-  },{
+  },
+  {
     "PropertySquare": {
       "name": "Erenkoy",
       "position": 24,
@@ -104,7 +115,8 @@
       "landValue": 220,
       "rent": 18
     }
-  },{
+  },
+  {
     "PropertySquare": {
       "name": "Caddebostan",
       "position": 25,
@@ -112,7 +124,8 @@
       "landValue": 240,
       "rent": 20
     }
-  },{
+  },
+  {
     "PropertySquare": {
       "name": "Nisantasi",
       "position": 27,
@@ -120,7 +133,8 @@
       "landValue": 260,
       "rent": 22
     }
-  },{
+  },
+  {
     "PropertySquare": {
       "name": "Tesvikiye",
       "position": 28,
@@ -128,7 +142,8 @@
       "landValue": 260,
       "rent": 22
     }
-  },{
+  },
+  {
     "PropertySquare": {
       "name": "Macka",
       "position": 30,
@@ -136,7 +151,8 @@
       "landValue": 280,
       "rent": 24
     }
-  },{
+  },
+  {
     "PropertySquare": {
       "name": "Levent",
       "position": 32,
@@ -144,7 +160,8 @@
       "landValue": 300,
       "rent": 26
     }
-  },{
+  },
+  {
     "PropertySquare": {
       "name": "Etiler",
       "position": 33,
@@ -152,7 +169,8 @@
       "landValue": 300,
       "rent": 26
     }
-  },{
+  },
+  {
     "PropertySquare": {
       "name": "Bebek",
       "position": 35,
@@ -160,7 +178,8 @@
       "landValue": 320,
       "rent": 28
     }
-  },{
+  },
+  {
     "PropertySquare": {
       "name": "Tarabya",
       "position": 38,
@@ -168,7 +187,8 @@
       "landValue": 350,
       "rent": 35
     }
-  },{
+  },
+  {
     "PropertySquare": {
       "name": "Yenikoy",
       "position": 40,
@@ -176,6 +196,60 @@
       "landValue": 400,
       "rent": 50
     }
+  },
+  {
+    "UtilitySquare": {
+      "name": "Haydarpasa Tren Istasyonu",
+      "position": 6,
+      "color": "black",
+      "landValue": 200,
+      "rent": 0
+    }
+  },
+  {
+    "UtilitySquare": {
+      "name": "Elektrik Idaresi",
+      "position": 13,
+      "color": "white",
+      "landValue": 150,
+      "rent": 0
+    }
+  },
+  {
+    "UtilitySquare": {
+      "name": "Kadikoy Iskelesi",
+      "position": 16,
+      "color": "black",
+      "landValue": 200,
+      "rent": 0
+    }
+  },
+  {
+    "UtilitySquare": {
+      "name": "Kabatas Iskelesi",
+      "position": 26,
+      "color": "black",
+      "landValue": 200,
+      "rent": 0
+    }
+  },
+  {
+    "UtilitySquare": {
+      "name": "Sular Idaresi",
+      "position": 29,
+      "color": "white",
+      "landValue": 150,
+      "rent": 0
+    }
+  },
+  {
+    "UtilitySquare": {
+      "name": "Sirkeci Tren Istasyonu",
+      "position": 36,
+      "color": "black",
+      "landValue": 200,
+      "rent": 0
+    }
   }
-  ]
+]
   
