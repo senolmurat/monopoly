@@ -1,5 +1,7 @@
 package Square;
 
+import Player.Player;
+
 public class UtilitySquare extends Square {
 
     private String type;
@@ -8,6 +10,11 @@ public class UtilitySquare extends Square {
     private int owner;//player index in players array
 
     private UtilitySquare() {
+    }
+
+    @Override
+    public void squareAction(Player player) {
+        player.getMoney().subtractMoney(this.rent);
     }
 
     public UtilitySquare(String name, int position, String type, int landValue, int rent) {

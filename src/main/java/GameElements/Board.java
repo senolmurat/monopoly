@@ -7,14 +7,12 @@ public class Board {
 
     private Square[] board;
     private int size = 40;
-    private int taxSquareNumber;
     private int taxAmount;
 
 
-    public Board(int taxSquareNumber, int taxAmount, int goSquare_money) {
+    public Board(int goSquare_money) {
         board = new Square[size];
         this.taxAmount = taxAmount;
-        this.taxSquareNumber = taxSquareNumber;
 
 
         //Setting positions and names for all squares

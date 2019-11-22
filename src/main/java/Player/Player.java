@@ -14,6 +14,8 @@ public class Player {
     private int[] tossedFaces;
     private Piece piece;
     private int firstRoll;
+    private boolean inJail = false;
+    private int jailCounter = 0;
 
     private Player() {
 
@@ -36,9 +38,6 @@ public class Player {
         }
 
         int sumOfFaces = dice.getTotalFaces();
-
-        //if(isItForMoving)
-        //    money.addMoney(piece.move(sumOfFaces, board));
 
         return sumOfFaces;
     }
@@ -105,5 +104,21 @@ public class Player {
 
     public Piece getPiece() {
         return piece;
+    }
+
+    public boolean isInJail() {
+        return inJail;
+    }
+
+    public void setInJail(boolean inJail) {
+        inJail = inJail;
+    }
+
+    public int getJailCounter() {
+        return jailCounter;
+    }
+
+    public void setJailCounter(int jailCounter) {
+        this.jailCounter = jailCounter;
     }
 }

@@ -8,8 +8,6 @@ public class Reader {
 
     private int numberOfPlayers;
     private int startingMoney;
-    private int numberOfTaxSquare;
-    private int taxAmount;
     private int goSquare_money;
     private String[] names;
 
@@ -28,10 +26,6 @@ public class Reader {
             this.numberOfPlayers = Integer.parseInt(fileReader.nextLine());
             fileReader.nextLine();
             this.startingMoney = Integer.parseInt((fileReader.nextLine()));
-            fileReader.nextLine();
-            this.numberOfTaxSquare = Integer.parseInt((fileReader.nextLine()));
-            fileReader.nextLine();
-            this.taxAmount = Integer.parseInt((fileReader.nextLine()));
             fileReader.nextLine();
             this.goSquare_money = Integer.parseInt((fileReader.nextLine()));
             fileReader.nextLine();
@@ -57,14 +51,6 @@ public class Reader {
 
     public int getStartingMoney() {
         return startingMoney;
-    }
-
-    public int getNumberOfTaxSquare() {
-        return numberOfTaxSquare;
-    }
-
-    public int getTaxAmount() {
-        return taxAmount;
     }
 
     public int getGoSquare_money() {

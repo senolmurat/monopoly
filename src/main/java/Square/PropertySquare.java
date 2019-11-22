@@ -1,5 +1,7 @@
 package Square;
 
+import Player.Player;
+
 public class PropertySquare extends Square {
 
     private int landValue;
@@ -10,6 +12,8 @@ public class PropertySquare extends Square {
     private PropertySquare() {
     }
 
+
+
     public PropertySquare(String name, int position, String colour, int landValue, int rent) {
         super.setName(name);
         super.setPosition(position);
@@ -17,6 +21,11 @@ public class PropertySquare extends Square {
         this.landValue = landValue;
         this.rent = rent;
         this.owner = -1;//default , no owner
+    }
+
+    @Override
+    public void squareAction(Player player) {
+        //buying property
     }
 
     public int getLandValue() {

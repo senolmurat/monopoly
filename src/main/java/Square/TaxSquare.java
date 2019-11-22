@@ -1,5 +1,7 @@
 package Square;
 
+import Player.Player;
+
 public class TaxSquare extends Square {
     int tax;
 
@@ -14,6 +16,11 @@ public class TaxSquare extends Square {
     }
     public void setTax(int tax) {
         this.tax = tax;
+    }
+
+    @Override
+    public void squareAction(Player player) {
+        player.getMoney().subtractMoney(this.tax);
     }
 
     @Override
