@@ -8,7 +8,7 @@ public class Board {
     private Square[] board;
     private int size = 40;
     private int taxAmount;
-
+    private int jailIndex = 9;
 
     public Board(int goSquare_money) {
         board = new Square[size];
@@ -31,7 +31,7 @@ public class Board {
         board[0] = new StartSquare("Start", 1, goSquare_money);
 
         //Initializing Jail Square
-        board[9] = new JailSquare("Jail", 10);
+        board[jailIndex] = new JailSquare("Jail", jailIndex + 1);
 
         //****************SQUARES********************************
     }
@@ -83,5 +83,7 @@ public class Board {
             board[readSquares.getUtilitySquaresList().get(i).getPosition() - 1] = readSquares.getUtilitySquaresList().get(i);
         }
     }
+
+    public int getJailIndex() {return jailIndex;}
 
 }
