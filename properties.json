@@ -24,7 +24,8 @@
       "landValue": 100,
       "rent": 600
     }
-  },{
+  },
+  {
     "PropertySquare": {
       "name": "Karakoy",
       "position": 9,
@@ -32,7 +33,8 @@
       "landValue": 100,
       "rent": 100
     }
-  },{
+  },
+  {
     "PropertySquare": {
       "name": "Sirkeci",
       "position": 10,
@@ -40,7 +42,8 @@
       "landValue": 120,
       "rent": 800
     }
-  },{
+  },
+  {
     "PropertySquare": {
       "name": "Beyoglu",
       "position": 12,
@@ -48,7 +51,8 @@
       "landValue": 140,
       "rent": 100
     }
-  },{
+  },
+  {
     "PropertySquare": {
       "name": "Besiktas",
       "position": 14,
@@ -56,7 +60,8 @@
       "landValue": 140,
       "rent": 100
     }
-  },{
+  },
+  {
     "PropertySquare": {
       "name": "Taksim",
       "position": 15,
@@ -64,7 +69,8 @@
       "landValue": 160,
       "rent": 120
     }
-  },{
+  },
+  {
     "PropertySquare": {
       "name": "Harbiye",
       "position": 17,
@@ -72,7 +78,8 @@
       "landValue": 160,
       "rent": 140
     }
-  },{
+  },
+  {
     "PropertySquare": {
       "name": "Sisli",
       "position": 19,
@@ -80,7 +87,8 @@
       "landValue": 160,
       "rent": 140
     }
-  },{
+  },
+  {
     "PropertySquare": {
       "name": "Mecidiyeköy",
       "position": 20,
@@ -88,7 +96,8 @@
       "landValue": 200,
       "rent": 160
     }
-  },{
+  },
+  {
     "PropertySquare": {
       "name": "Bostanci",
       "position": 22,
@@ -96,7 +105,8 @@
       "landValue": 220,
       "rent": 180
     }
-  },{
+  },
+  {
     "PropertySquare": {
       "name": "Erenkoy",
       "position": 24,
@@ -104,7 +114,8 @@
       "landValue": 220,
       "rent": 180
     }
-  },{
+  },
+  {
     "PropertySquare": {
       "name": "Caddebostan",
       "position": 25,
@@ -112,7 +123,8 @@
       "landValue": 240,
       "rent": 200
     }
-  },{
+  },
+  {
     "PropertySquare": {
       "name": "Nisantasi",
       "position": 27,
@@ -120,7 +132,8 @@
       "landValue": 260,
       "rent": 220
     }
-  },{
+  },
+  {
     "PropertySquare": {
       "name": "Tesvikiye",
       "position": 28,
@@ -128,7 +141,8 @@
       "landValue": 260,
       "rent": 220
     }
-  },{
+  },
+  {
     "PropertySquare": {
       "name": "Macka",
       "position": 30,
@@ -136,7 +150,8 @@
       "landValue": 280,
       "rent": 240
     }
-  },{
+  },
+  {
     "PropertySquare": {
       "name": "Levent",
       "position": 32,
@@ -144,7 +159,8 @@
       "landValue": 300,
       "rent": 260
     }
-  },{
+  },
+  {
     "PropertySquare": {
       "name": "Etiler",
       "position": 33,
@@ -152,7 +168,8 @@
       "landValue": 300,
       "rent": 260
     }
-  },{
+  },
+  {
     "PropertySquare": {
       "name": "Bebek",
       "position": 35,
@@ -160,7 +177,8 @@
       "landValue": 320,
       "rent": 280
     }
-  },{
+  },
+  {
     "PropertySquare": {
       "name": "Tarabya",
       "position": 38,
@@ -168,7 +186,8 @@
       "landValue": 350,
       "rent": 350
     }
-  },{
+  },
+  {
     "PropertySquare": {
       "name": "Yenikoy",
       "position": 40,
@@ -176,6 +195,60 @@
       "landValue": 400,
       "rent": 500
     }
+  },
+  {
+    "UtilitySquare": {
+      "name": "Haydarpasa Tren Istasyonu",
+      "position": 6,
+      "color": "black",
+      "landValue": 200,
+      "rent": 0
+    }
+  },
+  {
+    "UtilitySquare": {
+      "name": "Elektrik Idaresi",
+      "position": 13,
+      "color": "white",
+      "landValue": 150,
+      "rent": 0
+    }
+  },
+  {
+    "UtilitySquare": {
+      "name": "Kadikoy Iskelesi",
+      "position": 16,
+      "color": "black",
+      "landValue": 200,
+      "rent": 0
+    }
+  },
+  {
+    "UtilitySquare": {
+      "name": "Kabatas Iskelesi",
+      "position": 26,
+      "color": "black",
+      "landValue": 200,
+      "rent": 0
+    }
+  },
+  {
+    "UtilitySquare": {
+      "name": "Sular Idaresi",
+      "position": 29,
+      "color": "white",
+      "landValue": 150,
+      "rent": 0
+    }
+  },
+  {
+    "UtilitySquare": {
+      "name": "Sirkeci Tren Istasyonu",
+      "position": 36,
+      "color": "black",
+      "landValue": 200,
+      "rent": 0
+    }
   }
-  ]
+]
   
