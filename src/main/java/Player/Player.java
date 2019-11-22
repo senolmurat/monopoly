@@ -2,10 +2,6 @@ package Player;
 
 import GameElements.Board;
 import GameElements.Dice;
-import Square.Square;
-
-import java.util.ArrayList;
-import java.util.Random;
 
 public class Player {
 
@@ -20,7 +16,6 @@ public class Player {
     private int firstRoll;
     private boolean inJail = false;
     private int jailCounter = 0;
-    private ArrayList<Square> properties = new ArrayList<Square>();
 
     private Player() {
 
@@ -31,10 +26,10 @@ public class Player {
         this.name = name;
         this.money = new Money(startingMoney);
         piece = new Piece();
-        firstRoll = tossDie(dice);
+        firstRoll = tossDie(dice, null);
     }
 
-    public int tossDie(Dice dice) {
+    public int tossDie(Dice dice, Board board) {
         dice.setDouble(false); //Set the isDouble value to "false" for every dice before tossing
         tossedFaces = dice.getFaces();
 
@@ -116,7 +111,7 @@ public class Player {
     }
 
     public void setInJail(boolean inJail) {
-        this.inJail = inJail;
+        inJail = inJail;
     }
 
     public int getJailCounter() {
@@ -126,32 +121,4 @@ public class Player {
     public void setJailCounter(int jailCounter) {
         this.jailCounter = jailCounter;
     }
-
-    public void goToJail(int position) {
-        setPosition(position);
-        setInJail(true);
-        setJailCounter(0);
-    }
-
-    public void freeToGo() {
-        setInJail(false);
-        setJailCounter(0);
-        setDoubleDiceCounter(0);
-    }
-
-    public boolean decidingToBuy() {
-        Random rand = new Random();
-        int value = 1 + rand.nextInt(100);
-
-        if(value > 80) {
-            return true;
-        }
-        else
-            return false;
-    }
-
-    public void addPropertie(Square propertie) {
-        properties.add(propertie);
-    }
-    public ArrayList<Square> getProperties() { return properties;}
 }
