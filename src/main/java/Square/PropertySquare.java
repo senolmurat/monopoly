@@ -32,10 +32,10 @@ public class PropertySquare extends Square {
         if(owner == null) {
 
             if(player.decidingToBuy() && (player.getMoney().getMoney() - landValue > 0) ) {
-                display.infoMessageBuying(player, this);
                 owner = player;
                 player.getMoney().subtractMoney(landValue);
                 player.addProperty(this);
+                display.infoMessageBuying(player, this);
             }
         }
 

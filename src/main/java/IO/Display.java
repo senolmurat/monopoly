@@ -70,6 +70,7 @@ public class Display {
     }
 
     public void infoMessageBuying(Player player, PropertySquare propertySquare) {
-        System.out.println(player.getName() + " decided to buy " + propertySquare.getName() + " and paid " + propertySquare.getLandValue());
+        System.out.println(player.getName() + " decided to buy " + propertySquare.getName() + " and paid " + propertySquare.getLandValue()
+                + ". | Money: " + player.getMoney().getMoney());
     }
 }
