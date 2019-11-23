@@ -4,7 +4,6 @@ import IO.*;
 import Player.Player;
 import Square.*;
 
-import java.util.Iterator;
 import java.util.Scanner;
 
 public class Game {
@@ -91,10 +90,6 @@ public class Game {
 
                             if(players[i].isBankrupt()) {
                                 players[i].setBankrupt(true);
-                                Iterator iter = players[i].getProperties().iterator();
-                                while (iter.hasNext()) {
-                                    ((PropertySquare)iter.next()).setOwner(null);
-                                }
                                 remainingPlayers--;
                                 System.out.println("\n" + players[i].getName() + " is bankrupt!\n");
                                 for(int j =  0; j < numberOfPlayers; j++)
@@ -111,13 +106,22 @@ public class Game {
                         }
                         /*
                         else {
+                            players[i].setPosition(10); //Put it in jail
                             players[i].setDoubleDiceCounter(0);
-                            players[i].goToJail(board.getJailIndex());
                         }
                          */
                     }
                     else {
-                        ((JailSquare)board.getBoard()[board.getJailIndex()]).squareAction(players[i], players[i].getJailCounter(), dice);
+                        if (players[i].getJailCounter() < 3){
+
+                                    //Tries to get out from jail
+                            
+                            players[i].setJailCounter(players[i].getJailCounter()+1);
+                        }
+                        else { //If he/she stayed in jail 3 turns, gets out
+                            players[i].setInJail(false);
+                            players[i].setJailCounter(0);
+                        }
                     }
                 }
             }
@@ -163,8 +167,8 @@ public class Game {
         for(int i = 0; i < length - 1; i++) {
             if(players[i].getFirstRoll() == players[i + 1].getFirstRoll()) {
                 while (true) {
-                    players[i].setFirstRoll(players[i].tossDie(dice));
-                    players[i + 1].setFirstRoll(players[i].tossDie(dice));
+                    players[i].setFirstRoll(players[i].tossDie(dice, null));
+                    players[i + 1].setFirstRoll(players[i].tossDie(dice, null));
 
                     if(players[i].getFirstRoll() > players[i + 1].getFirstRoll()) break;
 

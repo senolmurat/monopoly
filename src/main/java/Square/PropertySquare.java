@@ -7,7 +7,7 @@ public class PropertySquare extends Square {
 
     private int landValue;
     private int rent;
-    private Player owner;//player index in players array
+    private int owner;//player index in players array
     private String colour;
 
     private PropertySquare() {
@@ -21,7 +21,7 @@ public class PropertySquare extends Square {
         this.colour = colour;
         this.landValue = landValue;
         this.rent = rent;
-        this.owner = null;//default , no owner
+        this.owner = -1;//default , no owner
     }
 
     @Override
@@ -65,11 +65,11 @@ public class PropertySquare extends Square {
         this.rent = rent;
     }
 
-    public Player getOwner() {
+    public int getOwner() {
         return owner;
     }
 
-    public void setOwner(Player owner) {
+    public void setOwner(int owner) {
         this.owner = owner;
     }
 
@@ -85,4 +85,4 @@ public class PropertySquare extends Square {
     public String landedOn() {
         return getName();
     }
- }
+}
