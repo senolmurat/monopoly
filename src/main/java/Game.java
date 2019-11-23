@@ -57,21 +57,24 @@ public class Game {
                     if (!players[i].isInJail()){
                         if(players[i].getDoubleDiceCounter() < 3) {
 
-                            squareType = getTheSquareType(players[i], board); //Type of the square which the player is moved.
+                            squareType = getTheSquareType(players[i], board); //Type of the square which the player is currently at.
 
                             display.infoMessageBeforeTossDie(players[i], squareType);
 
                             int sumOfFaces = players[i].tossDie(dice); //Player rolls the dice
+
+                            //doubleDice check must be done in here
+
                             players[i].getPiece().move(sumOfFaces, board); //Moves its piece based on the faces, returns new position
 
-                            if(players[i].getPiece().isPassedFromStart())
+                            squareType = getTheSquareType(players[i], board); //Type of the square which the player is moved.
+                            display.infoMessageAfterTossDie(players[i], dice, squareType);
+
+                            if(players[i].getPiece().isPassedFromStart()) {
                                 players[i].getMoney().addMoney(((StartSquare)(board.getBoard()[0])).getPassMoney());
+                            }
 
                             board.getBoard()[players[i].getPosition()].squareAction(players[i]);
-
-                            squareType = getTheSquareType(players[i], board); //Type of the square which the player is moved.
-
-                            display.infoMessageAfterTossDie(players[i], dice, squareType);
 
                             if(players[i].isBankrupt()) {
                                 players[i].setBankrupt(true);
@@ -93,6 +96,9 @@ public class Game {
                             if(dice.isDouble()) {
                                 players[i].setDoubleDiceCounter(players[i].getDoubleDiceCounter() + 1);
                                 i--;
+                            }
+                            else { //If dice is not double, resets the doubleDiceCounter
+                                players[i].setDoubleDiceCounter(0);
                             }
                         }
                         else {

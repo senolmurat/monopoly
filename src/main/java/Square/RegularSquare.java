@@ -17,6 +17,6 @@ public class RegularSquare extends Square {
 
     @Override
     public String landedOn() {
-        return "(Regular Square)";
+        return "Regular Square";
     }
 }

@@ -1,6 +1,7 @@
 package Square;
 
 import Player.Player;
+import IO.Display;
 
 public class PropertySquare extends Square {
 
@@ -26,20 +27,24 @@ public class PropertySquare extends Square {
     @Override
     public void squareAction(Player player) {
 
+        Display display = new Display();
+
         if(owner == null) {
 
             if(player.decidingToBuy() && (player.getMoney().getMoney() - landValue > 0) ) {
                 System.out.println(player.getName() + " decided to buy " + super.getName());
                 owner = player;
                 player.getMoney().subtractMoney(landValue);
-                player.addPropertie(this);
+                player.addProperty(this);
             }
         }
 
         else if(!player.equals(owner)) {
             player.getMoney().subtractMoney(rent);
-            if(!owner.isBankrupt())
-            owner.getMoney().addMoney(rent);
+            if(!owner.isBankrupt()){
+                owner.getMoney().addMoney(rent);
+                display.InfoPayingRent(player, owner, rent);
+            }
         }
 
     }
