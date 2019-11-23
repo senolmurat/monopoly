@@ -33,7 +33,7 @@ public class DisplayTest {
 
     @Test
     public void infoMessageAfterTossDie() {
-        displayTest.infoMessageAfterTossDie(playerTest,dice," Tax Square");
+        displayTest.infoMessageAfterTossDie(playerTest," Tax Square");
     }
 
     @Test

@@ -1,6 +1,5 @@
 package Player;
 
-import GameElements.Board;
 import GameElements.Dice;
 import Square.Square;
 
@@ -37,11 +36,6 @@ public class Player {
     public int tossDie(Dice dice) {
         dice.setDouble(false); //Set the isDouble value to "false" for every dice before tossing
         tossedFaces = dice.getFaces();
-
-        if (dice.isDouble()) {
-            doubleDiceCounter++;
-        }
-
         int sumOfFaces = dice.getTotalFaces();
 
         return sumOfFaces;
@@ -150,8 +144,8 @@ public class Player {
             return false;
     }
 
-    public void addPropertie(Square propertie) {
-        properties.add(propertie);
+    public void addProperty(Square property) {
+        properties.add(property);
     }
     public ArrayList<Square> getProperties() { return properties;}
 }
