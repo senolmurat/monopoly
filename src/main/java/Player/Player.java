@@ -1,6 +1,10 @@
 package Player;
 
 import GameElements.Dice;
+import Square.Square;
+
+import java.util.ArrayList;
+import java.util.Random;
 
 public class Player {
 
@@ -15,6 +19,7 @@ public class Player {
     private int firstRoll;
     private boolean inJail = false;
     private int jailCounter = 0;
+    private ArrayList<Square> properties = new ArrayList<Square>();
 
     private Player() {
 
@@ -25,10 +30,10 @@ public class Player {
         this.name = name;
         this.money = new Money(startingMoney);
         piece = new Piece();
-        firstRoll = tossDie(dice, null);
+        firstRoll = tossDie(dice);
     }
 
-    public int tossDie(Dice dice, Board board) {
+    public int tossDie(Dice dice) {
         dice.setDouble(false); //Set the isDouble value to "false" for every dice before tossing
         tossedFaces = dice.getFaces();
         int sumOfFaces = dice.getTotalFaces();
@@ -105,7 +110,7 @@ public class Player {
     }
 
     public void setInJail(boolean inJail) {
-        inJail = inJail;
+        this.inJail = inJail;
     }
 
     public int getJailCounter() {
