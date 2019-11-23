@@ -1,6 +1,5 @@
 package Player;
 
-import GameElements.Board;
 import GameElements.Dice;
 
 public class Player {
@@ -32,11 +31,6 @@ public class Player {
     public int tossDie(Dice dice, Board board) {
         dice.setDouble(false); //Set the isDouble value to "false" for every dice before tossing
         tossedFaces = dice.getFaces();
-
-        if (dice.isDouble()) {
-            doubleDiceCounter++;
-        }
-
         int sumOfFaces = dice.getTotalFaces();
 
         return sumOfFaces;
@@ -121,4 +115,32 @@ public class Player {
     public void setJailCounter(int jailCounter) {
         this.jailCounter = jailCounter;
     }
+
+    public void goToJail(int position) {
+        setPosition(position);
+        setInJail(true);
+        setJailCounter(0);
+    }
+
+    public void freeToGo() {
+        setInJail(false);
+        setJailCounter(0);
+        setDoubleDiceCounter(0);
+    }
+
+    public boolean decidingToBuy() {
+        Random rand = new Random();
+        int value = 1 + rand.nextInt(100);
+
+        if(value > 80) {
+            return true;
+        }
+        else
+            return false;
+    }
+
+    public void addProperty(Square property) {
+        properties.add(property);
+    }
+    public ArrayList<Square> getProperties() { return properties;}
 }

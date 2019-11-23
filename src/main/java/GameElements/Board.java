@@ -84,4 +84,8 @@ public class Board {
         }
     }
 
+    public int getJailIndex() {
+        return jailIndex;
+    }
+
 }

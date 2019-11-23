@@ -16,6 +16,6 @@ public class GoToJail extends Square {
 
     @Override
     public String landedOn() {
-        return "(Go To Jail)";
+        return "Go To Jail Square";
     }
 }

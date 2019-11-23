@@ -25,6 +25,6 @@ public class StartSquare extends Square {
 
     @Override
     public String landedOn() {
-        return "(Start Square)";
+        return "Start Square";
     }
 }
