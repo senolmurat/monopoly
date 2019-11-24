@@ -13,6 +13,6 @@ public class commCard5 extends Card {
 
     @Override
     public void action(Player player, Player[] playerArray) {
-        //Set position to jail , or set position to GoTOjail square
+        player.goToJail(9);
     }
 }

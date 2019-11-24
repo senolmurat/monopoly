@@ -3,6 +3,8 @@ package GameElements.Cards.Chance;
 import GameElements.Cards.Card;
 import Player.Player;
 
+import java.util.Iterator;
+
 public class Card5 extends Card {
 
     public Card5(){
@@ -14,6 +16,17 @@ public class Card5 extends Card {
 
     @Override
     public void action(Player player, Player[] playerArray) {
-        //Decrase player money by 50 , increase all other player money by 50
+
+        for(int i = 0 ; i < playerArray.length ; i++){
+
+            if(player.getId() == playerArray[i].getId()){
+                continue;
+            }
+
+            player.getMoney().subtractMoney(50);
+            playerArray[i].getMoney().addMoney(50);
+
+        }
+
     }
 }

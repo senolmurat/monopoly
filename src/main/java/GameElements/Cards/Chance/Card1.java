@@ -13,9 +13,6 @@ public class Card1 extends Card {
 
     @Override
     public void action(Player player, Player[] playerArray) {
-        //TODO Card Actions
-        //Set player Position to start square
-
-
+       player.setPosition(1);
     }
 }

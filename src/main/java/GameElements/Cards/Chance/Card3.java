@@ -13,6 +13,6 @@ public class Card3 extends Card {
 
     @Override
     public void action(Player player, Player[] playerArray) {
-        //decrease player money for numberOfProperty * 25
+        player.getMoney().subtractMoney( (player.getProperties().size()) * 25 );
     }
 }

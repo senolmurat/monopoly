@@ -13,6 +13,6 @@ public class commCard1 extends Card {
 
     @Override
     public void action(Player player, Player[] playerArray) {
-        //Set position to goSquare
+        player.setPosition(1);
     }
 }
