@@ -14,6 +14,6 @@ public class Card2 extends Card {
 
     @Override
     public void action(Player player, Player[] playerArray) {
-        //set position to GoTOjail square
+        player.goToJail(9);
     }
 }

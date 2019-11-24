@@ -14,6 +14,6 @@ public class Card4 extends Card {
 
     @Override
     public void action(Player player, Player[] playerArray) {
-        //Decrease player money by 15
+        player.getMoney().subtractMoney(15);
     }
 }

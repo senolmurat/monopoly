@@ -7,12 +7,12 @@ public class commCard12 extends Card {
 
     public commCard12() {
         super.setName("Chest12");
-        super.setDescription("Receive $25 consultancy fee.");
-        super.setAltDescription("As Justice of the Peace, a stern Mr. M holds out his hand for fee from an embarrassed groom whose bride hold a bouquet behind him");
+        super.setDescription("Life insurance matures , Collect $100.");
+        super.setAltDescription("Below an I N S sign stands a bent Mr Monopoly, his long beard brushing the floor");
     }
 
     @Override
     public void action(Player player, Player[] playerArray) {
-        //increase player money by 25
+        player.getMoney().addMoney(100);
     }
 }

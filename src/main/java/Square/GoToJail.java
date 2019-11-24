@@ -11,7 +11,7 @@ public class GoToJail extends Square {
 
     @Override
     public void squareAction(Player player) {
-        player.setPosition(10);
+        player.goToJail(9);
     }
 
     @Override

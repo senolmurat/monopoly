@@ -1,4 +1,7 @@
 import GameElements.Board;
+import GameElements.Cards.Card;
+import GameElements.Cards.Chance.*;
+import GameElements.Cards.CommunityChest.*;
 import GameElements.Dice;
 import IO.*;
 import Player.Player;
@@ -29,6 +32,11 @@ public class Game {
         Board board = new Board( reader.getPassingStartPrize());
         Display display = new Display();
         Dice dice = new Dice();
+
+        //Card[] chance = new Card[6];
+        //Card[] communityChest = new Card[15];
+        //crateChanceCards(chance , communityChest);
+
         Player[] players = new Player[numberOfPlayers];
         for(int i = 0; i < numberOfPlayers; i++)
             players[i] = new Player(i, reader.getNames()[i], reader.getStartingMoney(), dice);
@@ -181,5 +189,34 @@ public class Game {
                     players[i].setNumberOfTurn(players[i].getNumberOfTurn() - 1);
             }
         }
+    }
+
+
+    private void crateChanceCards(Card[] chance , Card[] communityChest){
+
+        chance[0] = new Card1();
+        chance[1] = new Card2();
+        chance[2] = new Card3();
+        chance[3] = new Card4();
+        chance[4] = new Card5();
+        chance[5] = new Card6();
+
+        communityChest[0] = new commCard1();
+        communityChest[1] = new commCard2();
+        communityChest[2] = new commCard3();
+        communityChest[3] = new commCard4();
+        communityChest[4] = new commCard5();
+        communityChest[5] = new commCard6();
+        communityChest[6] = new commCard7();
+        communityChest[7] = new commCard8();
+        communityChest[8] = new commCard9();
+        communityChest[9] = new commCard10();
+        communityChest[10] = new commCard11();
+        communityChest[11] = new commCard12();
+        communityChest[12] = new commCard13();
+        communityChest[13] = new commCard14();
+        communityChest[14] = new commCard15();
+
+        return;
     }
 }

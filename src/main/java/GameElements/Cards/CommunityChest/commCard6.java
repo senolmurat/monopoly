@@ -13,6 +13,16 @@ public class commCard6 extends Card {
 
     @Override
     public void action(Player player, Player[] playerArray) {
-        //decrase player money by 50 , ncrease all other players money by 50
+
+        for(int i = 0 ; i < playerArray.length ; i++){
+
+            if(player.getId() == playerArray[i].getId()){
+                continue;
+            }
+
+            player.getMoney().addMoney(50);
+            playerArray[i].getMoney().subtractMoney(50);
+
+        }
     }
 }

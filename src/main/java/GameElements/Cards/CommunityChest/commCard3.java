@@ -13,6 +13,6 @@ public class commCard3 extends Card {
 
     @Override
     public void action(Player player, Player[] playerArray) {
-        //decrase player money bby 25
+        player.getMoney().subtractMoney(25);
     }
 }
