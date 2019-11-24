@@ -8,7 +8,7 @@ public class Reader {
 
     private int numberOfPlayers;
     private int startingMoney;
-    private int goSquare_money;
+    private int passingStartPrize;
     private String[] names;
 
 
@@ -27,7 +27,7 @@ public class Reader {
             fileReader.nextLine();
             this.startingMoney = Integer.parseInt((fileReader.nextLine()));
             fileReader.nextLine();
-            this.goSquare_money = Integer.parseInt((fileReader.nextLine()));
+            this.passingStartPrize = Integer.parseInt((fileReader.nextLine()));
             fileReader.nextLine();
 
             names = new String[numberOfPlayers];
@@ -53,8 +53,8 @@ public class Reader {
         return startingMoney;
     }
 
-    public int getGoSquare_money() {
-        return goSquare_money;
+    public int getPassingStartPrize() {
+        return passingStartPrize;
     }
 
     public String[] getNames() {

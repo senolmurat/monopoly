@@ -10,7 +10,7 @@ public class Board {
     private int taxAmount;
     private int jailIndex = 9;
 
-    public Board(int goSquare_money) {
+    public Board(int passingStartPrize) {
         board = new Square[size];
         this.taxAmount = taxAmount;
 
@@ -28,7 +28,7 @@ public class Board {
 
         //****************SQUARES********************************
         //Initializing start square
-        board[0] = new StartSquare("Start", 1, goSquare_money);
+        board[0] = new StartSquare("Start", 1, passingStartPrize);
 
         //Initializing Jail Square
         board[jailIndex] = new JailSquare("Jail", jailIndex + 1);
