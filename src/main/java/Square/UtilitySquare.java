@@ -7,7 +7,7 @@ public class UtilitySquare extends Square {
     private String type;
     private int landValue;
     private int rent;
-    private int owner;//player index in players array
+    private Player owner;//player index in players array
 
     private UtilitySquare() {
     }
@@ -23,7 +23,7 @@ public class UtilitySquare extends Square {
         this.type = type;
         this.landValue = landValue;
         this.rent = rent;
-        this.owner = -1;//default , no owner
+        this.owner = null;//default , no owner
     }
 
     public int getLandValue() {
@@ -42,11 +42,11 @@ public class UtilitySquare extends Square {
         this.rent = rent;
     }
 
-    public int getOwner() {
+    public Player getOwner() {
         return owner;
     }
 
-    public void setOwner(int owner) {
+    public void setOwner(Player owner) {
         this.owner = owner;
     }
 
@@ -60,6 +60,10 @@ public class UtilitySquare extends Square {
 
     @Override
     public String landedOn() {
-        return getName();
+        String ret = "";
+        ret = ret.concat(getName());
+        if (getOwner() != null)
+            ret = ret + " (Owner: " + getOwner().getName()+ ")";
+        return ret;
     }
 }

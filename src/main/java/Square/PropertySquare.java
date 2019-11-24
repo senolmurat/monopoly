@@ -83,6 +83,10 @@ public class PropertySquare extends Square {
 
     @Override
     public String landedOn() {
-        return getName();
+        String ret = "";
+        ret = ret.concat(getName());
+        if (getOwner() != null)
+            ret = ret + " (Owner: " + getOwner().getName()+ ")";
+        return ret;
     }
 }

@@ -25,6 +25,6 @@ public class TaxSquare extends Square {
 
     @Override
     public String landedOn() {
-        return "Tax Square";
+        return getName();
     }
 }

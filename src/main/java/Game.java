@@ -3,7 +3,6 @@ import GameElements.Dice;
 import IO.*;
 import Player.Player;
 import Square.*;
-
 import java.util.Iterator;
 import java.util.Scanner;
 
@@ -27,7 +26,7 @@ public class Game {
             numberOfPlayers = input.nextInt();
         }
 
-        Board board = new Board( reader.getGoSquare_money());
+        Board board = new Board( reader.getPassingStartPrize());
         Display display = new Display();
         Dice dice = new Dice();
         Player[] players = new Player[numberOfPlayers];
@@ -72,7 +71,6 @@ public class Game {
                                     display.infoMessageDoubleDiceThreeTimesInARow(players[i]);
                                     continue;
                                 }
-                                // i--; //Couldn't make it here, compile error
                             }
                             else { //If dice is not double, resets the doubleDiceCounter
                                 players[i].setDoubleDiceCounter(0);
@@ -80,12 +78,12 @@ public class Game {
 
                             players[i].getPiece().move(sumOfFaces, board); //Moves its piece based on the faces, returns new position
 
-                            squareType = getTheSquareType(players[i], board); //Type of the square which the player is moved.
-                            display.infoMessageAfterTossDie(players[i], squareType);
-
                             if(players[i].getPiece().isPassedFromStart()) {
                                 players[i].getMoney().addMoney(((StartSquare)(board.getBoard()[0])).getPassMoney());
                             }
+
+                            squareType = getTheSquareType(players[i], board); //Type of the square which the player is moved.
+                            display.infoMessageAfterTossDie(players[i], squareType);
 
                             board.getBoard()[players[i].getPosition()].squareAction(players[i]);
 
@@ -109,12 +107,6 @@ public class Game {
                             if (dice.isDouble()) //Current player will toss dice again
                                 i--;
                         }
-                        /*
-                        else {
-                            players[i].setDoubleDiceCounter(0);
-                            players[i].goToJail(board.getJailIndex());
-                        }
-                         */
                     }
                     else {
                         ((JailSquare)board.getBoard()[board.getJailIndex()]).squareAction(players[i], players[i].getJailCounter(), dice);
