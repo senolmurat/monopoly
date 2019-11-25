@@ -3,7 +3,7 @@ package Square;
 import IO.Display;
 import Player.Player;
 
-public class UtilitySquare extends Square {
+public class UtilitySquare extends Square implements Purchasable{
 
     private String type;
     private int landValue;
@@ -49,26 +49,32 @@ public class UtilitySquare extends Square {
         this.owner = null;//default , no owner
     }
 
+    @Override
     public int getLandValue() {
         return landValue;
     }
 
+    @Override
     public void setLandValue(int landValue) {
         this.landValue = landValue;
     }
 
+    @Override
     public int getRent() {
         return rent;
     }
 
+    @Override
     public void setRent(int rent) {
         this.rent = rent;
     }
 
+    @Override
     public Player getOwner() {
         return owner;
     }
 
+    @Override
     public void setOwner(Player owner) {
         this.owner = owner;
     }
