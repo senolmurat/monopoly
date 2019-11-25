@@ -99,7 +99,7 @@ public class Game {
                                 players[i].setBankrupt(true);
                                 Iterator iter = players[i].getProperties().iterator();
                                 while (iter.hasNext()) {
-                                    ((PropertySquare)iter.next()).setOwner(null);
+                                    ((Purchasable)iter.next()).setOwner(null);
                                 }
                                 remainingPlayers--;
                                 System.out.println("\n" + players[i].getName() + " is bankrupt!\n");
