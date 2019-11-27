@@ -20,7 +20,9 @@ public class TaxSquare extends Square {
 
     @Override
     public void squareAction(Player player) {
-        player.getMoney().subtractMoney(this.tax);
+            setTax((int) (player.getMoney().getMoney() * 0.20));
+            player.getMoney().subtractMoney(this.tax);
+
     }
 
     @Override
