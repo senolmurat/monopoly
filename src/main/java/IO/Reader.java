@@ -10,6 +10,8 @@ public class Reader {
     private int startingMoney;
     private int passingStartPrize;
     private String[] names;
+    private int numberOfGoToJailSquare;
+    private int numberOfDices;
 
 
     public Reader() {
@@ -28,6 +30,10 @@ public class Reader {
             this.startingMoney = Integer.parseInt((fileReader.nextLine()));
             fileReader.nextLine();
             this.passingStartPrize = Integer.parseInt((fileReader.nextLine()));
+            fileReader.nextLine();
+            this.numberOfGoToJailSquare = Integer.parseInt((fileReader.nextLine()));
+            fileReader.nextLine();
+            this.numberOfDices = Integer.parseInt(fileReader.nextLine());
             fileReader.nextLine();
 
             names = new String[numberOfPlayers];
@@ -59,5 +65,13 @@ public class Reader {
 
     public String[] getNames() {
         return names;
+    }
+
+    public int getNumberOfGoToJailSquare() {
+        return numberOfGoToJailSquare;
+    }
+
+    public int getNumberOfDices() {
+        return numberOfDices;
     }
 }
