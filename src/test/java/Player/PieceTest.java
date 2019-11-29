@@ -1,8 +1,7 @@
 package Player;
 
 import GameElements.Board;
-import GameElements.Dice;
-import Player.*;
+import GameElements.Die;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
@@ -11,11 +10,11 @@ import static org.junit.Assert.*;
 public class PieceTest {
 
     Piece testPiece = new Piece();
-    Dice testDice = new Dice();
+    Die testDie = new Die();
     Board testBoard = new Board(200);
 
 
-    int[] diceTestArray = testDice.getFaces();
+    int[] diceTestArray = testDie.getFaces();
     int sumOfFaces = diceTestArray[0] + diceTestArray[1];
 
 

@@ -16,10 +16,14 @@ public class Display {
                 + " | Position: " + (player.getPosition() + 1) + " " +  squareType + " | Money: " + player.getMoney().getMoney());
     }
 
-    public void infoMessageTossedDice(Player player, Dice dice) {
-        System.out.println(player.getName() + " tossing dice... Faces are " + player.getTossedFaces()[0] + " - " + player.getTossedFaces()[1]
-                + " | Total faces: " + dice.getTotalFaces() + " | Double: "
-                + dice.isDouble());
+    public void infoMessageTossedDice(Player player, Die die) {
+        System.out.print(player.getName() + " tossing dice... Faces are ");
+
+        for (int i = 0; i < die.getDieFaces().length; i++){
+            System.out.print(player.getTossedFaces()[i] + " ");
+        }
+
+        System.out.println(" | Total faces: " + die.getTotalFaces() + " | Double: " + die.isDouble());
     }
 
     public void infoMessageAfterTossDie(Player player, String squareType) {
