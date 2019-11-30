@@ -1,21 +1,20 @@
 package IO;
 
-import GameElements.Dice;
-import IO.Display;
+import GameElements.Die;
 import Player.*;
 import org.junit.Before;
 import org.junit.Test;
 
 public class DisplayTest {
 
-    Dice dice = new Dice();
+    Die die = new Die();
     Player playerTest;
     Player playerTest1;
     Display displayTest = new Display();
 
     {
         try {
-            playerTest = new Player(1," Ali ", 2000, dice );
+            playerTest = new Player(1," Ali ", 2000, die);
         } catch (Exception e) {
             e.printStackTrace();
         }

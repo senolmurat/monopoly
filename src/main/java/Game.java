@@ -2,7 +2,7 @@ import GameElements.Board;
 import GameElements.Cards.Card;
 import GameElements.Cards.Chance.*;
 import GameElements.Cards.CommunityChest.*;
-import GameElements.Dice;
+import GameElements.Die;
 import IO.*;
 import Player.Player;
 import Square.*;
@@ -31,7 +31,7 @@ public class Game {
 
         Board board = new Board( reader.getPassingStartPrize());
         Display display = new Display();
-        Dice dice = new Dice();
+        Die die = new Die();
 
         //Card[] chance = new Card[6];
         //Card[] communityChest = new Card[15];
@@ -39,9 +39,9 @@ public class Game {
 
         Player[] players = new Player[numberOfPlayers];
         for(int i = 0; i < numberOfPlayers; i++)
-            players[i] = new Player(i, reader.getNames()[i], reader.getStartingMoney(), dice);
+            players[i] = new Player(i, reader.getNames()[i], reader.getStartingMoney(), die);
 
-        sortPlayers(players, dice);
+        sortPlayers(players, die);
 
         System.out.print("Order of the player to play based on first dices: ");
         for(int i = 0; i < players.length ; i++){
@@ -68,10 +68,10 @@ public class Game {
 
                             display.infoMessageBeforeTossDie(players[i], squareType);
 
-                            int sumOfFaces = players[i].tossDie(dice); //Player rolls the dice
-                            display.infoMessageTossedDice(players[i], dice);
+                            int sumOfFaces = players[i].tossDie(die); //Player rolls the dice
+                            display.infoMessageTossedDice(players[i], die);
 
-                            if(dice.isDouble()) {
+                            if(die.isDouble()) {
                                 players[i].setDoubleDiceCounter(players[i].getDoubleDiceCounter() + 1);
                                 if( players[i].getDoubleDiceCounter() == 3){ //If current player rolls double dice three times in a row
                                     players[i].setDoubleDiceCounter(0);
@@ -112,12 +112,12 @@ public class Game {
                                 //if there is one player left
                             }
 
-                            if (dice.isDouble()) //Current player will toss dice again
+                            if (die.isDouble()) //Current player will toss dice again
                                 i--;
                         }
                     }
                     else {
-                        ((JailSquare)board.getBoard()[board.getJailIndex()]).squareAction(players[i], players[i].getJailCounter(), dice);
+                        ((JailSquare)board.getBoard()[board.getJailIndex()]).squareAction(players[i], players[i].getJailCounter(), die);
                     }
                 }
             }
@@ -145,7 +145,7 @@ public class Game {
         return new Game();
     }
 
-    protected void sortPlayers(Player[] players, Dice dice) {
+    protected void sortPlayers(Player[] players, Die die) {
 
         int length = players.length;
         int maxValIndex;
@@ -163,8 +163,8 @@ public class Game {
         for(int i = 0; i < length - 1; i++) {
             if(players[i].getFirstRoll() == players[i + 1].getFirstRoll()) {
                 while (true) {
-                    players[i].setFirstRoll(players[i].tossDie(dice));
-                    players[i + 1].setFirstRoll(players[i].tossDie(dice));
+                    players[i].setFirstRoll(players[i].tossDie(die));
+                    players[i + 1].setFirstRoll(players[i].tossDie(die));
 
                     if(players[i].getFirstRoll() > players[i + 1].getFirstRoll()) break;
 

@@ -89,10 +89,10 @@ public class PropertySquare extends Square implements Purchasable{
 
     @Override
     public String landedOn() {
-        String ret = "";
-        ret = ret.concat(getName());
+        String landInfo = "";
+        landInfo = landInfo.concat(getName());
         if (getOwner() != null)
-            ret = ret + " (Owner: " + getOwner().getName()+ ")";
-        return ret;
+            landInfo = landInfo + " (Owner: " + getOwner().getName()+ ")";
+        return landInfo;
     }
 }

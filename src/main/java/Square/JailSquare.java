@@ -1,6 +1,6 @@
 package Square;
 
-import GameElements.Dice;
+import GameElements.Die;
 import Player.Player;
 
 public class JailSquare extends Square {
@@ -18,14 +18,14 @@ public class JailSquare extends Square {
         //just visiting
     }
 
-    public void squareAction(Player player, int passedTurnInJail, Dice dice) {
+    public void squareAction(Player player, int passedTurnInJail, Die die) {
         if(passedTurnInJail > maxWaitingTime) {
             player.setInJail(false);
             player.setJailCounter(0);
         }
 
         else {
-            player.tossDie(dice);
+            player.tossDie(die);
             if(player.getDoubleDiceCounter() > 0)
                 player.freeToGo();
             else

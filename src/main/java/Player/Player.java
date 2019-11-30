@@ -1,6 +1,6 @@
 package Player;
 
-import GameElements.Dice;
+import GameElements.Die;
 import Square.Square;
 
 import java.util.ArrayList;
@@ -25,18 +25,18 @@ public class Player {
 
     }
 
-    public Player(int id, String name, int startingMoney, Dice dice) {
+    public Player(int id, String name, int startingMoney, Die die) {
         this.id = id;
         this.name = name;
         this.money = new Money(startingMoney);
         piece = new Piece();
-        firstRoll = tossDie(dice);
+        firstRoll = tossDie(die);
     }
 
-    public int tossDie(Dice dice) {
-        dice.setDouble(false); //Set the isDouble value to "false" for every dice before tossing
-        tossedFaces = dice.getFaces();
-        int sumOfFaces = dice.getTotalFaces();
+    public int tossDie(Die die) {
+        die.setDouble(false); //Set the isDouble value to "false" for every dice before tossing
+        tossedFaces = die.getFaces();
+        int sumOfFaces = die.getTotalFaces();
 
         return sumOfFaces;
     }
