@@ -29,7 +29,7 @@ public class Game {
             numberOfPlayers = input.nextInt();
         }
 
-        Board board = new Board( reader.getPassingStartPrize());
+        Board board = new Board();
         Display display = new Display();
         Die die = new Die();
 
