@@ -11,7 +11,7 @@ public class PieceTest {
 
     Piece testPiece = new Piece();
     Die testDie = new Die();
-    Board testBoard = new Board(200);
+    Board testBoard = new Board();
 
 
     int[] diceTestArray = testDie.getFaces();
