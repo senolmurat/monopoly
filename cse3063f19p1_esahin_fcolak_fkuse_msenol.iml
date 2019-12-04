@@ -13,7 +13,7 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" scope="TEST" name="Maven: Arquillian JUnit:Release" level="project" />
-    <orderEntry type="module-library" scope="TEST">
+    <orderEntry type="module-library" exported="" scope="TEST">
       <library name="JUnit4">
         <CLASSES>
           <root url="jar://$MAVEN_REPOSITORY$/junit/junit/4.12/junit-4.12.jar!/" />
@@ -25,5 +25,6 @@
     </orderEntry>
     <orderEntry type="library" name="junit:junit:4.12" level="project" />
     <orderEntry type="library" name="com.github.jsurfer:jsurfer-jsonsimple:1.5.1" level="project" />
+    <orderEntry type="library" name="json-20190722-javadoc" level="project" />
   </component>
 </module>

@@ -13,6 +13,6 @@ public class Card1 extends Card {
 
     @Override
     public void action(Player player, Player[] playerArray) {
-       player.setPosition(1);
+       //player.setPosition(1);
     }
 }

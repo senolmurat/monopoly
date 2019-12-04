@@ -3,15 +3,17 @@ package Square;
 import Player.Player;
 
 public class GoToJail extends Square {
-    public GoToJail(String name, int position) {
+    Square jail;
+    public GoToJail(String name, int position, Square jail) {
         super.setName(name);
         super.setPosition(position);
+        this.jail = jail;
     }
 
 
     @Override
     public void squareAction(Player player) {
-        player.goToJail(9);
+        player.goToJail(jail);
     }
 
     @Override

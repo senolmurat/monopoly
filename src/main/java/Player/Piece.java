@@ -2,9 +2,10 @@ package Player;
 
 import GameElements.Board;
 import IO.Reader;
+import Square.Square;
 
 public class Piece {
-    private int position = 0;
+    private Square position = null;
     boolean isPassedFromStart;
     private Reader reader = new Reader();
 
@@ -16,20 +17,20 @@ public class Piece {
 
         isPassedFromStart = false;
 
-        if ((sumOfFaces + position) / board.getSize() == 1) {
+        if ((sumOfFaces + position.getPosition()) / board.getSize() == 1) {
             isPassedFromStart = true;
         }
 
-        position = (position + sumOfFaces) % board.getSize();
+        position = board.getBoard()[(position.getPosition() + sumOfFaces) % board.getSize()];
 
-        return position;
+        return position.getPosition();
     }
 
-    public void setPosition(int position) {
+    public void setPosition(Square position) {
         this.position = position;
     }
 
-    public int getPosition() {
+    public Square getPosition() {
         return position;
     }
 

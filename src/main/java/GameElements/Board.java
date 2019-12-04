@@ -45,14 +45,14 @@ public class Board {
 
     public Square[] goToJailSquareInitialization(int goToJailSquareIndex, Square[] board) {
         if ((board[goToJailSquareIndex] instanceof Purchasable)) {
-            board[goToJailSquareIndex] = new GoToJail("Go To Jail Square", goToJailSquareIndex + 1);
+            board[goToJailSquareIndex] = new GoToJail("Go To Jail Square", goToJailSquareIndex + 1, board[jailIndex]);
         } else {
             while (!(board[goToJailSquareIndex] instanceof Purchasable)) {
                 goToJailSquareIndex++;
                 if (goToJailSquareIndex == size)
                     goToJailSquareIndex = 1;
             }
-            board[goToJailSquareIndex] = new GoToJail("Go To Jail Square", goToJailSquareIndex + 1);
+            board[goToJailSquareIndex] = new GoToJail("Go To Jail Square", goToJailSquareIndex + 1, board[jailIndex]);
         }
         return board;
     }
