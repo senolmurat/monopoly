@@ -13,7 +13,7 @@ public class Display {
     public void infoMessageBeforeTossDie(Player player, String squareType) {
         System.out.println("-----------------------");
         System.out.println("Turn: " + (player.getNumberOfTurn() + 1) + " | " + player.getName() + " will play"
-                + " | Position: " + (player.getPosition() + 1) + " " +  squareType + " | Money: " + player.getMoney().getMoney());
+                + " | Position: " + (player.getPosition().getPosition() + 1) + " " +  squareType + " | Money: " + player.getMoney().getMoney());
     }
 
     public void infoMessageTossedDice(Player player, Die die) {
@@ -27,7 +27,7 @@ public class Display {
     }
 
     public void infoMessageAfterTossDie(Player player, String squareType) {
-        System.out.println("New position: " + (player.getPosition() + 1) + " " + squareType);
+        System.out.println("New position: " + (player.getPosition().getPosition() + 1) + " " + squareType);
     }
 
     public void infoMessageBasedOnBalance(Player[] players, Board board) {
@@ -41,8 +41,8 @@ public class Display {
             if (tempPlayers[i].isBankrupt()) {
                 System.out.println(tempPlayers[i].getName() + " | BANKRUPT! ");
             } else {
-                System.out.println(tempPlayers[i].getName() + " | Location: " + (tempPlayers[i].getPosition() + 1) + " "
-                        + board.getBoard()[tempPlayers[i].getPosition()].getName()
+                System.out.println(tempPlayers[i].getName() + " | Location: " + (tempPlayers[i].getPosition().getPosition() + 1) + " "
+                        + board.getBoard()[tempPlayers[i].getPosition().getPosition()].getName()
                         + " | Money: " + tempPlayers[i].getMoney().getMoney());
             }
 

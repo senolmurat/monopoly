@@ -38,8 +38,11 @@ public class Game {
         //crateChanceCards(chance , communityChest);
 
         Player[] players = new Player[numberOfPlayers];
-        for(int i = 0; i < numberOfPlayers; i++)
+        for(int i = 0; i < numberOfPlayers; i++) {
             players[i] = new Player(i, reader.getNames()[i], reader.getStartingMoney(), die);
+            players[i].setPosition(board.getBoard()[0]);
+        }
+
 
         sortPlayers(players, die);
 
@@ -64,7 +67,7 @@ public class Game {
                     if (!players[i].isInJail()){
                         if(players[i].getDoubleDiceCounter() < 3) {
 
-                            squareType = getTheSquareType(players[i], board); //Type of the square which the player is currently at.
+                            squareType = getTheSquareType(players[i]); //Type of the square which the player is currently at.
 
                             display.infoMessageBeforeTossDie(players[i], squareType);
 
@@ -75,7 +78,7 @@ public class Game {
                                 players[i].setDoubleDiceCounter(players[i].getDoubleDiceCounter() + 1);
                                 if( players[i].getDoubleDiceCounter() == 3){ //If current player rolls double dice three times in a row
                                     players[i].setDoubleDiceCounter(0);
-                                    players[i].goToJail(board.getJailIndex());
+                                    players[i].goToJail(board.getBoard()[board.getJailIndex()]);
                                     display.infoMessageDoubleDiceThreeTimesInARow(players[i]);
                                     continue;
                                 }
@@ -90,10 +93,10 @@ public class Game {
                                 players[i].getMoney().addMoney(((StartSquare)(board.getBoard()[0])).getPassMoney());
                             }
 
-                            squareType = getTheSquareType(players[i], board); //Type of the square which the player is moved.
+                            squareType = getTheSquareType(players[i]); //Type of the square which the player is moved.
                             display.infoMessageAfterTossDie(players[i], squareType);
 
-                            board.getBoard()[players[i].getPosition()].squareAction(players[i]);
+                            players[i].getPosition().squareAction(players[i]);
 
                             if(players[i].isBankrupt()) {
                                 players[i].setBankrupt(true);
@@ -134,9 +137,8 @@ public class Game {
 
     }
 
-    private String getTheSquareType(Player player, Board board) {
-        int position = player.getPosition();
-        String squareType = board.getBoard()[position].landedOn();
+    private String getTheSquareType(Player player) {
+        String squareType = player.getPosition().landedOn();
 
         return squareType;
     }

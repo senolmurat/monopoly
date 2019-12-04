@@ -23,7 +23,7 @@ public class PieceTest {
         sumOfFaces_M = sumOfFaces;
         testBoard_M = testBoard;
         int returnVal = testPiece.move(sumOfFaces_M, testBoard_M);
-        assertTrue(testPiece.getPosition() <= 40 && testPiece.getPosition() >= 1);
+        assertTrue(testPiece.getPosition().getPosition() <= 40 && testPiece.getPosition().getPosition() >= 1);
 
         return returnVal;
     }

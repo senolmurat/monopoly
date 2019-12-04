@@ -49,11 +49,11 @@ public class Player {
         this.numberOfTurn = numberOfTurn;
     }
 
-    public void setPosition(int position) {
+    public void setPosition(Square position) {
         piece.setPosition(position);
     }
 
-    public int getPosition() {
+    public Square getPosition() {
         return piece.getPosition();
     }
 
@@ -121,7 +121,7 @@ public class Player {
         this.jailCounter = jailCounter;
     }
 
-    public void goToJail(int position) {
+    public void goToJail(Square position) {
         setPosition(position);
         setInJail(true);
         setJailCounter(0);
