@@ -1,11 +1,12 @@
-import GameElements.Board;
-import GameElements.Cards.Card;
-import GameElements.Cards.Chance.*;
-import GameElements.Cards.CommunityChest.*;
-import GameElements.Die;
-import IO.*;
-import Player.Player;
-import Square.*;
+import game.elements.Board;
+import game.elements.cards.Card;
+import game.elements.cards.chance.*;
+import game.elements.Die;
+import io.*;
+import player.Player;
+import square.*;
+import game.elements.cards.community.chest.*;
+
 import java.util.Iterator;
 import java.util.Scanner;
 
@@ -53,7 +54,7 @@ public class Game {
         }
         System.out.println();
 
-        String squareType = "";
+        String squareType;
         int brokeOnes[] = new int[numberOfPlayers];
         for(int i =  0; i < numberOfPlayers; i++) brokeOnes[i] = -1;
 
@@ -90,7 +91,7 @@ public class Game {
                             players[i].getPiece().move(sumOfFaces, board); //Moves its piece based on the faces, returns new position
 
                             if(players[i].getPiece().isPassedFromStart()) {
-                                players[i].getMoney().addMoney(((StartSquare)(board.getBoard()[0])).getPassMoney());
+                                board.getBoard()[0].squareAction(players[i]);
                             }
 
                             squareType = getTheSquareType(players[i]); //Type of the square which the player is moved.
@@ -138,16 +139,15 @@ public class Game {
     }
 
     private String getTheSquareType(Player player) {
-        String squareType = player.getPosition().landedOn();
 
-        return squareType;
+        return player.getPosition().landedOn();
     }
 
-    public static Game instance() {
+    static Game instance() {
         return new Game();
     }
 
-    protected void sortPlayers(Player[] players, Die die) {
+    private void sortPlayers(Player[] players, Die die) {
 
         int length = players.length;
         int maxValIndex;
@@ -181,7 +181,7 @@ public class Game {
         }
     }
 
-    protected void turnUpdater(Player players[], int brokeOnes[]){
+    private void turnUpdater(Player players[], int brokeOnes[]){
 
         for(int i = 0; i < players.length; i++) {
             for(int j = 0; j < brokeOnes.length; j++) {
@@ -219,6 +219,5 @@ public class Game {
         communityChest[13] = new commCard14();
         communityChest[14] = new commCard15();
 
-        return;
     }
 }
