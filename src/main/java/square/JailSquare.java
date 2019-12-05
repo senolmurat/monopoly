@@ -1,6 +1,6 @@
 package square;
 
-import game.elements.Die;
+import game_elements.Die;
 import player.Player;
 
 public class JailSquare extends Square {

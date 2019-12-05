@@ -1,6 +1,6 @@
 package player;
 
-import game.elements.Board;
+import game_elements.Board;
 import square.Square;
 
 public class Piece {
