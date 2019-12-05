@@ -1,11 +1,11 @@
-package game_elements.cards.community.chest;
+package game_elements.cards.community_chest;
 
 import game_elements.cards.Card;
 import player.Player;
 
-public class commCard1 extends Card {
+public class CommCard1 extends Card {
 
-    public commCard1() {
+    public CommCard1() {
         super.setName("Chest1");
         super.setDescription("Advance to GO");
         super.setAltDescription("Mr. Monopoly goes to Go");
