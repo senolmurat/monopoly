@@ -42,7 +42,7 @@ public class Board {
         board[jailSquareIndex] = new JailSquare("Jail", jailSquareIndex + 1);
     }
 
-    public void createExactGoToJailSquare(int goToJailIndex) {
+    private void createExactGoToJailSquare(int goToJailIndex) {
         board[goToJailIndex] = new GoToJail("Go To Jail Square", goToJailIndex + 1, board[jailIndex]);
     }
 

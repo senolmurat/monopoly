@@ -21,10 +21,10 @@ public class ReadSquares {
     JSONArray squares;
 
     public ReadSquares() {
-        ReadJSON();
+        readJSON();
     }
 
-    private void ReadJSON() {
+    private void readJSON() {
         JSONParser jsonParser = new JSONParser();
         try (FileReader reader = new FileReader("properties.json")) {
             Object obj = jsonParser.parse(reader);

@@ -73,7 +73,7 @@ public class Game {
                             display.infoMessageBeforeTossDie(players[i], squareType);
 
                             int sumOfFaces = players[i].tossDie(die); //Player rolls the dice
-                            display.infoMessageTossedDice(players[i], die);
+                            display.infoMessageTossedDie(players[i], die);
 
                             if(die.isDouble()) {
                                 players[i].setDoubleDiceCounter(players[i].getDoubleDiceCounter() + 1);
