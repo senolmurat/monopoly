@@ -1,11 +1,11 @@
-package game_elements.cards.community.chest;
+package game_elements.cards.community_chest;
 
 import game_elements.cards.Card;
 import player.Player;
 
-public class commCard10 extends Card {
+public class CommCard10 extends Card {
 
-    public commCard10() {
+    public CommCard10() {
         super.setName("Chest10");
         super.setDescription("School fees. Pay $50.");
         super.setAltDescription("A bespectacled schoolboy unhappily receives a head pat and a dime Rockefeller style from Mr. Monopoly.");

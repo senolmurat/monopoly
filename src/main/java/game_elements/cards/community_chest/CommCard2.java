@@ -1,11 +1,11 @@
-package game_elements.cards.community.chest;
+package game_elements.cards.community_chest;
 
 import game_elements.cards.Card;
 import player.Player;
 
-public class commCard2 extends Card {
+public class CommCard2 extends Card {
 
-    public commCard2() {
+    public CommCard2() {
         super.setName("Chest2");
         super.setDescription("Bank error in your favor. Collect $50");
         super.setAltDescription("Mr. Monopoly falls back in astonishment as an arm presents a sheaf of cash out of a bank teller's window");

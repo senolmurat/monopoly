@@ -2,7 +2,7 @@ import game_elements.Board;
 import game_elements.cards.Card;
 import game_elements.Die;
 import game_elements.cards.chance.*;
-import game_elements.cards.community.chest.*;
+import game_elements.cards.community_chest.*;
 import io.*;
 import player.Player;
 import square.*;
@@ -203,21 +203,21 @@ public class Game {
         chance[4] = new Card5();
         chance[5] = new Card6();
 
-        communityChest[0] = new commCard1();
-        communityChest[1] = new commCard2();
-        communityChest[2] = new commCard3();
-        communityChest[3] = new commCard4();
-        communityChest[4] = new commCard5();
-        communityChest[5] = new commCard6();
-        communityChest[6] = new commCard7();
-        communityChest[7] = new commCard8();
-        communityChest[8] = new commCard9();
-        communityChest[9] = new commCard10();
-        communityChest[10] = new commCard11();
-        communityChest[11] = new commCard12();
-        communityChest[12] = new commCard13();
-        communityChest[13] = new commCard14();
-        communityChest[14] = new commCard15();
+        communityChest[0] = new CommCard1();
+        communityChest[1] = new CommCard2();
+        communityChest[2] = new CommCard3();
+        communityChest[3] = new CommCard4();
+        communityChest[4] = new CommCard5();
+        communityChest[5] = new CommCard6();
+        communityChest[6] = new CommCard7();
+        communityChest[7] = new CommCard8();
+        communityChest[8] = new CommCard9();
+        communityChest[9] = new CommCard10();
+        communityChest[10] = new CommCard11();
+        communityChest[11] = new CommCard12();
+        communityChest[12] = new CommCard13();
+        communityChest[13] = new CommCard14();
+        communityChest[14] = new CommCard15();
 
     }
 }
