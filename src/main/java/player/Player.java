@@ -1,6 +1,6 @@
 package player;
 
-import game.elements.Die;
+import game_elements.Die;
 import square.Square;
 
 import java.util.ArrayList;

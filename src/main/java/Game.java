@@ -1,11 +1,11 @@
-import game.elements.Board;
-import game.elements.cards.Card;
-import game.elements.cards.chance.*;
-import game.elements.Die;
+import game_elements.Board;
+import game_elements.cards.Card;
+import game_elements.Die;
+import game_elements.cards.chance.*;
+import game_elements.cards.community.chest.*;
 import io.*;
 import player.Player;
 import square.*;
-import game.elements.cards.community.chest.*;
 
 import java.util.Iterator;
 import java.util.Scanner;

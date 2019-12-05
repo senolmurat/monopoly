@@ -1,7 +1,8 @@
 package io;
 
+import game_elements.Board;
 import player.Player;
-import game.elements.*;
+import game_elements.*;
 import square.PropertySquare;
 
 public class Display {
