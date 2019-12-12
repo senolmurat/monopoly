@@ -1,8 +1,12 @@
 package square;
 
 import io.Display;
+import lombok.Getter;
+import lombok.Setter;
 import player.Player;
 
+@Getter
+@Setter
 public class UtilitySquare extends Square implements Purchasable{
 
     private String type;
@@ -47,44 +51,6 @@ public class UtilitySquare extends Square implements Purchasable{
         this.landValue = landValue;
         this.rent = rent;
         this.owner = null;//default , no owner
-    }
-
-    @Override
-    public int getLandValue() {
-        return landValue;
-    }
-
-    @Override
-    public void setLandValue(int landValue) {
-        this.landValue = landValue;
-    }
-
-    @Override
-    public int getRent() {
-        return rent;
-    }
-
-    @Override
-    public void setRent(int rent) {
-        this.rent = rent;
-    }
-
-    @Override
-    public Player getOwner() {
-        return owner;
-    }
-
-    @Override
-    public void setOwner(Player owner) {
-        this.owner = owner;
-    }
-
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
     }
 
     @Override

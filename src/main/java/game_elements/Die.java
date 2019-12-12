@@ -3,7 +3,11 @@ package game_elements;
 import java.util.Random;
 
 import io.Reader;
+import lombok.Getter;
+import lombok.Setter;
 
+@Getter
+@Setter
 public class Die {
 
     private Reader reader = new Reader();
@@ -31,19 +35,4 @@ public class Die {
         return dieFaces;
     }
 
-    public void setDouble(boolean aDouble) {
-        isDouble = aDouble;
-    }
-
-    public boolean isDouble() {
-        return isDouble;
-    }
-
-    public int getTotalFaces() {
-        return totalFaces;
-    }
-
-    public int[] getDieFaces() {
-        return dieFaces;
-    }
 }

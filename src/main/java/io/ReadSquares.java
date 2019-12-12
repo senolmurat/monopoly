@@ -1,5 +1,7 @@
 package io;
 
+import lombok.Getter;
+import lombok.Setter;
 import square.PropertySquare;
 import square.UtilitySquare;
 
@@ -13,6 +15,7 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
+@Getter
 public class ReadSquares {
 
 
@@ -65,13 +68,6 @@ public class ReadSquares {
         }
     }
 
-    public ArrayList<PropertySquare> getPropertySquaresList() {
-        return propertySquaresList;
-    }
-
-    public ArrayList<UtilitySquare> getUtilitySquaresList() {
-        return utilitySquaresList;
-    }
 }
 
 

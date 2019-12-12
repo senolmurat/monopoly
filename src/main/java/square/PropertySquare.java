@@ -1,8 +1,12 @@
 package square;
 
+import lombok.Getter;
+import lombok.Setter;
 import player.Player;
 import io.Display;
 
+@Getter
+@Setter
 public class PropertySquare extends Square implements Purchasable{
 
     private int landValue;
@@ -49,43 +53,6 @@ public class PropertySquare extends Square implements Purchasable{
 
     }
 
-    @Override
-    public int getLandValue() {
-        return landValue;
-    }
-
-    @Override
-    public void setLandValue(int landValue) {
-        this.landValue = landValue;
-    }
-
-    @Override
-    public int getRent() {
-        return rent;
-    }
-
-    @Override
-    public void setRent(int rent) {
-        this.rent = rent;
-    }
-
-    @Override
-    public Player getOwner() {
-        return owner;
-    }
-
-    @Override
-    public void setOwner(Player owner) {
-        this.owner = owner;
-    }
-
-    public String getColour() {
-        return colour;
-    }
-
-    public void setColour(String colour) {
-        this.colour = colour;
-    }
 
     @Override
     public String landedOn() {
