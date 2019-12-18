@@ -1,9 +1,12 @@
 package io;
 
+import lombok.Getter;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
+@Getter
 public class Reader {
 
     private int numberOfPlayers;
@@ -47,27 +50,4 @@ public class Reader {
         }
     }
 
-    public int getNumberOfPlayers() {
-        return numberOfPlayers;
-    }
-
-    public int getStartingMoney() {
-        return startingMoney;
-    }
-
-    public int getPassingStartPrize() {
-        return passingStartPrize;
-    }
-
-    public String[] getNames() {
-        return names;
-    }
-
-    public int getNumberOfGoToJailSquare() {
-        return numberOfGoToJailSquare;
-    }
-
-    public int getNumberOfDices() {
-        return numberOfDices;
-    }
 }

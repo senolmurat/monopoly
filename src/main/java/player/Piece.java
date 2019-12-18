@@ -1,8 +1,12 @@
 package player;
 
 import game_elements.Board;
+import lombok.Getter;
+import lombok.Setter;
 import square.Square;
 
+@Getter
+@Setter
 public class Piece {
     private Square position = null;
     private boolean isPassedFromStart;
@@ -20,19 +24,4 @@ public class Piece {
         return position.getPosition();
     }
 
-    public void setPosition(Square position) {
-        this.position = position;
-    }
-
-    public Square getPosition() {
-        return position;
-    }
-
-    public boolean isPassedFromStart() {
-        return isPassedFromStart;
-    }
-
-    public void setPassedFromStart(boolean passedFromStart) {
-        isPassedFromStart = passedFromStart;
-    }
 }

@@ -1,9 +1,11 @@
 package game_elements;
 
+import lombok.Getter;
 import square.*;
 import io.ReadSquares;
 import io.Reader;
 
+@Getter
 public class Board {
     private Square[] board;
     private int size = 40;
@@ -24,9 +26,6 @@ public class Board {
 
     }
 
-    public Square[] getBoard() {
-        return board;
-    }
 
     private void createRegularSquares() {
         for (int i = 0; i < size; i++) {
@@ -46,9 +45,6 @@ public class Board {
         board[goToJailIndex] = new GoToJail("Go To Jail Square", goToJailIndex + 1, board[jailIndex]);
     }
 
-    public int getSize() {
-        return size;
-    }
 
     private void goToJailSquareInitialization(int goToJailSquareIndex, Square[] board) {
         if ((board[goToJailSquareIndex] instanceof Purchasable)) {
@@ -89,8 +85,5 @@ public class Board {
         }
     }
 
-    public int getJailIndex() {
-        return jailIndex;
-    }
 
 }
