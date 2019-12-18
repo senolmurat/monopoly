@@ -13,7 +13,7 @@ import java.util.Scanner;
 public class Game {
 
     private int cycleCounter = 1;
-
+    private static Game game = null;
     private Game() {
 
     }
@@ -144,7 +144,9 @@ public class Game {
     }
 
     static Game instance() {
-        return new Game();
+        if(game == null)
+            game = new Game();
+        return game;
     }
 
     private void sortPlayers(Player[] players, Die die) {
