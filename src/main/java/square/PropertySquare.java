@@ -12,7 +12,7 @@ public class PropertySquare extends Square implements Purchasable{
     private int landValue;
     private int rent;
     private Player owner;//player index in players array
-    private String colour;
+    private String type;//this one stands for colour
 
     private PropertySquare() {
     }
@@ -22,7 +22,7 @@ public class PropertySquare extends Square implements Purchasable{
     public PropertySquare(String name, int position, String colour, int landValue, int rent) {
         super.setName(name);
         super.setPosition(position);
-        this.colour = colour;
+        this.type = colour;
         this.landValue = landValue;
         this.rent = rent;
         this.owner = null;//default , no owner
@@ -44,6 +44,9 @@ public class PropertySquare extends Square implements Purchasable{
         }
 
         else if(!player.equals(owner)) {
+            int count = owner.howManyOfSameColour(type);
+            //TODO we need to increase the rent based on this count
+
             player.getMoney().subtractMoney(rent);
             if(!owner.isBankrupt()){
                 owner.getMoney().addMoney(rent);

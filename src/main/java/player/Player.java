@@ -3,9 +3,11 @@ package player;
 import game_elements.Die;
 import lombok.Getter;
 import lombok.Setter;
+import square.Purchasable;
 import square.Square;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.Random;
 
 @Getter
@@ -23,7 +25,7 @@ public class Player {
     private int firstRoll;
     private boolean inJail = false;
     private int jailCounter = 0;
-    private ArrayList<Square> properties = new ArrayList<>();
+    private ArrayList<Purchasable> properties = new ArrayList<>();
 
     private Player() {
 
@@ -79,7 +81,17 @@ public class Player {
         return value > 80;
     }
 
-    public void addProperty(Square property) {
+    public void addProperty(Purchasable property) {
         properties.add(property);
+    }
+
+    public int howManyOfSameColour(String colour) {
+        Iterator iter = properties.iterator();
+        int count = 0;
+        while(iter.hasNext()) {
+            if(((Purchasable)iter).getType().equals(colour))
+                count ++;
+        }
+       return count;
     }
 }
