@@ -33,6 +33,9 @@ public class UtilitySquare extends Square implements Purchasable{
         }
 
         else if(!player.equals(owner)) {
+            int count = owner.howManyOfSameColour(type);
+            //TODO we need to increase the rent based on this count
+
             player.getMoney().subtractMoney(rent);
             if(!owner.isBankrupt()){
                 owner.getMoney().addMoney(rent);
