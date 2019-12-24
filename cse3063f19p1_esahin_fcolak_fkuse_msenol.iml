@@ -24,7 +24,7 @@
       </library>
     </orderEntry>
     <orderEntry type="library" name="junit:junit:4.12" level="project" />
-    <orderEntry type="library" name="com.github.jsurfer:jsurfer-jsonsimple:1.5.1" level="project" />
+    <orderEntry type="library" exported="" name="com.github.jsurfer:jsurfer-jsonsimple:1.5.1" level="project" />
     <orderEntry type="library" name="json-20190722-javadoc" level="project" />
   </component>
 </module>
