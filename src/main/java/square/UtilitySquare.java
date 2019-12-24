@@ -13,6 +13,7 @@ public class UtilitySquare extends Square implements Purchasable{
     private int landValue;
     private int rent;
     private Player owner;//player index in players array
+    private String color;
 
     private UtilitySquare() {
     }
@@ -47,13 +48,14 @@ public class UtilitySquare extends Square implements Purchasable{
 
 
 
-    public UtilitySquare(String name, int position, String type, int landValue, int rent) {
+    public UtilitySquare(String name, int position, String type, int landValue, int rent , String color) {
         super.setName(name);
         super.setPosition(position);
         this.type = type;
         this.landValue = landValue;
         this.rent = rent;
         this.owner = null;//default , no owner
+        this.color = color;
     }
 
     @Override

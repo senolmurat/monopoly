@@ -62,7 +62,7 @@ public class ReadSquares {
             String color = (String) jsonObject.get("color");
             long landValue = (long) jsonObject.get("landValue");
             long rent = (long) jsonObject.get("rent");
-            UtilitySquare utilitySquare = new UtilitySquare(name, (int) position, color, (int) landValue, (int) rent);
+            UtilitySquare utilitySquare = new UtilitySquare(name, (int) position, color, (int) landValue, (int) rent , color);
             utilitySquaresList.add(utilitySquare);
 
         }

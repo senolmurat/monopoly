@@ -29,6 +29,7 @@ public class Reader {
 
             fileReader.nextLine();//To skip lines starting with #
             this.numberOfPlayers = Integer.parseInt(fileReader.nextLine());
+
             fileReader.nextLine();
             this.startingMoney = Integer.parseInt((fileReader.nextLine()));
             fileReader.nextLine();

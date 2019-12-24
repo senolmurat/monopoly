@@ -4,17 +4,21 @@ import lombok.Getter;
 import square.*;
 import io.ReadSquares;
 import io.Reader;
+import player.Player;
 
 @Getter
 public class Board {
     private Square[] board;
+    private Player[] players;
     private int size = 40;
     private int jailIndex = 10;
     private int goToJailIndex = 30;
 
-    public Board() {
+    public Board(Player[] playerArray) {
         Reader reader = new Reader();
         board = new Square[size];
+        players = playerArray;
+
         createRegularSquares();
         createStartSquare(reader.getPassingStartPrize());
         createExactJailSquare(jailIndex);
@@ -43,6 +47,16 @@ public class Board {
 
     public void createExactGoToJailSquare(int goToJailIndex) {
         board[goToJailIndex] = new GoToJail("Go To Jail Square", goToJailIndex + 1, board[jailIndex]);
+    }
+
+    public void createCardSquares(){
+        board[2] = new CardSquare("Community Chest" , 2 , players  , board);
+        board[2] = new CardSquare("Community Chest" , 17 , players  , board);
+        board[2] = new CardSquare("Community Chest" , 33 , players  , board);
+
+        board[2] = new CardSquare("Chance" , 7 , players , board );
+        board[2] = new CardSquare("Chance" , 22 , players , board );
+        board[2] = new CardSquare("Chance" , 36 , players  , board);
     }
 
 
