@@ -1,14 +1,19 @@
 package square;
 
 import io.Display;
+import lombok.Getter;
+import lombok.Setter;
 import player.Player;
 
+@Getter
+@Setter
 public class UtilitySquare extends Square implements Purchasable{
 
     private String type;
     private int landValue;
     private int rent;
     private Player owner;//player index in players array
+    private String color;
 
     private UtilitySquare() {
     }
@@ -29,6 +34,9 @@ public class UtilitySquare extends Square implements Purchasable{
         }
 
         else if(!player.equals(owner)) {
+            int count = owner.howManyOfSameColour(type);
+            //TODO we need to increase the rent based on this count
+
             player.getMoney().subtractMoney(rent);
             if(!owner.isBankrupt()){
                 owner.getMoney().addMoney(rent);
@@ -40,51 +48,14 @@ public class UtilitySquare extends Square implements Purchasable{
 
 
 
-    public UtilitySquare(String name, int position, String type, int landValue, int rent) {
+    public UtilitySquare(String name, int position, String type, int landValue, int rent , String color) {
         super.setName(name);
         super.setPosition(position);
         this.type = type;
         this.landValue = landValue;
         this.rent = rent;
         this.owner = null;//default , no owner
-    }
-
-    @Override
-    public int getLandValue() {
-        return landValue;
-    }
-
-    @Override
-    public void setLandValue(int landValue) {
-        this.landValue = landValue;
-    }
-
-    @Override
-    public int getRent() {
-        return rent;
-    }
-
-    @Override
-    public void setRent(int rent) {
-        this.rent = rent;
-    }
-
-    @Override
-    public Player getOwner() {
-        return owner;
-    }
-
-    @Override
-    public void setOwner(Player owner) {
-        this.owner = owner;
-    }
-
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
+        this.color = color;
     }
 
     @Override

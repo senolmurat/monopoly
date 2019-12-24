@@ -3,15 +3,17 @@ package player;
 import game_elements.Board;
 import game_elements.Die;
 import org.junit.Test;
+import player.Player;
 
 import static org.junit.Assert.*;
 
 
 public class PieceTest {
 
+    private Player[] players;
     Piece testPiece = new Piece();
     Die testDie = new Die();
-    Board testBoard = new Board();
+    Board testBoard = new Board(players);
 
 
     int[] diceTestArray = testDie.getFaces();

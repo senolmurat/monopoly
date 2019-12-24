@@ -1,10 +1,12 @@
 package game_elements;
 
 import org.junit.Test;
+import player.Player;
 
 
 public class BoardTest {
-    Board board = new Board();
+    Player[] players;
+    Board board = new Board(players);
     @Test
     public void taxSquareInitialization() {
 

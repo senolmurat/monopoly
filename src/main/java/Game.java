@@ -13,7 +13,7 @@ import java.util.Scanner;
 public class Game {
 
     private int cycleCounter = 1;
-
+    private static Game game = null;
     private Game() {
 
     }
@@ -23,6 +23,7 @@ public class Game {
         Reader reader = new Reader();
 
         int numberOfPlayers = reader.getNumberOfPlayers();
+
         int remainingPlayers = numberOfPlayers; //Players still in the game
 
         while (numberOfPlayers < 2 || numberOfPlayers > 8) {
@@ -30,15 +31,13 @@ public class Game {
             numberOfPlayers = input.nextInt();
         }
 
-        Board board = new Board();
+        Player[] players = new Player[numberOfPlayers];
+
+        Board board = new Board(players);
         Display display = new Display();
         Die die = new Die();
 
-        //Card[] chance = new Card[6];
-        //Card[] communityChest = new Card[15];
-        //crateChanceCards(chance , communityChest);
 
-        Player[] players = new Player[numberOfPlayers];
         for(int i = 0; i < numberOfPlayers; i++) {
             players[i] = new Player(i, reader.getNames()[i], reader.getStartingMoney(), die);
             players[i].setPosition(board.getBoard()[0]);
@@ -73,7 +72,7 @@ public class Game {
                             display.infoMessageBeforeTossDie(players[i], squareType);
 
                             int sumOfFaces = players[i].tossDie(die); //Player rolls the dice
-                            display.infoMessageTossedDie(players[i], die);
+                            display.infoMessageTossedDice(players[i], die);
 
                             if(die.isDouble()) {
                                 players[i].setDoubleDiceCounter(players[i].getDoubleDiceCounter() + 1);
@@ -144,7 +143,9 @@ public class Game {
     }
 
     static Game instance() {
-        return new Game();
+        if(game == null)
+            game = new Game();
+        return game;
     }
 
     private void sortPlayers(Player[] players, Die die) {
@@ -194,30 +195,4 @@ public class Game {
     }
 
 
-    private void crateChanceCards(Card[] chance , Card[] communityChest){
-
-        chance[0] = new Card1();
-        chance[1] = new Card2();
-        chance[2] = new Card3();
-        chance[3] = new Card4();
-        chance[4] = new Card5();
-        chance[5] = new Card6();
-
-        communityChest[0] = new CommCard1();
-        communityChest[1] = new CommCard2();
-        communityChest[2] = new CommCard3();
-        communityChest[3] = new CommCard4();
-        communityChest[4] = new CommCard5();
-        communityChest[5] = new CommCard6();
-        communityChest[6] = new CommCard7();
-        communityChest[7] = new CommCard8();
-        communityChest[8] = new CommCard9();
-        communityChest[9] = new CommCard10();
-        communityChest[10] = new CommCard11();
-        communityChest[11] = new CommCard12();
-        communityChest[12] = new CommCard13();
-        communityChest[13] = new CommCard14();
-        communityChest[14] = new CommCard15();
-
-    }
 }

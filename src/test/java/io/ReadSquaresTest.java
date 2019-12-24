@@ -14,7 +14,7 @@ public class ReadSquaresTest {
         List<PropertySquare> propertySquaresList = readPropertySquare.getPropertySquaresList();
         for (PropertySquare propertySquare : propertySquaresList)
             System.out.println("Name : " + propertySquare.getName() + " " + "Position : " +propertySquare.getPosition()
-                    + " " + "Color : "+ propertySquare.getColour() + " "
+                    + " " + "Color : "+ propertySquare.getType() + " "
                     + "Land Value : " +propertySquare.getLandValue() + " " + "Rent Value : "+ propertySquare.getRent());
     }
 

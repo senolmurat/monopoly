@@ -1,7 +1,11 @@
 package square;
 
+import lombok.Getter;
+import lombok.Setter;
 import player.Player;
 
+@Getter
+@Setter
 public class TaxSquare extends Square {
     private int tax;
 
@@ -11,13 +15,6 @@ public class TaxSquare extends Square {
         this.tax = tax;
     }
 
-    public int getTax() {
-        return tax;
-    }
-
-    private void setTax(int tax) {
-        this.tax = tax;
-    }
 
     @Override
     public void squareAction(Player player) {

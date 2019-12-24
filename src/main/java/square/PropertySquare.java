@@ -1,14 +1,18 @@
 package square;
 
+import lombok.Getter;
+import lombok.Setter;
 import player.Player;
 import io.Display;
 
+@Getter
+@Setter
 public class PropertySquare extends Square implements Purchasable{
 
     private int landValue;
     private int rent;
     private Player owner;//player index in players array
-    private String colour;
+    private String type;//this one stands for colour
 
     private PropertySquare() {
     }
@@ -18,7 +22,7 @@ public class PropertySquare extends Square implements Purchasable{
     public PropertySquare(String name, int position, String colour, int landValue, int rent) {
         super.setName(name);
         super.setPosition(position);
-        this.colour = colour;
+        this.type = colour;
         this.landValue = landValue;
         this.rent = rent;
         this.owner = null;//default , no owner
@@ -40,6 +44,9 @@ public class PropertySquare extends Square implements Purchasable{
         }
 
         else if(!player.equals(owner)) {
+            int count = owner.howManyOfSameColour(type);
+            //TODO we need to increase the rent based on this count
+
             player.getMoney().subtractMoney(rent);
             if(!owner.isBankrupt()){
                 owner.getMoney().addMoney(rent);
@@ -49,43 +56,6 @@ public class PropertySquare extends Square implements Purchasable{
 
     }
 
-    @Override
-    public int getLandValue() {
-        return landValue;
-    }
-
-    @Override
-    public void setLandValue(int landValue) {
-        this.landValue = landValue;
-    }
-
-    @Override
-    public int getRent() {
-        return rent;
-    }
-
-    @Override
-    public void setRent(int rent) {
-        this.rent = rent;
-    }
-
-    @Override
-    public Player getOwner() {
-        return owner;
-    }
-
-    @Override
-    public void setOwner(Player owner) {
-        this.owner = owner;
-    }
-
-    public String getColour() {
-        return colour;
-    }
-
-    public void setColour(String colour) {
-        this.colour = colour;
-    }
 
     @Override
     public String landedOn() {

@@ -1,5 +1,7 @@
 package io;
 
+import lombok.Getter;
+import lombok.Setter;
 import square.PropertySquare;
 import square.UtilitySquare;
 
@@ -13,6 +15,7 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
+@Getter
 public class ReadSquares {
 
 
@@ -21,10 +24,10 @@ public class ReadSquares {
     JSONArray squares;
 
     public ReadSquares() {
-        readJSON();
+        ReadJSON();
     }
 
-    private void readJSON() {
+    private void ReadJSON() {
         JSONParser jsonParser = new JSONParser();
         try (FileReader reader = new FileReader("properties.json")) {
             Object obj = jsonParser.parse(reader);
@@ -59,19 +62,12 @@ public class ReadSquares {
             String color = (String) jsonObject.get("color");
             long landValue = (long) jsonObject.get("landValue");
             long rent = (long) jsonObject.get("rent");
-            UtilitySquare utilitySquare = new UtilitySquare(name, (int) position, color, (int) landValue, (int) rent);
+            UtilitySquare utilitySquare = new UtilitySquare(name, (int) position, color, (int) landValue, (int) rent , color);
             utilitySquaresList.add(utilitySquare);
 
         }
     }
 
-    public ArrayList<PropertySquare> getPropertySquaresList() {
-        return propertySquaresList;
-    }
-
-    public ArrayList<UtilitySquare> getUtilitySquaresList() {
-        return utilitySquaresList;
-    }
 }
 
 

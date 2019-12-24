@@ -17,7 +17,7 @@ public class Display {
                 + " | Position: " + (player.getPosition().getPosition()) + " " +  squareType + " | Money: " + player.getMoney().getMoney());
     }
 
-    public void infoMessageTossedDie(Player player, Die die) {
+    public void infoMessageTossedDice(Player player, Die die) {
         System.out.print(player.getName() + " tossing dice... Faces are ");
 
         for (int i = 0; i < die.getDieFaces().length; i++){

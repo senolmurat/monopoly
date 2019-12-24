@@ -1,11 +1,17 @@
 package player;
 
 import game_elements.Die;
+import lombok.Getter;
+import lombok.Setter;
+import square.Purchasable;
 import square.Square;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.Random;
 
+@Getter
+@Setter
 public class Player {
 
     private int numberOfTurn; //Number of turns each player played
@@ -19,7 +25,7 @@ public class Player {
     private int firstRoll;
     private boolean inJail = false;
     private int jailCounter = 0;
-    private ArrayList<Square> properties = new ArrayList<>();
+    private ArrayList<Purchasable> properties = new ArrayList<>();
 
     private Player() {
 
@@ -40,14 +46,6 @@ public class Player {
         return die.getTotalFaces();
     }
 
-    public int getNumberOfTurn() {
-        return numberOfTurn;
-    }
-
-    public void setNumberOfTurn(int numberOfTurn) {
-        this.numberOfTurn = numberOfTurn;
-    }
-
     public void setPosition(Square position) {
         piece.setPosition(position);
     }
@@ -56,68 +54,12 @@ public class Player {
         return piece.getPosition();
     }
 
-    public int getId() {
-        return id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public Money getMoney() {
-        return money;
-    }
-
     public boolean isBankrupt() {
         return money.getMoney() <= 0;
     }
 
     public void setBankrupt(boolean bankrupt) {
         this.bankrupt = bankrupt;
-    }
-
-    public int getDoubleDiceCounter() {
-        return doubleDiceCounter;
-    }
-
-    public void setDoubleDiceCounter(int doubleDiceCounter) {
-        this.doubleDiceCounter = doubleDiceCounter;
-    }
-
-    public int[] getTossedFaces() {
-        return tossedFaces;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public int getFirstRoll() {
-        return firstRoll;
-    }
-
-    public void setFirstRoll(int firstRoll) {
-        this.firstRoll = firstRoll;
-    }
-
-    public Piece getPiece() {
-        return piece;
-    }
-
-    public boolean isInJail() {
-        return inJail;
-    }
-
-    public void setInJail(boolean inJail) {
-        this.inJail = inJail;
-    }
-
-    public int getJailCounter() {
-        return jailCounter;
-    }
-
-    public void setJailCounter(int jailCounter) {
-        this.jailCounter = jailCounter;
     }
 
     public void goToJail(Square position) {
@@ -139,8 +81,17 @@ public class Player {
         return value > 80;
     }
 
-    public void addProperty(Square property) {
+    public void addProperty(Purchasable property) {
         properties.add(property);
     }
-    public ArrayList<Square> getProperties() { return properties;}
+
+    public int howManyOfSameColour(String colour) {
+        Iterator iter = properties.iterator();
+        int count = 0;
+        while(iter.hasNext()) {
+            if(((Purchasable)iter).getType().equals(colour))
+                count ++;
+        }
+       return count;
+    }
 }
