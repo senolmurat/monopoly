@@ -86,10 +86,9 @@ public class Player {
     }
 
     public int howManyOfSameColour(String colour) {
-        Iterator iter = properties.iterator();
         int count = 0;
-        while(iter.hasNext()) {
-            if(((Purchasable)iter).getType().equals(colour))
+        for(Purchasable iter : properties) {
+            if(iter.getType().equals(colour))
                 count ++;
         }
        return count;
