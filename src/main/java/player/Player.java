@@ -3,6 +3,10 @@ package player;
 import game_elements.Die;
 import lombok.Getter;
 import lombok.Setter;
+import properties.Hotel;
+import properties.House;
+import properties.Propertie;
+import square.PropertySquare;
 import square.Purchasable;
 import square.Square;
 
@@ -92,5 +96,33 @@ public class Player {
                 count ++;
         }
        return count;
+    }
+
+    public Propertie canIBuildPropertie(PropertySquare square) {
+        int currentlyBuilded = square.getProperties().size();
+        int count = howManyOfSameColour(square.getType());
+
+        if(count == 3) {
+            for(Purchasable iter : properties) {
+                if(iter.getType().equals(square.getType()))
+                    if(!doIHaveEnough(currentlyBuilded, (PropertySquare)iter))
+                        return null;
+            }
+            if(currentlyBuilded != 4)
+                return new House();
+            else
+                return new Hotel();
+        }
+        else
+            return null;
+    }
+
+    public boolean doIHaveEnough(int currentlyBuilded, PropertySquare square) {
+        if((square.getProperties().get(0)) instanceof Hotel)
+            return true;
+        else if(square.getProperties().size() == currentlyBuilded)
+            return true;
+        else
+            return false;
     }
 }
