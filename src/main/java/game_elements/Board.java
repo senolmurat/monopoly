@@ -23,6 +23,7 @@ public class Board {
         createStartSquare(reader.getPassingStartPrize());
         createExactJailSquare(jailIndex);
         createExactGoToJailSquare(goToJailIndex);
+        createCardSquares();
         generatePropertySquares(board);
         generateTaxSquare(board);
         generateUtilitySquares(board);
@@ -50,13 +51,13 @@ public class Board {
     }
 
     public void createCardSquares(){
-        board[2] = new CardSquare("Community Chest" , 2 , players  , board);
-        board[2] = new CardSquare("Community Chest" , 17 , players  , board);
-        board[2] = new CardSquare("Community Chest" , 33 , players  , board);
+        board[2] = new CardSquare("Community Chest" , 3 , players  , board);
+        board[17] = new CardSquare("Community Chest" , 18 , players  , board);
+        board[33] = new CardSquare("Community Chest" , 34 , players  , board);
 
-        board[2] = new CardSquare("Chance" , 7 , players , board );
-        board[2] = new CardSquare("Chance" , 22 , players , board );
-        board[2] = new CardSquare("Chance" , 36 , players  , board);
+        board[7] = new CardSquare("Chance" , 8 , players , board );
+        board[22] = new CardSquare("Chance" , 23 , players , board );
+        board[36] = new CardSquare("Chance" , 37 , players  , board);
     }
 
 
