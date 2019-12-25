@@ -1,4 +1,4 @@
 package properties;
 
-public class Hotel implements Propertie{
+public class Hotel implements Property {
 }

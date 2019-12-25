@@ -1,4 +1,4 @@
 package properties;
 
-public class House implements Propertie{
+public class House implements Property {
 }

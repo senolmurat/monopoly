@@ -4,9 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 import player.Player;
 import io.Display;
-import properties.Hotel;
-import properties.House;
-import properties.Propertie;
+import properties.Property;
 
 import java.util.ArrayList;
 
@@ -18,7 +16,7 @@ public class PropertySquare extends Square implements Purchasable{
     private int rent;
     private Player owner;//player index in players array
     private String type;//this one stands for colour
-    private ArrayList<Propertie> properties = new ArrayList<>();
+    private ArrayList<Property> properties = new ArrayList<>();
 
     private PropertySquare() {
     }
@@ -72,12 +70,12 @@ public class PropertySquare extends Square implements Purchasable{
         return landInfo;
     }
 
-    public void buildNewPropertie(Player player) {
+    public void buildNewProperty(Player player) {
 
-        Propertie newPropertie = player.canIBuildPropertie(this);
-        if(newPropertie != null && player.getMoney().getMoney() - newPropertie.prize > 0) {
-            player.getMoney().subtractMoney(newPropertie.prize);
-            properties.add(newPropertie);
+        Property newProperty = player.canIBuildPropertie(this);
+        if(newProperty != null && player.getMoney().getMoney() - newProperty.prize > 0) {
+            player.getMoney().subtractMoney(newProperty.prize);
+            properties.add(newProperty);
         }
     }
 }

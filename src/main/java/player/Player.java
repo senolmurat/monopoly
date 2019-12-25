@@ -5,13 +5,12 @@ import lombok.Getter;
 import lombok.Setter;
 import properties.Hotel;
 import properties.House;
-import properties.Propertie;
+import properties.Property;
 import square.PropertySquare;
 import square.Purchasable;
 import square.Square;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.Random;
 
 @Getter
@@ -98,7 +97,7 @@ public class Player {
        return count;
     }
 
-    public Propertie canIBuildPropertie(PropertySquare square) {
+    public Property canIBuildPropertie(PropertySquare square) {
         int currentlyBuilded = square.getProperties().size();
         int count = howManyOfSameColour(square.getType());
 

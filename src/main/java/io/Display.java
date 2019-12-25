@@ -31,6 +31,9 @@ public class Display {
         System.out.println("New position: " + (player.getPosition().getPosition()) + " " + squareType);
     }
 
+    public void infoMessageCardForSquares(String description, Player player){
+        System.out.println(description + " | Money: " + player.getMoney().getMoney());
+    }
     public void infoMessageBasedOnBalance(Player[] players, Board board) {
         System.out.println("-----------------------");
         Player[] tempPlayers = players.clone();

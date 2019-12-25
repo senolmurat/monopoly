@@ -1,6 +1,6 @@
 package properties;
 
-public interface Propertie {
+public interface Property {
 
     int prize = 0;
 }
