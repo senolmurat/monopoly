@@ -3,14 +3,16 @@ package square;
 import game_elements.cards.Card;
 import game_elements.cards.chance.*;
 import game_elements.cards.community_chest.*;
+import io.Display;
 import player.Player;
 
 public class CardSquare extends Square {
 
-    Card[] chance = new Card[6];
-    Card[] communityChest = new Card[15];
-    Player[] players;
-    Square[] board;
+    private Card[] chance = new Card[6];
+    private Card[] communityChest = new Card[15];
+    private Player[] players;
+    private Square[] board;
+    private Display display = new Display();
 
     public CardSquare(String name, int position , Player[] playerArray , Square[] boardArr) {
         super.setName(name);
@@ -28,17 +30,20 @@ public class CardSquare extends Square {
 
             int chanceCard = (int)(Math.random() * 6) % 6 ;
             chance[chanceCard].action(player , players);
+            display.infoMessageCardForSquares(chance[chanceCard].getDescription(), player);
+
         }
         else if(super.getName() == "Community Chest"){
 
             int chanceCard = (int)(Math.random() * 15) % 15 ;
             communityChest[chanceCard].action(player , players);
+            display.infoMessageCardForSquares(communityChest[chanceCard].getDescription(), player);
         }
     }
 
     @Override
     public String landedOn() {
-        return "Card Square";
+        return super.getName(); //Will get either "Chance" or "Community Chest"
     }
 
     private void createCards(Card[] chance , Card[] communityChest){
