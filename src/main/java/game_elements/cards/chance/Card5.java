@@ -21,9 +21,10 @@ public class Card5 extends Card {
                 continue;
             }
 
-            player.getMoney().subtractMoney(50);
-            playerArray[i].getMoney().addMoney(50);
-
+            if(!playerArray[i].isBankrupt()){
+                player.getMoney().subtractMoney(50);
+                playerArray[i].getMoney().addMoney(50);
+            }
         }
 
     }

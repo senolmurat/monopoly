@@ -20,8 +20,10 @@ public class CommCard6 extends Card {
                 continue;
             }
 
-            player.getMoney().addMoney(50);
-            playerArray[i].getMoney().subtractMoney(50);
+            if(!playerArray[i].isBankrupt()){
+                player.getMoney().addMoney(50);
+                playerArray[i].getMoney().subtractMoney(50);
+            }
 
         }
     }
