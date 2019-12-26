@@ -2,7 +2,9 @@ package game_elements;
 
 import lombok.Getter;
 import square.*;
-import io.ReadSquares;
+import io.ReadPropertySquares;
+import io.ReadUtilitySquares;
+import io.ReadCommunitySquares;
 import io.Reader;
 import player.Player;
 
@@ -27,6 +29,7 @@ public class Board {
         generatePropertySquares(board);
         generateTaxSquare(board);
         generateUtilitySquares(board);
+        generateCommunitySquares(board);
         generateRandomGoToJailSquareIndex(reader.getNumberOfGoToJailSquare());
 
     }
@@ -50,14 +53,14 @@ public class Board {
         board[goToJailIndex] = new GoToJail("Go To Jail Square", goToJailIndex + 1, board[jailIndex]);
     }
 
-    public void createCardSquares(){
-        board[2] = new CardSquare("Community Chest" , 3 , players  , board);
-        board[17] = new CardSquare("Community Chest" , 18 , players  , board);
-        board[33] = new CardSquare("Community Chest" , 34 , players  , board);
+    public void createCardSquares() {
+        board[2] = new CardSquare("Community Chest", 3, players, board);
+        board[17] = new CardSquare("Community Chest", 18, players, board);
+        board[33] = new CardSquare("Community Chest", 34, players, board);
 
-        board[7] = new CardSquare("Chance" , 8 , players , board );
-        board[22] = new CardSquare("Chance" , 23 , players , board );
-        board[36] = new CardSquare("Chance" , 37 , players  , board);
+        board[7] = new CardSquare("Chance", 8, players, board);
+        board[22] = new CardSquare("Chance", 23, players, board);
+        board[36] = new CardSquare("Chance", 37, players, board);
     }
 
 
@@ -87,18 +90,25 @@ public class Board {
     }
 
     private void generatePropertySquares(Square[] board) {
-        ReadSquares readSquares = new ReadSquares();
+        ReadPropertySquares readSquares = new ReadPropertySquares();
         for (int i = 0; i < readSquares.getPropertySquaresList().size(); i++) {
             board[readSquares.getPropertySquaresList().get(i).getPosition() - 1] = readSquares.getPropertySquaresList().get(i);
         }
     }
 
     private void generateUtilitySquares(Square[] board) {
-        ReadSquares readSquares = new ReadSquares();
+        ReadUtilitySquares readSquares = new ReadUtilitySquares();
         for (int i = 0; i < readSquares.getUtilitySquaresList().size(); i++) {
             board[readSquares.getUtilitySquaresList().get(i).getPosition() - 1] = readSquares.getUtilitySquaresList().get(i);
         }
     }
 
+    private void generateCommunitySquares(Square[] board) {
+        ReadCommunitySquares readCommunitySquares = new ReadCommunitySquares();
+        for (int i = 0; i < readCommunitySquares.getCommunitySquareArrayList().size(); i++) {
+            board[readCommunitySquares.getCommunitySquareArrayList().get(i).getPosition() - 1] = readCommunitySquares.getCommunitySquareArrayList().get(i);
+
+        }
+    }
 
 }
