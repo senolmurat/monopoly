@@ -2,6 +2,8 @@ package io;
 
 import lombok.Getter;
 import square.PropertySquare;
+import square.UtilitySquare;
+import square.CommunitySquare;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -14,13 +16,15 @@ import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
 @Getter
-public class ReadPropertySquares {
+public class ReadPropertyUtilityCommunitySquares {
 
 
     ArrayList<PropertySquare> propertySquaresList = new ArrayList<>();
+    ArrayList<CommunitySquare> communitySquareArrayList = new ArrayList<>();
+    ArrayList<UtilitySquare> utilitySquaresList = new ArrayList<>();
     JSONArray squares;
 
-    public ReadPropertySquares() {
+    public ReadPropertyUtilityCommunitySquares() {
         ReadJSON();
     }
 
@@ -58,6 +62,31 @@ public class ReadPropertySquares {
             long buildingPrice = (long) jsonObject.get("buildingPrice");
             PropertySquare propertySquare = new PropertySquare(name, (int) position, color, (int) landValue, (int) baseRent, (int) firstHomeRental, (int) secondHomeRental, (int) thirdHomeRental, (int) fourthHomeRental, (int) otelRental, (int) buildingPrice);
             propertySquaresList.add(propertySquare);
+        }
+        jsonObject = (JSONObject) properties.get("CommunitySquare");
+        if (jsonObject != null) {
+            String name = (String) jsonObject.get("name");
+            long position = (long) jsonObject.get("position");
+            String color = (String) jsonObject.get("color");
+            long landValue = (long) jsonObject.get("landValue");
+            long baseRent = (long) jsonObject.get("baseRent");
+            long twoCommunity = (long) jsonObject.get("twoCommunity");
+            CommunitySquare communitySquare = new CommunitySquare(name, (int) position, color, (int) landValue, (int) baseRent, (int) twoCommunity);
+            communitySquareArrayList.add(communitySquare);
+        }
+        jsonObject = (JSONObject) properties.get("UtilitySquare");
+        if (jsonObject != null) {
+            String name = (String) jsonObject.get("name");
+            long position = (long) jsonObject.get("position");
+            String color = (String) jsonObject.get("color");
+            long landValue = (long) jsonObject.get("landValue");
+            long baseRent = (long) jsonObject.get("baseRent");
+            long twoStation = (long) jsonObject.get("twoStation");
+            long threeStation = (long) jsonObject.get("threeStation");
+            long fourStation = (long) jsonObject.get("fourStation");
+
+            UtilitySquare utilitySquare = new UtilitySquare(name, (int) position, color, (int) landValue, (int) baseRent, color, (int) twoStation, (int) threeStation, (int) fourStation);
+            utilitySquaresList.add(utilitySquare);
         }
     }
 
