@@ -5,7 +5,13 @@
       "position": 2,
       "color": "brown",
       "landValue": 60,
-      "rent": 200
+      "baseRent": 2,
+      "firstHomeRental": 10,
+      "secondHomeRental": 30,
+      "thirdHomeRental": 90,
+      "fourthHomeRental": 160,
+      "otelRental": 250,
+      "buildingPrice": 50
     }
   },
   {
@@ -14,24 +20,43 @@
       "position": 4,
       "color": "brown",
       "landValue": 60,
-      "rent": 400
+      "baseRent": 4,
+      "firstHomeRental": 20,
+      "secondHomeRental": 60,
+      "thirdHomeRental": 1800,
+      "fourthHomeRental": 320,
+      "otelRental": 450,
+      "buildingPrice": 50
     }
-  },{
-  "PropertySquare": {
-    "name": "Sultanahmet",
-    "position": 7,
-    "color": "grey",
-    "landValue": 100,
-    "rent": 600
-  }
-},
+  },
+  {
+    "PropertySquare": {
+      "name": "Sultanahmet",
+      "position": 7,
+      "color": "grey",
+      "landValue": 100,
+      "baseRent": 6,
+      "firstHomeRental": 30,
+      "secondHomeRental": 90,
+      "thirdHomeRental": 270,
+      "fourthHomeRental": 400,
+      "otelRental": 550,
+      "buildingPrice": 50
+    }
+  },
   {
     "PropertySquare": {
       "name": "Karakoy",
       "position": 9,
       "color": "grey",
       "landValue": 100,
-      "rent": 100
+      "baseRent": 6,
+      "firstHomeRental": 30,
+      "secondHomeRental": 90,
+      "thirdHomeRental": 270,
+      "fourthHomeRental": 400,
+      "otelRental": 550,
+      "buildingPrice": 50
     }
   },
   {
@@ -40,7 +65,13 @@
       "position": 10,
       "color": "grey",
       "landValue": 120,
-      "rent": 800
+      "baseRent": 8,
+      "firstHomeRental": 40,
+      "secondHomeRental": 100,
+      "thirdHomeRental": 300,
+      "fourthHomeRental": 450,
+      "otelRental": 600,
+      "buildingPrice": 50
     }
   },
   {
@@ -49,7 +80,13 @@
       "position": 12,
       "color": "pink",
       "landValue": 140,
-      "rent": 100
+      "baseRent": 10,
+      "firstHomeRental": 50,
+      "secondHomeRental": 150,
+      "thirdHomeRental": 450,
+      "fourthHomeRental": 625,
+      "otelRental": 750,
+      "buildingPrice": 100
     }
   },
   {
@@ -58,7 +95,13 @@
       "position": 14,
       "color": "pink",
       "landValue": 140,
-      "rent": 100
+      "baseRent": 10,
+      "firstHomeRental": 50,
+      "secondHomeRental": 150,
+      "thirdHomeRental": 450,
+      "fourthHomeRental": 625,
+      "otelRental": 750,
+      "buildingPrice": 100
     }
   },
   {
@@ -67,7 +110,13 @@
       "position": 15,
       "color": "pink",
       "landValue": 160,
-      "rent": 120
+      "baseRent": 12,
+      "firstHomeRental": 60,
+      "secondHomeRental": 180,
+      "thirdHomeRental": 500,
+      "fourthHomeRental": 700,
+      "otelRental": 900,
+      "buildingPrice": 100
     }
   },
   {
@@ -76,7 +125,13 @@
       "position": 17,
       "color": "orange",
       "landValue": 160,
-      "rent": 140
+      "baseRent": 14,
+      "firstHomeRental": 70,
+      "secondHomeRental": 220,
+      "thirdHomeRental": 550,
+      "fourthHomeRental": 750,
+      "otelRental": 950,
+      "buildingPrice": 100
     }
   },
   {
@@ -85,7 +140,13 @@
       "position": 19,
       "color": "orange",
       "landValue": 160,
-      "rent": 140
+      "baseRent": 14,
+      "firstHomeRental": 70,
+      "secondHomeRental": 220,
+      "thirdHomeRental": 550,
+      "fourthHomeRental": 750,
+      "otelRental": 950,
+      "buildingPrice": 100
     }
   },
   {
@@ -94,7 +155,13 @@
       "position": 20,
       "color": "orange",
       "landValue": 200,
-      "rent": 160
+      "baseRent": 16,
+      "firstHomeRental": 80,
+      "secondHomeRental": 220,
+      "thirdHomeRental": 600,
+      "fourthHomeRental": 800,
+      "otelRental": 1000,
+      "buildingPrice": 100
     }
   },
   {
@@ -103,7 +170,13 @@
       "position": 22,
       "color": "red",
       "landValue": 220,
-      "rent": 180
+      "baseRent": 18,
+      "firstHomeRental": 90,
+      "secondHomeRental": 250,
+      "thirdHomeRental": 700,
+      "fourthHomeRental": 875,
+      "otelRental": 1050,
+      "buildingPrice": 110
     }
   },
   {
@@ -112,7 +185,13 @@
       "position": 24,
       "color": "red",
       "landValue": 220,
-      "rent": 180
+      "baseRent": 18,
+      "firstHomeRental": 90,
+      "secondHomeRental": 250,
+      "thirdHomeRental": 700,
+      "fourthHomeRental": 875,
+      "otelRental": 1050,
+      "buildingPrice": 110
     }
   },
   {
@@ -121,7 +200,13 @@
       "position": 25,
       "color": "red",
       "landValue": 240,
-      "rent": 200
+      "baseRent": 20,
+      "firstHomeRental": 100,
+      "secondHomeRental": 300,
+      "thirdHomeRental": 750,
+      "fourthHomeRental": 925,
+      "otelRental": 1100,
+      "buildingPrice": 150
     }
   },
   {
@@ -130,7 +215,13 @@
       "position": 27,
       "color": "yellow",
       "landValue": 260,
-      "rent": 220
+      "baseRent": 22,
+      "firstHomeRental": 110,
+      "secondHomeRental": 330,
+      "thirdHomeRental": 800,
+      "fourthHomeRental": 975,
+      "otelRental": 1150,
+      "buildingPrice": 150
     }
   },
   {
@@ -139,7 +230,13 @@
       "position": 28,
       "color": "yellow",
       "landValue": 260,
-      "rent": 220
+      "baseRent": 22,
+      "firstHomeRental": 110,
+      "secondHomeRental": 330,
+      "thirdHomeRental": 800,
+      "fourthHomeRental": 975,
+      "otelRental": 1150,
+      "buildingPrice": 150
     }
   },
   {
@@ -148,7 +245,13 @@
       "position": 30,
       "color": "yellow",
       "landValue": 280,
-      "rent": 240
+      "baseRent": 24,
+      "firstHomeRental": 120,
+      "secondHomeRental": 360,
+      "thirdHomeRental": 850,
+      "fourthHomeRental": 1025,
+      "otelRental": 1200,
+      "buildingPrice": 150
     }
   },
   {
@@ -157,7 +260,13 @@
       "position": 32,
       "color": "green",
       "landValue": 300,
-      "rent": 260
+      "baseRent": 26,
+      "firstHomeRental": 130,
+      "secondHomeRental": 390,
+      "thirdHomeRental": 900,
+      "fourthHomeRental": 1100,
+      "otelRental": 1275,
+      "buildingPrice": 200
     }
   },
   {
@@ -166,7 +275,13 @@
       "position": 33,
       "color": "green",
       "landValue": 300,
-      "rent": 260
+      "baseRent": 26,
+      "firstHomeRental": 130,
+      "secondHomeRental": 390,
+      "thirdHomeRental": 900,
+      "fourthHomeRental": 1100,
+      "otelRental": 1275,
+      "buildingPrice": 200
     }
   },
   {
@@ -175,7 +290,13 @@
       "position": 35,
       "color": "green",
       "landValue": 320,
-      "rent": 280
+      "baseRent": 28,
+      "firstHomeRental": 150,
+      "secondHomeRental": 450,
+      "thirdHomeRental": 1000,
+      "fourthHomeRental": 1200,
+      "otelRental": 1400,
+      "buildingPrice": 200
     }
   },
   {
@@ -184,7 +305,13 @@
       "position": 38,
       "color": "blue",
       "landValue": 350,
-      "rent": 350
+      "baseRent": 35,
+      "firstHomeRental": 175,
+      "secondHomeRental": 500,
+      "thirdHomeRental": 1100,
+      "fourthHomeRental": 1300,
+      "otelRental": 1500,
+      "buildingPrice": 200
     }
   },
   {
@@ -193,7 +320,13 @@
       "position": 40,
       "color": "blue",
       "landValue": 400,
-      "rent": 500
+      "baseRent": 50,
+      "firstHomeRental": 200,
+      "secondHomeRental": 600,
+      "thirdHomeRental": 1400,
+      "fourthHomeRental": 1700,
+      "otelRental": 2000,
+      "buildingPrice": 200
     }
   },
   {
@@ -202,16 +335,20 @@
       "position": 6,
       "color": "black",
       "landValue": 200,
-      "rent": 0
+      "baseRent": 25,
+      "twoStation": 50,
+      "threeStation": 100,
+      "fourStation": 200
     }
   },
   {
-    "UtilitySquare": {
+    "CommunitySquare": {
       "name": "Elektrik Idaresi",
       "position": 13,
       "color": "white",
       "landValue": 150,
-      "rent": 0
+      "baseRent": 4,
+      "twoCommunity": 10
     }
   },
   {
@@ -220,7 +357,10 @@
       "position": 16,
       "color": "black",
       "landValue": 200,
-      "rent": 0
+      "baseRent": 25,
+      "twoStation": 50,
+      "threeStation": 100,
+      "fourStation": 200
     }
   },
   {
@@ -229,16 +369,20 @@
       "position": 26,
       "color": "black",
       "landValue": 200,
-      "rent": 0
+      "baseRent": 25,
+      "twoStation": 50,
+      "threeStation": 100,
+      "fourStation": 200
     }
   },
   {
-    "UtilitySquare": {
+    "CommunitySquare": {
       "name": "Sular Idaresi",
       "position": 29,
       "color": "white",
       "landValue": 150,
-      "rent": 0
+      "baseRent": 4,
+      "twoCommunity": 10
     }
   },
   {
@@ -247,7 +391,10 @@
       "position": 36,
       "color": "black",
       "landValue": 200,
-      "rent": 0
+      "baseRent": 25,
+      "twoStation": 50,
+      "threeStation": 100,
+      "fourStation": 200
     }
   }
 ]
