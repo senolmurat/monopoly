@@ -10,7 +10,7 @@
       "secondHomeRental": 30,
       "thirdHomeRental": 90,
       "fourthHomeRental": 160,
-      "otelRental": 250,
+      "hotelRental": 250,
       "buildingPrice": 50
     }
   },
@@ -25,7 +25,7 @@
       "secondHomeRental": 60,
       "thirdHomeRental": 1800,
       "fourthHomeRental": 320,
-      "otelRental": 450,
+      "hotelRental": 450,
       "buildingPrice": 50
     }
   },
@@ -40,7 +40,7 @@
       "secondHomeRental": 90,
       "thirdHomeRental": 270,
       "fourthHomeRental": 400,
-      "otelRental": 550,
+      "hotelRental": 550,
       "buildingPrice": 50
     }
   },
@@ -55,7 +55,7 @@
       "secondHomeRental": 90,
       "thirdHomeRental": 270,
       "fourthHomeRental": 400,
-      "otelRental": 550,
+      "hotelRental": 550,
       "buildingPrice": 50
     }
   },
@@ -70,7 +70,7 @@
       "secondHomeRental": 100,
       "thirdHomeRental": 300,
       "fourthHomeRental": 450,
-      "otelRental": 600,
+      "hotelRental": 600,
       "buildingPrice": 50
     }
   },
@@ -85,7 +85,7 @@
       "secondHomeRental": 150,
       "thirdHomeRental": 450,
       "fourthHomeRental": 625,
-      "otelRental": 750,
+      "hotelRental": 750,
       "buildingPrice": 100
     }
   },
@@ -100,7 +100,7 @@
       "secondHomeRental": 150,
       "thirdHomeRental": 450,
       "fourthHomeRental": 625,
-      "otelRental": 750,
+      "hotelRental": 750,
       "buildingPrice": 100
     }
   },
@@ -115,7 +115,7 @@
       "secondHomeRental": 180,
       "thirdHomeRental": 500,
       "fourthHomeRental": 700,
-      "otelRental": 900,
+      "hotelRental": 900,
       "buildingPrice": 100
     }
   },
@@ -130,7 +130,7 @@
       "secondHomeRental": 220,
       "thirdHomeRental": 550,
       "fourthHomeRental": 750,
-      "otelRental": 950,
+      "hotelRental": 950,
       "buildingPrice": 100
     }
   },
@@ -145,7 +145,7 @@
       "secondHomeRental": 220,
       "thirdHomeRental": 550,
       "fourthHomeRental": 750,
-      "otelRental": 950,
+      "hotelRental": 950,
       "buildingPrice": 100
     }
   },
@@ -160,7 +160,7 @@
       "secondHomeRental": 220,
       "thirdHomeRental": 600,
       "fourthHomeRental": 800,
-      "otelRental": 1000,
+      "hotelRental": 1000,
       "buildingPrice": 100
     }
   },
@@ -175,7 +175,7 @@
       "secondHomeRental": 250,
       "thirdHomeRental": 700,
       "fourthHomeRental": 875,
-      "otelRental": 1050,
+      "hotelRental": 1050,
       "buildingPrice": 110
     }
   },
@@ -190,7 +190,7 @@
       "secondHomeRental": 250,
       "thirdHomeRental": 700,
       "fourthHomeRental": 875,
-      "otelRental": 1050,
+      "hotelRental": 1050,
       "buildingPrice": 110
     }
   },
@@ -205,7 +205,7 @@
       "secondHomeRental": 300,
       "thirdHomeRental": 750,
       "fourthHomeRental": 925,
-      "otelRental": 1100,
+      "hotelRental": 1100,
       "buildingPrice": 150
     }
   },
@@ -220,7 +220,7 @@
       "secondHomeRental": 330,
       "thirdHomeRental": 800,
       "fourthHomeRental": 975,
-      "otelRental": 1150,
+      "hotelRental": 1150,
       "buildingPrice": 150
     }
   },
@@ -235,7 +235,7 @@
       "secondHomeRental": 330,
       "thirdHomeRental": 800,
       "fourthHomeRental": 975,
-      "otelRental": 1150,
+      "hotelRental": 1150,
       "buildingPrice": 150
     }
   },
@@ -250,7 +250,7 @@
       "secondHomeRental": 360,
       "thirdHomeRental": 850,
       "fourthHomeRental": 1025,
-      "otelRental": 1200,
+      "hotelRental": 1200,
       "buildingPrice": 150
     }
   },
@@ -265,7 +265,7 @@
       "secondHomeRental": 390,
       "thirdHomeRental": 900,
       "fourthHomeRental": 1100,
-      "otelRental": 1275,
+      "hotelRental": 1275,
       "buildingPrice": 200
     }
   },
@@ -280,7 +280,7 @@
       "secondHomeRental": 390,
       "thirdHomeRental": 900,
       "fourthHomeRental": 1100,
-      "otelRental": 1275,
+      "hotelRental": 1275,
       "buildingPrice": 200
     }
   },
@@ -295,7 +295,7 @@
       "secondHomeRental": 450,
       "thirdHomeRental": 1000,
       "fourthHomeRental": 1200,
-      "otelRental": 1400,
+      "hotelRental": 1400,
       "buildingPrice": 200
     }
   },
@@ -310,7 +310,7 @@
       "secondHomeRental": 500,
       "thirdHomeRental": 1100,
       "fourthHomeRental": 1300,
-      "otelRental": 1500,
+      "hotelRental": 1500,
       "buildingPrice": 200
     }
   },
@@ -325,7 +325,7 @@
       "secondHomeRental": 600,
       "thirdHomeRental": 1400,
       "fourthHomeRental": 1700,
-      "otelRental": 2000,
+      "hotelRental": 2000,
       "buildingPrice": 200
     }
   },

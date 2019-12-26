@@ -84,6 +84,13 @@ public class Player {
         return value > 80;
     }
 
+    public int decidingPropertyStage() {
+        Random rand = new Random();
+        int value = 1 + rand.nextInt(5);
+
+        return value;
+    }
+
     public void addProperty(Purchasable property) {
         properties.add(property);
     }
@@ -117,9 +124,18 @@ public class Player {
     }
 
     public boolean doIHaveEnough(int currentlyBuilded, PropertySquare square) {
-        if((square.getProperties().get(0)) instanceof Hotel)
-            return true;
-        else if(square.getProperties().size() == currentlyBuilded)
+        if(currentlyBuilded == 5){
+            /*for(int i = 0 ; i < currentlyBuilded ; i++){
+                System.out.println("builded : " + currentlyBuilded);
+                if( (square.getProperties().get(i)) instanceof Hotel )
+                    return true;
+            }
+
+             */
+            if( (square.getProperties().get(4)) instanceof Hotel )
+                return true;
+        }
+        if(square.getProperties().size() == currentlyBuilded)
             return true;
         else
             return false;

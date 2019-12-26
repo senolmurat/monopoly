@@ -2,9 +2,10 @@ package game_elements;
 
 import lombok.Getter;
 import square.*;
-import io.ReadPropertySquares;
-import io.ReadUtilitySquares;
-import io.ReadCommunitySquares;
+//import io.ReadPropertySquares;
+//import io.ReadUtilitySquares;
+//import io.ReadCommunitySquares;
+import io.ReadPropertyUtilityCommunitySquares;
 import io.Reader;
 import player.Player;
 
@@ -90,21 +91,21 @@ public class Board {
     }
 
     private void generatePropertySquares(Square[] board) {
-        ReadPropertySquares readSquares = new ReadPropertySquares();
+        ReadPropertyUtilityCommunitySquares readSquares = new ReadPropertyUtilityCommunitySquares();
         for (int i = 0; i < readSquares.getPropertySquaresList().size(); i++) {
             board[readSquares.getPropertySquaresList().get(i).getPosition() - 1] = readSquares.getPropertySquaresList().get(i);
         }
     }
 
     private void generateUtilitySquares(Square[] board) {
-        ReadUtilitySquares readSquares = new ReadUtilitySquares();
+        ReadPropertyUtilityCommunitySquares readSquares = new ReadPropertyUtilityCommunitySquares();
         for (int i = 0; i < readSquares.getUtilitySquaresList().size(); i++) {
             board[readSquares.getUtilitySquaresList().get(i).getPosition() - 1] = readSquares.getUtilitySquaresList().get(i);
         }
     }
 
     private void generateCommunitySquares(Square[] board) {
-        ReadCommunitySquares readCommunitySquares = new ReadCommunitySquares();
+        ReadPropertyUtilityCommunitySquares readCommunitySquares = new ReadPropertyUtilityCommunitySquares();
         for (int i = 0; i < readCommunitySquares.getCommunitySquareArrayList().size(); i++) {
             board[readCommunitySquares.getCommunitySquareArrayList().get(i).getPosition() - 1] = readCommunitySquares.getCommunitySquareArrayList().get(i);
 

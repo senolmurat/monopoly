@@ -18,7 +18,7 @@ public class ReadSquaresTest {
                     + " " + "Color : " + propertySquare.getType() + " "
                     + " Land Value : " + propertySquare.getLandValue() + " " + " Rent Value : " + propertySquare.getBaseRent()
                     + " First Home Rental : " + propertySquare.getFirstHomeRental() + " Second Home Rental : " + propertySquare.getSecondHomeRental() + " Third Home Rental : " + propertySquare.getThirdHomeRental() +
-                    " Fourth Home Rental : " + propertySquare.getFourthHomeRental() + " Otel Rental : " + propertySquare.getOtelRental() + " Builder Price : " + propertySquare.getBuildingPrice());
+                    " Fourth Home Rental : " + propertySquare.getFourthHomeRental() + " Hotel Rental : " + propertySquare.getHotelRental() + " Builder Price : " + propertySquare.getBuildingPrice());
     }
 
     @Test
