@@ -13,14 +13,15 @@ import java.util.ArrayList;
 public class PropertySquare extends Square implements Purchasable {
 
     private int landValue;
-    private int baseRent;
     private Player owner;//player index in players array
     private String type;//this one stands for colour
+    private int totalRent;
+    private int baseRent;
     private int firstHomeRental;
     private int secondHomeRental;
     private int thirdHomeRental;
     private int fourthHomeRental;
-    private int otelRental;
+    private int hotelRental;
     private int buildingPrice;
 
     private ArrayList<Property> properties = new ArrayList<>();
@@ -29,7 +30,7 @@ public class PropertySquare extends Square implements Purchasable {
     }
 
 
-    public PropertySquare(String name, int position, String colour, int landValue, int baseRent, int firstHomeRental, int secondHomeRental, int thirdHomeRental, int fourthHomeRental, int otelRental, int buildingPrice) {
+    public PropertySquare(String name, int position, String colour, int landValue, int baseRent, int firstHomeRental, int secondHomeRental, int thirdHomeRental, int fourthHomeRental, int hotelRental, int buildingPrice) {
         super.setName(name);
         super.setPosition(position);
         this.type = colour;
@@ -39,7 +40,7 @@ public class PropertySquare extends Square implements Purchasable {
         this.secondHomeRental = secondHomeRental;
         this.thirdHomeRental = thirdHomeRental;
         this.fourthHomeRental = fourthHomeRental;
-        this.otelRental = otelRental;
+        this.hotelRental = hotelRental;
         this.buildingPrice = buildingPrice;
         this.owner = null;//default , no owner
     }
@@ -49,22 +50,35 @@ public class PropertySquare extends Square implements Purchasable {
 
         Display display = new Display();
 
-        if (owner == null) {
+        if (owner == null || player.equals(owner)) {
 
-            if (player.decidingToBuy() && (player.getMoney().getMoney() - landValue > 0)) {
+            if (player.decidingToBuy() && (player.getMoney().getMoney() - landValue > 0)) { //TODO may cause some issues
                 owner = player;
-                player.getMoney().subtractMoney(landValue);
+                //player.getMoney().subtractMoney(landValue);
+                for(int i = properties.size() ; i < player.decidingPropertyStage() ; i++){
+                    buildNewProperty(player);
+                }
                 player.addProperty(this);
                 display.infoMessageBuying(player, this);
             }
         } else if (!player.equals(owner)) {
             int count = owner.howManyOfSameColour(type);
             //TODO we need to increase the rent based on this count
+            totalRent = baseRent;
+            int propertyStage = properties.size();
 
-            player.getMoney().subtractMoney(baseRent);
+            switch(propertyStage){
+                case 1 : totalRent = firstHomeRental; break;
+                case 2 : totalRent = secondHomeRental; break;
+                case 3 : totalRent = thirdHomeRental; break;
+                case 4 : totalRent = fourthHomeRental; break;
+                case 5 : totalRent = hotelRental; break;
+            }
+
+            player.getMoney().subtractMoney(totalRent);
             if (!owner.isBankrupt()) {
-                owner.getMoney().addMoney(baseRent);
-                display.infoMessagePayingRent(player, owner, baseRent);
+                owner.getMoney().addMoney(totalRent);
+                display.infoMessagePayingRent(player, owner, totalRent);
             }
         }
 

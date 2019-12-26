@@ -58,9 +58,9 @@ public class ReadPropertyUtilityCommunitySquares {
             long secondHomeRental = (long) jsonObject.get("secondHomeRental");
             long thirdHomeRental = (long) jsonObject.get("thirdHomeRental");
             long fourthHomeRental = (long) jsonObject.get("fourthHomeRental");
-            long otelRental = (long) jsonObject.get("otelRental");
+            long hotelRental = (long) jsonObject.get("hotelRental");
             long buildingPrice = (long) jsonObject.get("buildingPrice");
-            PropertySquare propertySquare = new PropertySquare(name, (int) position, color, (int) landValue, (int) baseRent, (int) firstHomeRental, (int) secondHomeRental, (int) thirdHomeRental, (int) fourthHomeRental, (int) otelRental, (int) buildingPrice);
+            PropertySquare propertySquare = new PropertySquare(name, (int) position, color, (int) landValue, (int) baseRent, (int) firstHomeRental, (int) secondHomeRental, (int) thirdHomeRental, (int) fourthHomeRental, (int) hotelRental, (int) buildingPrice);
             propertySquaresList.add(propertySquare);
         }
         jsonObject = (JSONObject) properties.get("CommunitySquare");
