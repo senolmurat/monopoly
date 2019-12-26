@@ -11,7 +11,7 @@ public class ReadSquaresTest {
 
     @Test
     public void getPropertySquaresList() {
-        ReadPropertySquares readPropertySquare = new ReadPropertySquares();
+        ReadPropertyUtilityCommunitySquares readPropertySquare = new ReadPropertyUtilityCommunitySquares();
         List<PropertySquare> propertySquaresList = readPropertySquare.getPropertySquaresList();
         for (PropertySquare propertySquare : propertySquaresList)
             System.out.println("Name : " + propertySquare.getName() + " " + "Position : " + propertySquare.getPosition()
@@ -23,7 +23,7 @@ public class ReadSquaresTest {
 
     @Test
     public void getUtilitySquaresList() {
-        ReadUtilitySquares readPropertySquare = new ReadUtilitySquares();
+        ReadPropertyUtilityCommunitySquares readPropertySquare = new ReadPropertyUtilityCommunitySquares();
         List<UtilitySquare> utilitySquaresList = readPropertySquare.getUtilitySquaresList();
         for (UtilitySquare utilitySquare : utilitySquaresList)
             System.out.println("Name : " + utilitySquare.getName() + " " + "Position : " + utilitySquare.getPosition()
@@ -34,7 +34,7 @@ public class ReadSquaresTest {
 
     @Test
     public void getCommunitySquaresList() {
-        ReadCommunitySquares readCommunitySquares = new ReadCommunitySquares();
+        ReadPropertyUtilityCommunitySquares readCommunitySquares = new ReadPropertyUtilityCommunitySquares();
         List<CommunitySquare> communitySquareList = readCommunitySquares.getCommunitySquareArrayList();
         for (CommunitySquare communitySquare : communitySquareList)
             System.out.println("Name : " + communitySquare.getName() + " " + "Position : " + communitySquare.getPosition()
