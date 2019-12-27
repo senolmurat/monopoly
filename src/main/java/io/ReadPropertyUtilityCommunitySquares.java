@@ -44,7 +44,6 @@ public class ReadPropertyUtilityCommunitySquares {
         }
     }
 
-    //TODO: remove duplicates.
     private void createSquares(JSONObject properties) {
 
         JSONObject jsonObject = (JSONObject) properties.get("PropertySquare");

@@ -7,9 +7,7 @@ import lombok.Setter;
 import properties.Hotel;
 import properties.House;
 import properties.Property;
-import square.PropertySquare;
-import square.Purchasable;
-import square.Square;
+import square.*;
 import main.Game;
 
 import java.util.ArrayList;
@@ -98,14 +96,14 @@ public class Player {
         }
         return count;
     }
-    
-    private int totalColour (String color) {
+
+    private int totalColour(String color) {
         int count = 0;
 
         Board board = Game.instance().getBoard();
-        for (Square square:board.getBoard()) {
-            if(square instanceof Purchasable){
-                if(((Purchasable) square).getType().equals(color))
+        for (Square square : board.getBoard()) {
+            if (square instanceof Purchasable) {
+                if (((Purchasable) square).getType().equals(color))
                     count++;
             }
         }
@@ -116,7 +114,7 @@ public class Player {
         int currentlyBuilded = square.getProperties().size();
         int count = howManyOfSameColour(square.getType());
 
-        if(currentlyBuilded == 1 && square.getProperties().get(0) instanceof  Hotel)
+        if (currentlyBuilded == 1 && square.getProperties().get(0) instanceof Hotel)
             return null;
 
         if (count == totalColour(square.getType())) {
@@ -136,7 +134,7 @@ public class Player {
     public boolean doIHaveEnough(int currentlyBuilded, PropertySquare square) {
         if (currentlyBuilded == 0)
             return true;
-        else if(square.getProperties().size() == 0)
+        else if (square.getProperties().size() == 0)
             return false;
         else if ((square.getProperties().get(0)) instanceof Hotel)
             return true;
@@ -146,11 +144,108 @@ public class Player {
             return false;
     }
 
+    public boolean isMortgage(){
 
-    public void isMortgage(Player player) {
-        for (Purchasable square: properties) {
+        boolean isMortgage = false;
 
+            isMortgage = communitySquareSelling();
+            if(isMortgage)
+                return true;
+            isMortgage = utilitySquareSelling();
+            if (isMortgage)
+                return true;
+            isMortgage = hotelSelling();
+            if (isMortgage)
+                return true;
+            for(Purchasable square : properties){
+                if(((PropertySquare) square).getProperties().size() != 0) {
+                    isMortgage = houseSelling();
+                    if(isMortgage){
+                        return true;
+                    }
+                }
+            }
+            isMortgage = propertySquareSelling();
+            if(isMortgage)
+                return true;
+            return false;
+
+    }
+
+    private boolean hotelSelling() {
+        for (Purchasable square : properties) {
+            if (!(square instanceof PropertySquare))
+                continue;
+            if (((PropertySquare) square).getProperties().get(0) instanceof Hotel) {
+                ((PropertySquare) square).getProperties().clear();
+                for (int i = 0; i < 4; i++) {
+                    ((PropertySquare) square).getProperties().add(new House());
+                }
+                money.addMoney(((PropertySquare) square).getBuildingPrice() / 2);
+                if (!isBankrupt()) {
+                    setBankrupt(false);
+                    return true;
+                }
+            }
         }
+        return false;
+    }
 
+    private boolean houseSelling() {
+        for (Purchasable square : properties) {
+            if (!(square instanceof PropertySquare))
+                continue;
+            for (int i = ((PropertySquare) square).getProperties().size() - 1; i >= ((PropertySquare) square).getProperties().size() - 1; i--) {
+                ((PropertySquare) square).getProperties().remove(i);
+                money.addMoney(((PropertySquare) square).getBuildingPrice() / 2);
+                if (!isBankrupt()) {
+                    setBankrupt(false);
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    private boolean communitySquareSelling() {
+        for (Purchasable square : properties) {
+            if (!(square instanceof CommunitySquare))
+                continue;
+            money.addMoney(square.getLandValue() / 2);
+            square.setOwner(null);
+            if (!isBankrupt()) {
+                setBankrupt(false);
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private boolean utilitySquareSelling() {
+        for (Purchasable square : properties) {
+            if (!(square instanceof UtilitySquare))
+                continue;
+            money.addMoney(square.getLandValue() / 2);
+            square.setOwner(null);
+            if (!isBankrupt()) {
+                setBankrupt(false);
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private boolean propertySquareSelling() {
+        for (Purchasable square : properties) {
+            if (!(square instanceof PropertySquare))
+                continue;
+            money.addMoney(square.getLandValue() / 2);
+            square.setOwner(null);
+            if (!isBankrupt()) {
+                setBankrupt(false);
+                return true;
+            }
+        }
+        return false;
     }
 }

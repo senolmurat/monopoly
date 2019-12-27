@@ -108,6 +108,8 @@ public class Game {
                             players[i].getPosition().squareAction(players[i]);
 
                             if(players[i].isBankrupt()) {
+                                if(players[i].isMortgage())
+                                    continue;
                                 players[i].setBankrupt(true);
                                 Iterator iter = players[i].getProperties().iterator();
                                 while (iter.hasNext()) {
