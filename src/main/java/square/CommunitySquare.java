@@ -59,6 +59,6 @@ public class CommunitySquare extends Square implements Purchasable {
 
     @Override
     public String landedOn() {
-        return null;
+        return getName();
     }
 }

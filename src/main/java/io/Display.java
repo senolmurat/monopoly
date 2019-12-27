@@ -4,6 +4,7 @@ import game_elements.Board;
 import player.Player;
 import game_elements.*;
 import square.PropertySquare;
+import square.Purchasable;
 
 public class Display {
 
@@ -60,7 +61,20 @@ public class Display {
     public void infoMessageDoubleDiceThreeTimesInARow(Player player) {
         System.out.println(player.getName() + " rolled double dice three times in a row, so putted in the Jail!");
     }
+    public  void infoMessageBuildHouse(Player player, String squareName, int numberOfHouses, int buildingPrice){
+        System.out.println(player.getName() + " built " + numberOfHouses + ". house in " + squareName + " and paid " + buildingPrice);
+    }
 
+    public void infoMessageBuildHotel(Player player, String squareName, int buildingPrice){
+        System.out.println(player.getName() + " built a hotel in " + squareName + " and paid " + buildingPrice);
+    }
+
+    public void infoCommunitySquareSelling(Purchasable square, String name, Player player){
+        System.out.println(player.getName() + " sold " + name + " and earned " + square.getLandValue() + " | Money: " + player.getMoney().getMoney());
+    }
+    public void infoMessageColorSet(Player player, String type){
+        System.out.println(player.getName() + " has a color set at " + type + " region.");
+    }
     private void selectionSort(Player[] players) {
         int length = players.length;
         int maxValIndex;
@@ -79,5 +93,21 @@ public class Display {
     public void infoMessageBuying(Player player, PropertySquare propertySquare) {
         System.out.println(player.getName() + " decided to buy " + propertySquare.getName() + " and paid " + propertySquare.getLandValue()
                 + ". | Money: " + player.getMoney().getMoney());
+    }
+
+    public void infoUtilitySquareSelling(Purchasable square, String name, Player player) {
+        System.out.println(player.getName() + " sold " + name + " and earned " + square.getLandValue() + " | Money: " + player.getMoney().getMoney());
+    }
+
+    public void infoPropertySquareSelling(Purchasable square, String name, Player player) {
+        System.out.println(player.getName() + " sold " + name + " and earned " + square.getLandValue() + " | Money: " + player.getMoney().getMoney());
+    }
+
+    public void infoHotelSelling(Purchasable square, String name, Player player) {
+        System.out.println(player.getName() + " sold hotel in " + name + " and earned " + square.getLandValue() + " | Money: " + player.getMoney().getMoney());
+    }
+
+    public void infoHouseSelling(Purchasable square, String name, Player player) {
+        System.out.println(player.getName() + " sold house in " + name + " and earned " + square.getLandValue() + " | Money: " + player.getMoney().getMoney());
     }
 }

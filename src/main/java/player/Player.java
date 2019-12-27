@@ -2,6 +2,7 @@ package player;
 
 import game_elements.Board;
 import game_elements.Die;
+import io.Display;
 import lombok.Getter;
 import lombok.Setter;
 import properties.Hotel;
@@ -29,6 +30,7 @@ public class Player {
     private boolean inJail = false;
     private int jailCounter = 0;
     private ArrayList<Purchasable> properties = new ArrayList<>();
+    private Display display = new Display();
 
     private Player() {
 
@@ -123,6 +125,7 @@ public class Player {
                     if (!doIHaveEnough(currentlyBuilded, (PropertySquare) iter))
                         return null;
             }
+            display.infoMessageColorSet(this, square.getType());
             if (currentlyBuilded != 4)
                 return new House();
             else
@@ -148,27 +151,27 @@ public class Player {
 
         boolean isMortgage = false;
 
-            isMortgage = communitySquareSelling();
-            if(isMortgage)
-                return true;
-            isMortgage = utilitySquareSelling();
-            if (isMortgage)
-                return true;
-            isMortgage = hotelSelling();
-            if (isMortgage)
-                return true;
-            for(Purchasable square : properties){
-                if(((PropertySquare) square).getProperties().size() != 0) {
-                    isMortgage = houseSelling();
-                    if(isMortgage){
-                        return true;
-                    }
+        isMortgage = communitySquareSelling();
+        if(isMortgage)
+            return true;
+        isMortgage = utilitySquareSelling();
+        if (isMortgage)
+            return true;
+        isMortgage = hotelSelling();
+        if (isMortgage)
+            return true;
+        for(Purchasable square : properties){
+            if(((PropertySquare) square).getProperties().size() != 0) {
+                isMortgage = houseSelling();
+                if(isMortgage){
+                    return true;
                 }
             }
-            isMortgage = propertySquareSelling();
-            if(isMortgage)
-                return true;
-            return false;
+        }
+        isMortgage = propertySquareSelling();
+        if(isMortgage)
+            return true;
+        return false;
 
     }
 
@@ -185,6 +188,7 @@ public class Player {
                     ((PropertySquare) square).getProperties().add(new House());
                 }
                 money.addMoney(((PropertySquare) square).getBuildingPrice() / 2);
+                display.infoHotelSelling(square, ((PropertySquare) square).getName(), this);
                 i--;
                 if (!isBankrupt()) {
                     setBankrupt(false);
@@ -202,15 +206,15 @@ public class Player {
                 continue;
             if(((PropertySquare) square).getProperties().size() == 0)
                 return false;
-            for (int j = ((PropertySquare) square).getProperties().size() - 1; j >= ((PropertySquare) square).getProperties().size() - 1; j--) {
-                ((PropertySquare) square).getProperties().remove(j);
-                money.addMoney(((PropertySquare) square).getBuildingPrice() / 2);
-                if (!isBankrupt()) {
-                    setBankrupt(false);
-                    return true;
-                }
-                i--;
+            ((PropertySquare) square).getProperties().remove(((PropertySquare) square).getProperties().size() -1);
+            money.addMoney(((PropertySquare) square).getBuildingPrice() / 2);
+            display.infoHouseSelling(square, ((PropertySquare) square).getName(), this);
+            if (!isBankrupt()) {
+                setBankrupt(false);
+                return true;
             }
+            i--;
+
         }
         return false;
     }
@@ -221,6 +225,7 @@ public class Player {
             if (!(square instanceof CommunitySquare))
                 continue;
             money.addMoney(square.getLandValue() / 2);
+            display.infoCommunitySquareSelling(square, ((CommunitySquare) square).getName(), this);
             square.setOwner(null);
             properties.remove(square);
             i--;
@@ -238,6 +243,7 @@ public class Player {
             if (!(square instanceof UtilitySquare))
                 continue;
             money.addMoney(square.getLandValue() / 2);
+            display.infoUtilitySquareSelling(square, ((UtilitySquare) square).getName(), this);
             square.setOwner(null);
             properties.remove(square);
             i--;
@@ -255,6 +261,7 @@ public class Player {
             if (!(square instanceof PropertySquare))
                 continue;
             money.addMoney(square.getLandValue() / 2);
+            display.infoPropertySquareSelling(square, ((PropertySquare) square).getName(), this);
             square.setOwner(null);
             properties.remove(square);
             i--;

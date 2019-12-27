@@ -6,7 +6,7 @@ import player.Player;
 public class CommCard12 extends Card {
 
     public CommCard12() {
-        super.setName("Chest14");
+        super.setName("Chest12");
         super.setDescription("You have won second prize in a beauty contest. Collect $10.");
         super.setAltDescription("Mr. Monopoly preens with a sash and large bouquet");
     }

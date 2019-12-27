@@ -6,7 +6,7 @@ import player.Player;
 public class CommCard9 extends Card {
 
     public CommCard9() {
-        super.setName("Chest11");
+        super.setName("Chest9");
         super.setDescription("Receive $25 consultancy fee.");
         super.setAltDescription("As Justice of the Peace, a stern Mr. M holds out his hand for fee from an embarrassed groom whose bride hold a bouquet behind him");
     }

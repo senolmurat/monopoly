@@ -6,7 +6,7 @@ import player.Player;
 public class CommCard7 extends Card {
 
     public CommCard7() {
-        super.setName("Chest9");
+        super.setName("Chest7");
         super.setDescription("Hospital Fees. Pay $50.");
         super.setAltDescription("A bored nurse holds out her hand for payment while Mr. Monopoly holds 2 swaddled infants, one in each arm");
     }

@@ -6,7 +6,7 @@ import player.Player;
 public class CommCard8 extends Card {
 
     public CommCard8() {
-        super.setName("Chest10");
+        super.setName("Chest8");
         super.setDescription("School fees. Pay $50.");
         super.setAltDescription("A bespectacled schoolboy unhappily receives a head pat and a dime Rockefeller style from Mr. Monopoly.");
     }
