@@ -28,14 +28,14 @@ public class CardSquare extends Square {
 
         if(super.getName() == "Chance"){
 
-            int chanceCard = (int)(Math.random() * 6) % 6 ;
+            int chanceCard = (int)(Math.random() * 5) % 5 ;
             chance[chanceCard].action(player , players);
             display.infoMessageCardForSquares(chance[chanceCard].getDescription(), player);
 
         }
         else if(super.getName() == "Community Chest"){
 
-            int chanceCard = (int)(Math.random() * 15) % 15 ;
+            int chanceCard = (int)(Math.random() * 13) % 13 ;
             communityChest[chanceCard].action(player , players);
             display.infoMessageCardForSquares(communityChest[chanceCard].getDescription(), player);
         }
@@ -53,7 +53,6 @@ public class CardSquare extends Square {
         chance[2] = new Card3();
         chance[3] = new Card4();
         chance[4] = new Card5();
-        chance[5] = new Card6();
 
         communityChest[0] = new CommCard1(board);
         communityChest[1] = new CommCard2();
@@ -68,8 +67,6 @@ public class CardSquare extends Square {
         communityChest[10] = new CommCard11();
         communityChest[11] = new CommCard12();
         communityChest[12] = new CommCard13();
-        communityChest[13] = new CommCard14();
-        communityChest[14] = new CommCard15();
 
     }
 

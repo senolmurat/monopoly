@@ -61,7 +61,6 @@ public class PropertySquare extends Square implements Purchasable {
             }
         } else if (!player.equals(owner)) {
             int count = owner.howManyOfSameColour(type);
-            //TODO we need to increase the rent based on this count
             totalRent = baseRent;
             int propertyStage = properties.size();
 
