@@ -2,9 +2,6 @@ package game_elements;
 
 import lombok.Getter;
 import square.*;
-//import io.ReadPropertySquares;
-//import io.ReadUtilitySquares;
-//import io.ReadCommunitySquares;
 import io.ReadPropertyUtilityCommunitySquares;
 import io.Reader;
 import player.Player;

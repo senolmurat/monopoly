@@ -37,12 +37,27 @@ public class UtilitySquare extends Square implements Purchasable {
             }
         } else if (!player.equals(owner)) {
             int count = owner.howManyOfSameColour(type);
-            //TODO we need to increase the rent based on this count
+            int rent;
+            switch (count) {
+                case 2:
+                    rent = twoStation;
+                    break;
+                case 3:
+                    rent = threeStation;
+                    break;
+                case 4:
+                    rent = fourStation;
+                    break;
+                default:
+                    rent = baseRent;
+                    break;
+            }
 
-            player.getMoney().subtractMoney(baseRent);
+
+            player.getMoney().subtractMoney(rent);
             if (!owner.isBankrupt()) {
-                owner.getMoney().addMoney(baseRent);
-                display.infoMessagePayingRent(player, owner, baseRent);
+                owner.getMoney().addMoney(rent);
+                display.infoMessagePayingRent(player, owner, rent);
             }
         }
 
