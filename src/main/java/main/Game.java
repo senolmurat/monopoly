@@ -1,19 +1,22 @@
+package main;
+
 import game_elements.Board;
-import game_elements.cards.Card;
 import game_elements.Die;
-import game_elements.cards.chance.*;
-import game_elements.cards.community_chest.*;
 import io.*;
+import lombok.Getter;
 import player.Player;
 import square.*;
 
 import java.util.Iterator;
 import java.util.Scanner;
 
+@Getter
 public class Game {
 
     private int cycleCounter = 1;
     private static Game game = null;
+    Board board;
+    Die die;
     private Game() {
 
     }
@@ -33,9 +36,9 @@ public class Game {
 
         Player[] players = new Player[numberOfPlayers];
 
-        Board board = new Board(players);
+        board = new Board(players);
         Display display = new Display();
-        Die die = new Die();
+        die = new Die();
 
 
         for(int i = 0; i < numberOfPlayers; i++) {
@@ -63,8 +66,14 @@ public class Game {
             System.out.println("\nCYCLE " + cycleCounter);
 
             for(int i = 0; i < numberOfPlayers; i++) {
+
+
                 if(!players[i].isBankrupt()) {
                     if (!players[i].isInJail()){
+                        for (Purchasable square: players[i].getProperties()) {
+                            ((Square)square).squareAction(players[i]);
+                        }
+
                         if(players[i].getDoubleDiceCounter() < 3) {
 
                             squareType = getTheSquareType(players[i]); //Type of the square which the player is currently at.
@@ -142,7 +151,7 @@ public class Game {
         return player.getPosition().landedOn();
     }
 
-    static Game instance() {
+    public static Game instance() {
         if(game == null)
             game = new Game();
         return game;

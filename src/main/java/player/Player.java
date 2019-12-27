@@ -1,5 +1,6 @@
 package player;
 
+import game_elements.Board;
 import game_elements.Die;
 import lombok.Getter;
 import lombok.Setter;
@@ -9,6 +10,7 @@ import properties.Property;
 import square.PropertySquare;
 import square.Purchasable;
 import square.Square;
+import main.Game;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -84,60 +86,71 @@ public class Player {
         return value > 80;
     }
 
-    public int decidingPropertyStage() {
-        Random rand = new Random();
-        int value = 1 + rand.nextInt(5);
-
-        return value;
-    }
-
     public void addProperty(Purchasable property) {
         properties.add(property);
     }
 
     public int howManyOfSameColour(String colour) {
         int count = 0;
-        for(Purchasable iter : properties) {
-            if(iter.getType().equals(colour))
-                count ++;
+        for (Purchasable iter : properties) {
+            if (iter.getType().equals(colour))
+                count++;
         }
-       return count;
+        return count;
+    }
+    
+    private int totalColour (String color) {
+        int count = 0;
+
+        Board board = Game.instance().getBoard();
+        for (Square square:board.getBoard()) {
+            if(square instanceof Purchasable){
+                if(((Purchasable) square).getType().equals(color))
+                    count++;
+            }
+        }
+        return count;
     }
 
     public Property canIBuildPropertie(PropertySquare square) {
         int currentlyBuilded = square.getProperties().size();
         int count = howManyOfSameColour(square.getType());
 
-        if(count == 3) {
-            for(Purchasable iter : properties) {
-                if(iter.getType().equals(square.getType()))
-                    if(!doIHaveEnough(currentlyBuilded, (PropertySquare)iter))
+        if(currentlyBuilded == 1 && square.getProperties().get(0) instanceof  Hotel)
+            return null;
+
+        if (count == totalColour(square.getType())) {
+            for (Purchasable iter : properties) {
+                if (iter.getType().equals(square.getType()))
+                    if (!doIHaveEnough(currentlyBuilded, (PropertySquare) iter))
                         return null;
             }
-            if(currentlyBuilded != 4)
+            if (currentlyBuilded != 4)
                 return new House();
             else
                 return new Hotel();
-        }
-        else
+        } else
             return null;
     }
 
     public boolean doIHaveEnough(int currentlyBuilded, PropertySquare square) {
-        if(currentlyBuilded == 5){
-            /*for(int i = 0 ; i < currentlyBuilded ; i++){
-                System.out.println("builded : " + currentlyBuilded);
-                if( (square.getProperties().get(i)) instanceof Hotel )
-                    return true;
-            }
-
-             */
-            if( (square.getProperties().get(4)) instanceof Hotel )
-                return true;
-        }
-        if(square.getProperties().size() == currentlyBuilded)
+        if (currentlyBuilded == 0)
+            return true;
+        else if(square.getProperties().size() == 0)
+            return false;
+        else if ((square.getProperties().get(0)) instanceof Hotel)
+            return true;
+        else if (square.getProperties().size() == currentlyBuilded)
             return true;
         else
             return false;
+    }
+
+
+    public void isMortgage(Player player) {
+        for (Purchasable square: properties) {
+
+        }
+
     }
 }

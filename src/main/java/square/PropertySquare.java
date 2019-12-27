@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 import player.Player;
 import io.Display;
+import properties.Hotel;
 import properties.Property;
 
 import java.util.ArrayList;
@@ -50,14 +51,11 @@ public class PropertySquare extends Square implements Purchasable {
 
         Display display = new Display();
 
-        if (owner == null || player.equals(owner)) {
+        if (owner == null) {
 
-            if (player.decidingToBuy() && (player.getMoney().getMoney() - landValue > 0)) { //TODO may cause some issues
+            if (player.decidingToBuy() && (player.getMoney().getMoney() - landValue > 0)) {
                 owner = player;
-                //player.getMoney().subtractMoney(landValue);
-                for(int i = properties.size() ; i < player.decidingPropertyStage() ; i++){
-                    buildNewProperty(player);
-                }
+                player.getMoney().subtractMoney(landValue);
                 player.addProperty(this);
                 display.infoMessageBuying(player, this);
             }
@@ -67,12 +65,23 @@ public class PropertySquare extends Square implements Purchasable {
             totalRent = baseRent;
             int propertyStage = properties.size();
 
-            switch(propertyStage){
-                case 1 : totalRent = firstHomeRental; break;
-                case 2 : totalRent = secondHomeRental; break;
-                case 3 : totalRent = thirdHomeRental; break;
-                case 4 : totalRent = fourthHomeRental; break;
-                case 5 : totalRent = hotelRental; break;
+            if(propertyStage != 0 && properties.get(0) instanceof Hotel)
+                totalRent = hotelRental;
+            else {
+                switch (propertyStage) {
+                    case 1:
+                        totalRent = firstHomeRental;
+                        break;
+                    case 2:
+                        totalRent = secondHomeRental;
+                        break;
+                    case 3:
+                        totalRent = thirdHomeRental;
+                        break;
+                    case 4:
+                        totalRent = fourthHomeRental;
+                        break;
+                }
             }
 
             player.getMoney().subtractMoney(totalRent);
@@ -80,6 +89,11 @@ public class PropertySquare extends Square implements Purchasable {
                 owner.getMoney().addMoney(totalRent);
                 display.infoMessagePayingRent(player, owner, totalRent);
             }
+        }
+
+        else {
+            buildNewProperty(player);
+
         }
 
     }
@@ -97,8 +111,10 @@ public class PropertySquare extends Square implements Purchasable {
     public void buildNewProperty(Player player) {
 
         Property newProperty = player.canIBuildPropertie(this);
-        if (newProperty != null && player.getMoney().getMoney() - newProperty.prize > 0) {
-            player.getMoney().subtractMoney(newProperty.prize);
+        if (newProperty != null && player.getMoney().getMoney() - buildingPrice > 0) {
+            player.getMoney().subtractMoney(buildingPrice);
+            if (newProperty instanceof Hotel)
+                properties.clear();
             properties.add(newProperty);
         }
     }
