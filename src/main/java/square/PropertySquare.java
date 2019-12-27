@@ -26,6 +26,7 @@ public class PropertySquare extends Square implements Purchasable {
     private int buildingPrice;
 
     private ArrayList<Property> properties = new ArrayList<>();
+    private Display display = new Display();
 
     private PropertySquare() {
     }
@@ -112,8 +113,14 @@ public class PropertySquare extends Square implements Purchasable {
         Property newProperty = player.canIBuildPropertie(this);
         if (newProperty != null && player.getMoney().getMoney() - buildingPrice > 0) {
             player.getMoney().subtractMoney(buildingPrice);
-            if (newProperty instanceof Hotel)
+
+            if (newProperty instanceof Hotel){
                 properties.clear();
+                display.infoMessageBuildHotel(player, super.getName(), buildingPrice);
+            }
+            else{
+                display.infoMessageBuildHouse(player, super.getName(), properties.size()+1, buildingPrice);
+            }
             properties.add(newProperty);
         }
     }
