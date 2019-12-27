@@ -173,15 +173,19 @@ public class Player {
     }
 
     private boolean hotelSelling() {
-        for (Purchasable square : properties) {
+        for (int i = 0; i<properties.size();i++) {
+            Purchasable square = properties.get(i);
             if (!(square instanceof PropertySquare))
                 continue;
+            if (((PropertySquare) square).getProperties().size() == 0)
+                return false;
             if (((PropertySquare) square).getProperties().get(0) instanceof Hotel) {
                 ((PropertySquare) square).getProperties().clear();
-                for (int i = 0; i < 4; i++) {
+                for (int j = 0; j < 4; j++) {
                     ((PropertySquare) square).getProperties().add(new House());
                 }
                 money.addMoney(((PropertySquare) square).getBuildingPrice() / 2);
+                i--;
                 if (!isBankrupt()) {
                     setBankrupt(false);
                     return true;
@@ -192,27 +196,34 @@ public class Player {
     }
 
     private boolean houseSelling() {
-        for (Purchasable square : properties) {
+        for (int i = 0; i<properties.size();i++) {
+            Purchasable square = properties.get(i);
             if (!(square instanceof PropertySquare))
                 continue;
-            for (int i = ((PropertySquare) square).getProperties().size() - 1; i >= ((PropertySquare) square).getProperties().size() - 1; i--) {
-                ((PropertySquare) square).getProperties().remove(i);
+            if(((PropertySquare) square).getProperties().size() == 0)
+                return false;
+            for (int j = ((PropertySquare) square).getProperties().size() - 1; j >= ((PropertySquare) square).getProperties().size() - 1; j--) {
+                ((PropertySquare) square).getProperties().remove(j);
                 money.addMoney(((PropertySquare) square).getBuildingPrice() / 2);
                 if (!isBankrupt()) {
                     setBankrupt(false);
                     return true;
                 }
+                i--;
             }
         }
         return false;
     }
 
     private boolean communitySquareSelling() {
-        for (Purchasable square : properties) {
+        for (int i = 0; i<properties.size(); i++) {
+            Purchasable square = properties.get(i);
             if (!(square instanceof CommunitySquare))
                 continue;
             money.addMoney(square.getLandValue() / 2);
             square.setOwner(null);
+            properties.remove(square);
+            i--;
             if (!isBankrupt()) {
                 setBankrupt(false);
                 return true;
@@ -222,11 +233,14 @@ public class Player {
     }
 
     private boolean utilitySquareSelling() {
-        for (Purchasable square : properties) {
+        for(int i= 0; i<properties.size();i++){
+            Purchasable square = properties.get(i);
             if (!(square instanceof UtilitySquare))
                 continue;
             money.addMoney(square.getLandValue() / 2);
             square.setOwner(null);
+            properties.remove(square);
+            i--;
             if (!isBankrupt()) {
                 setBankrupt(false);
                 return true;
@@ -236,11 +250,14 @@ public class Player {
     }
 
     private boolean propertySquareSelling() {
-        for (Purchasable square : properties) {
+        for (int i = 0; i < properties.size(); i++) {
+            Purchasable square = properties.get(i);
             if (!(square instanceof PropertySquare))
                 continue;
             money.addMoney(square.getLandValue() / 2);
             square.setOwner(null);
+            properties.remove(square);
+            i--;
             if (!isBankrupt()) {
                 setBankrupt(false);
                 return true;

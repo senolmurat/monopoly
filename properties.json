@@ -23,7 +23,7 @@
       "baseRent": 4,
       "firstHomeRental": 20,
       "secondHomeRental": 60,
-      "thirdHomeRental": 1800,
+      "thirdHomeRental": 180,
       "fourthHomeRental": 320,
       "hotelRental": 450,
       "buildingPrice": 50

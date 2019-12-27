@@ -6,26 +6,13 @@ import player.Player;
 public class Card5 extends Card {
 
     public Card5(){
-        super.setName("Chance5");
-        super.setDescription("You have been elected Chairman of the Board. Pay each player $50.");
-        super.setAltDescription("A newsboy shouts an Extra with Mr. Monopoly's headline on its front page");
+        super.setName("Chance6");
+        super.setDescription("You have won a crossword competition , Collect $100");
+        super.setAltDescription("Which one is the real reward ? , knowledge of puzzle or the money , Mr. Monopoly thinks... ");
     }
-
 
     @Override
     public void action(Player player, Player[] playerArray) {
-
-        for(int i = 0 ; i < playerArray.length ; i++){
-
-            if(player.getId() == playerArray[i].getId()){
-                continue;
-            }
-
-            if(!playerArray[i].isBankrupt()){
-                player.getMoney().subtractMoney(50);
-                playerArray[i].getMoney().addMoney(50);
-            }
-        }
-
+        player.getMoney().addMoney(100);
     }
 }

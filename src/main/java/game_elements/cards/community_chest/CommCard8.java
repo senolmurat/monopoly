@@ -6,25 +6,14 @@ import player.Player;
 public class CommCard8 extends Card {
 
     public CommCard8() {
-        super.setName("Chest8");
-        super.setDescription("It is your birthday. Collect $10 from every player.");
-        super.setAltDescription("Mr. Monopoly holds his gift and gets a M sign on the top of it.");
+        super.setName("Chest10");
+        super.setDescription("School fees. Pay $50.");
+        super.setAltDescription("A bespectacled schoolboy unhappily receives a head pat and a dime Rockefeller style from Mr. Monopoly.");
     }
 
     @Override
     public void action(Player player, Player[] playerArray) {
-
-        for(int i = 0 ; i < playerArray.length ; i++){
-
-            if(player.getId() == playerArray[i].getId()){
-                continue;
-            }
-
-            if(!playerArray[i].isBankrupt()){
-                player.getMoney().addMoney(10);
-                playerArray[i].getMoney().subtractMoney(10);
-            }
-
-        }
+        player.getMoney().subtractMoney(50);
     }
+
 }

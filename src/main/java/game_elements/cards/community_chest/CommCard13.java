@@ -6,13 +6,13 @@ import player.Player;
 public class CommCard13 extends Card {
 
     public CommCard13() {
-        super.setName("Chest13");
-        super.setDescription("You are assessed for street repairs: Pay $40 per house you own.");
-        super.setAltDescription("Mr. Monopoly, supported by his near-ubiquitous cane in his left hand, holds a pick and shovel over his right shoulder");
+        super.setName("Chest15");
+        super.setDescription("You inherit $100.");
+        super.setAltDescription("Mr Monopoly. holds his head as unseen people's hands offer brochures titled \"Buy Yacht\", \"World Tour\", and \"Rolls Royce\"");
     }
 
     @Override
     public void action(Player player, Player[] playerArray) {
-        player.getMoney().subtractMoney( (player.getProperties().size()) * 40 );
+        player.getMoney().addMoney(100);
     }
 }

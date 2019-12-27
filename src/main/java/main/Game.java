@@ -70,8 +70,11 @@ public class Game {
 
                 if(!players[i].isBankrupt()) {
                     if (!players[i].isInJail()){
-                        for (Purchasable square: players[i].getProperties()) {
-                            ((Square)square).squareAction(players[i]);
+                        if(players[i].getProperties().size() > 0){
+                            for (Purchasable square: players[i].getProperties()) {
+                                ((Square)square).squareAction(players[i]);
+                            }
+
                         }
 
                         if(players[i].getDoubleDiceCounter() < 3) {
