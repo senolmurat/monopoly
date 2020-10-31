@@ -5,7 +5,7 @@
 #Money given when passing Go Square
 200
 #Number of go to jail square
-20
+1
 #Number of dices
 2
 #Player Names
