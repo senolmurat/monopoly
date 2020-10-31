@@ -1,0 +1,12 @@
+#Player number (Must be between 2 and 8)
+4
+#Starting Money
+2000
+#Money given when passing Go Square
+200
+#Number of go to jail square
+20
+#Number of dices
+2
+#Player Names
+Evrim Murat Faruk Furkan Rahim Berk Emre Kemal
