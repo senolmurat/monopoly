@@ -6,7 +6,7 @@ Evrim ŞAHİN - https://github.com/evrimsahin
 
 Faruk ÇOLAK - https://github.com/farukcolak53
 
-Furkan Kuse
+Furkan Kuse - https://gitlab.com/furkankuse  
 
 ---
 input.txt file can be tweaked to change aspects of the game
